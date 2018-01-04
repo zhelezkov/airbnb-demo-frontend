@@ -51,7 +51,7 @@ const HostType = styled.span`
 `;
 
 export default props => (
-  <Col sm={8} md={5} lg={4}>
+  <Col xs={8} sm={8} md={5} lg={4}>
     <Container>
       <Image src={props.image} alt={props.title} />
       <RowDescription>

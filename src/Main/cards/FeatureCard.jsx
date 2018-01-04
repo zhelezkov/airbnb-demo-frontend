@@ -17,7 +17,7 @@ const Title = styled.a`
 `;
 
 export default props => (
-  <Col sm={4} md={3} lg={2}>
+  <Col xs={4} sm={4} md={3} lg={2}>
     <Container>
       <Image src={props.image} alt={props.title} />
       <Title>{props.title}</Title>

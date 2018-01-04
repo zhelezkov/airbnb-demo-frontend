@@ -26,7 +26,7 @@ const Price = styled.span`
 `;
 
 export default props => (
-  <Col sm={6} md={4} lg={3}>
+  <Col xs={6} sm={6} md={4} lg={3}>
     <Container>
       <Image src={props.image} alt={props.title} />
       <Description>{props.description}</Description>
