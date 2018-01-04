@@ -11,6 +11,7 @@ const Row = styled.div`
   align-items: center;
   border-bottom: 1px solid rgba(72, 72, 72, 0.3);
   box-sizing: border-box;
+  margin-bottom: 3rem;
 `;
 
 const Logo = styled.img`

@@ -10,6 +10,7 @@ const Container = styled.form`
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(72, 72, 72, 0.08);
   box-sizing: border-box;
+  overflow: hidden;
 `;
 
 const Icon = styled.img`
