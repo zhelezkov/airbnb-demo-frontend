@@ -60,13 +60,13 @@ export default props => (
       </RowDescription>
       <RowDescription>
         <HouseType>{props.houseType}</HouseType>
-        •
+        ·
         <BedsNumber>{`${props.bedsCount} ${props.bedsCount > 1 ? 'beds' : 'bed'}`}</BedsNumber>
       </RowDescription>
       <RowDescription>
         <Rating stars={props.rating} />
         <Reviews href="#">{props.reviewsCount}</Reviews>
-        •
+        ·
         <HostType>{props.hostType}</HostType>
       </RowDescription>
     </Container>
