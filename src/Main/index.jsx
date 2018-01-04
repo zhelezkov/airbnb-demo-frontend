@@ -96,6 +96,12 @@ const HomesSection = () => (
   </Section>
 );
 
+const FeaturedDestinations = () => (
+  <Section title="Featured destinations">
+
+  </Section>
+);
+
 export default () => (
   <Grid>
     <ExploreSection />

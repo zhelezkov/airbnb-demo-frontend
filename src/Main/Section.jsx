@@ -21,6 +21,7 @@ const CardsContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
 `;
 

@@ -12,7 +12,6 @@ const Description = styled.div`
 `;
 
 const Image = styled.img`
-  margin-right: 1.5rem;
   margin-bottom: 0.1rem;
 `;
 
