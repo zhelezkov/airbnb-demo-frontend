@@ -24,7 +24,7 @@ const ExploreSection = () => (
 );
 
 const ExperiencesSection = () => (
-  <Section title="Experiences">
+  <Section title="Experiences" seeAll>
     <ExperienceCard
       title="Forest Therapy"
       image={forestImage}

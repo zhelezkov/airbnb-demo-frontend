@@ -6,6 +6,13 @@ const Container = styled.section`
   margin-bottom: 3rem;
 `;
 
+const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const Title = styled.h1`
   margin-bottom: 1.5rem;
 `;
@@ -17,9 +24,17 @@ const CardsContainer = styled.div`
   width: 100%;
 `;
 
+const Link = styled.a`
+  text-decoration: none;
+  color: #383838;
+`;
+
 export default props => (
   <Container>
-    <Title>{props.title}</Title>
+    <Header>
+      <Title>{props.title}</Title>
+      {props.seeAll && <Link href="#">SeeAll ></Link>}
+    </Header>
     <Row>
       <CardsContainer>{props.children}</CardsContainer>
     </Row>

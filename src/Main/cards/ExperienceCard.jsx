@@ -7,9 +7,8 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const RowContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+const Description = styled.div`
+  display: block;
 `;
 
 const Image = styled.img`
@@ -39,10 +38,10 @@ export default (props) => (
   <Col sm={6} md={4} lg={3}>
     <Container>
       <Image src={props.image} alt={props.title} />
-      <RowContainer>
+      <Description>
         <Price>{props.price}$</Price>
         <Title>{props.title}</Title>
-      </RowContainer>
+      </Description>
       <Rating stars={props.rating} />
       <Reviews href="#">{props.reviewsCount} reviews</Reviews>
     </Container>
