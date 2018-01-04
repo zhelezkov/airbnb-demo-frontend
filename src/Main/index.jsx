@@ -5,6 +5,7 @@ import ExploreSection from './sections/ExploreSection';
 import ExperiencesSection from './sections/ExperiencesSection';
 import HomesSection from './sections/HomesSection';
 import PopularReservations from './sections/PopularReservations';
+import FeaturedDestinations from './sections/FeaturedDestinations';
 
 export default () => (
   <Grid>
@@ -12,5 +13,6 @@ export default () => (
     <ExperiencesSection />
     <HomesSection />
     <PopularReservations />
+    <FeaturedDestinations />
   </Grid>
 );
