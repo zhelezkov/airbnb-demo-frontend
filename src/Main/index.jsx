@@ -6,6 +6,7 @@ import Section from './Section';
 import ExploreCard from './cards/ExploreCard';
 import ExperienceCard from './cards/ExperienceCard';
 import HomeCard from './cards/HomeCard';
+import PopularReservationCard from './cards/PopularReservationCard';
 
 import bedImage from './images/bed.png';
 import experiencesImage from './images/ship.png';
@@ -19,6 +20,11 @@ import salsaImage from './images/dance.png';
 import private3BedrImage from './images/private3Bedr.png';
 import salentinaImage from './images/salentina.png';
 import dreamHouseImage from './images/dreamHouse.png';
+
+import chumleyImage from './images/chumley.png';
+import hanjanImage from './images/hanjan.png';
+import primeMeatsImage from './images/primeMeats.png';
+import seapriceImage from './images/seaprice.png';
 
 const ExploreSection = () => (
   <Section title="Explore Airbnb">
@@ -96,9 +102,32 @@ const HomesSection = () => (
   </Section>
 );
 
-const FeaturedDestinations = () => (
-  <Section title="Featured destinations">
-
+const PopularReservations = () => (
+  <Section title="Popular Reservations around the world" seeAll>
+    <PopularReservationCard
+      title="Chumley's"
+      image={chumleyImage}
+      description="SPEAKEASY"
+      price={60}
+    />
+    <PopularReservationCard
+      title="Hanjan"
+      image={hanjanImage}
+      description="KOREAN GASTROPUB"
+      price={50}
+    />
+    <PopularReservationCard
+      title="Prime Meats"
+      image={primeMeatsImage}
+      description="GERMAN AMERICAN"
+      price={55}
+    />
+    <PopularReservationCard
+      title="Seaprice"
+      image={seapriceImage}
+      description="FINE SEAFOOD"
+      price={70}
+    />
   </Section>
 );
 
@@ -107,5 +136,6 @@ export default () => (
     <ExploreSection />
     <ExperiencesSection />
     <HomesSection />
+    <PopularReservations />
   </Grid>
 );
