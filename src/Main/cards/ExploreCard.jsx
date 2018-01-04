@@ -12,6 +12,7 @@ const Container = styled.div`
   box-shadow: 0 2px 4px rgba(72, 72, 72, 0.08);
   align-items: center;
   height: 72px;
+  flex-wrap: nowrap;
 `;
 
 const Image = styled.img`

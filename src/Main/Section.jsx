@@ -10,11 +10,18 @@ const Title = styled.h1`
   margin-bottom: 1.5rem;
 `;
 
+const CardsContainer = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+`;
+
 export default props => (
   <Container>
     <Title>{props.title}</Title>
     <Row>
-      {props.children}
+      <CardsContainer>{props.children}</CardsContainer>
     </Row>
   </Container>
 );
