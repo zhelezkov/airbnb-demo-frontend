@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Col, Row } from 'react-flexbox-grid';
+import { Col } from 'react-flexbox-grid';
 
 const Container = styled.div`
   display: flex;
