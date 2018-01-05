@@ -5,8 +5,9 @@ export const Image = styled.img`
   width: 100%;
 `;
 
-export const ColumnWrapper = styled.div`
+export const CardWrapper = styled.a`
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: #383838;
 `;
-

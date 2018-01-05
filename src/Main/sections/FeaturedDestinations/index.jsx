@@ -17,7 +17,7 @@ const CardColumn = ({ children }) => (
 );
 
 export default () => (
-  <Section title="Explore Airbnb">
+  <Section title="Featured Destinations">
     <CardColumn>
       <FeatureCard title="Paris" image={parisImage} />
     </CardColumn>

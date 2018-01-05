@@ -1,35 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 import Rating from '../../Rating';
-import { ColumnWrapper, Image } from '../common';
+import { CardWrapper, Image } from '../common';
 
-const Description = styled.div`
-  display: block;
-`;
-
-const Price = styled.a`
+const Price = styled.span`
   margin-right: 0.5rem;
   font-weight: bold;
 `;
 
-const Title = styled.a`
+const Title = styled.h3`
+  display: inline;
+  font-size: 1rem;
   font-weight: 100;
 `;
 
-const Reviews = styled.a`
+const Reviews = styled.span`
   text-decoration: none;
   color: #383838;
   font-weight: 200;
 `;
 
 export default props => (
-  <ColumnWrapper>
+  <CardWrapper href="#">
     <Image src={props.image} alt={props.title} />
-    <Description>
+    <div>
       <Price>{props.price}$</Price>
       <Title>{props.title}</Title>
-    </Description>
+    </div>
     <Rating stars={props.rating} />
     <Reviews href="#">{props.reviewsCount} reviews</Reviews>
-  </ColumnWrapper>
+  </CardWrapper>
 );

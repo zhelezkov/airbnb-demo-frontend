@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ColumnWrapper, Image } from '../common';
+import { CardWrapper, Image } from '../common';
 
 const Description = styled.span`
   font-weight: bold;
   font-size: 0.625rem;
 `;
 
-const Title = styled.a`
+const Title = styled.h3`
+  display: inline;
   font-weight: bold;
   font-size: 1.125rem;
+  margin: 0;
 `;
 
 const Price = styled.span`
@@ -17,10 +19,10 @@ const Price = styled.span`
 `;
 
 export default props => (
-  <ColumnWrapper>
+  <CardWrapper>
     <Image src={props.image} alt={props.title} />
     <Description>{props.description}</Description>
     <Title>{props.title}</Title>
     <Price>About ${props.price} per person</Price>
-  </ColumnWrapper>
+  </CardWrapper>
 );
