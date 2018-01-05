@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col } from 'react-flexbox-grid';
 import Section from '../../Section';
 import FeatureCard from './Card';
 
@@ -9,13 +10,31 @@ import capeTownImage from './images/capeTown.png';
 import miamiImage from './images/miami.png';
 import parisImage from './images/paris.png';
 
+const CardColumn = ({ children }) => (
+  <Col xs={4} sm={4} md={3} lg={2}>
+    {children}
+  </Col>
+);
+
 export default () => (
   <Section title="Explore Airbnb">
-    <FeatureCard title="Paris" image={parisImage} />
-    <FeatureCard title="Miami" image={miamiImage} />
-    <FeatureCard title="Tokyo" image={tokyoImage} />
-    <FeatureCard title="Cape town" image={capeTownImage} />
-    <FeatureCard title="Seoul" image={seoulImage} />
-    <FeatureCard title="Los Angeles" image={losAngelesImage} />
+    <CardColumn>
+      <FeatureCard title="Paris" image={parisImage} />
+    </CardColumn>
+    <CardColumn>
+      <FeatureCard title="Miami" image={miamiImage} />
+    </CardColumn>
+    <CardColumn>
+      <FeatureCard title="Tokyo" image={tokyoImage} />
+    </CardColumn>
+    <CardColumn>
+      <FeatureCard title="Cape town" image={capeTownImage} />
+    </CardColumn>
+    <CardColumn>
+      <FeatureCard title="Seoul" image={seoulImage} />
+    </CardColumn>
+    <CardColumn>
+      <FeatureCard title="Los Angeles" image={losAngelesImage} />
+    </CardColumn>
   </Section>
 );

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Col } from 'react-flexbox-grid';
 import Rating from '../../Rating';
 import { ColumnWrapper, Image } from '../common';
 
@@ -24,15 +23,13 @@ const Reviews = styled.a`
 `;
 
 export default props => (
-  <Col xs={6} sm={6} md={4} lg={3}>
-    <ColumnWrapper>
-      <Image src={props.image} alt={props.title} />
-      <Description>
-        <Price>{props.price}$</Price>
-        <Title>{props.title}</Title>
-      </Description>
-      <Rating stars={props.rating} />
-      <Reviews href="#">{props.reviewsCount} reviews</Reviews>
-    </ColumnWrapper>
-  </Col>
+  <ColumnWrapper>
+    <Image src={props.image} alt={props.title} />
+    <Description>
+      <Price>{props.price}$</Price>
+      <Title>{props.title}</Title>
+    </Description>
+    <Rating stars={props.rating} />
+    <Reviews href="#">{props.reviewsCount} reviews</Reviews>
+  </ColumnWrapper>
 );

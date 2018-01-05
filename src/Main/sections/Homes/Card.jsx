@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Col } from 'react-flexbox-grid';
 import Rating from '../../Rating';
 import { ColumnWrapper, Image } from '../common';
 
@@ -42,24 +41,22 @@ const HostType = styled.span`
 `;
 
 export default props => (
-  <Col xs={8} sm={8} md={5} lg={4}>
-    <ColumnWrapper>
-      <Image src={props.image} alt={props.title} />
-      <RowDescription>
-        <Price>{props.price}$</Price>
-        <Title>{props.title}</Title>
-      </RowDescription>
-      <RowDescription>
-        <HouseType>{props.houseType}</HouseType>
-        ·
-        <BedsNumber>{`${props.bedsCount} ${props.bedsCount > 1 ? 'beds' : 'bed'}`}</BedsNumber>
-      </RowDescription>
-      <RowDescription>
-        <Rating stars={props.rating} />
-        <Reviews href="#">{props.reviewsCount}</Reviews>
-        ·
-        <HostType>{props.hostType}</HostType>
-      </RowDescription>
-    </ColumnWrapper>
-  </Col>
+  <ColumnWrapper>
+    <Image src={props.image} alt={props.title} />
+    <RowDescription>
+      <Price>{props.price}$</Price>
+      <Title>{props.title}</Title>
+    </RowDescription>
+    <RowDescription>
+      <HouseType>{props.houseType}</HouseType>
+      ·
+      <BedsNumber>{`${props.bedsCount} ${props.bedsCount > 1 ? 'beds' : 'bed'}`}</BedsNumber>
+    </RowDescription>
+    <RowDescription>
+      <Rating stars={props.rating} />
+      <Reviews href="#">{props.reviewsCount}</Reviews>
+      ·
+      <HostType>{props.hostType}</HostType>
+    </RowDescription>
+  </ColumnWrapper>
 );

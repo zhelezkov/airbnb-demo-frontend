@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Col } from 'react-flexbox-grid';
 
 const Title = styled.h3``;
 
@@ -23,10 +22,8 @@ const Image = styled.img`
 `;
 
 export default props => (
-  <Col xs={6} sm={6} md={5} lg={4}>
-    <Container>
-      <Image src={props.image} alt={props.title} />
-      <Title>{props.title}</Title>
-    </Container>
-  </Col>
+  <Container>
+    <Image src={props.image} alt={props.title} />
+    <Title>{props.title}</Title>
+  </Container>
 );
