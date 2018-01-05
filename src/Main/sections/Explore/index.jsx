@@ -8,7 +8,7 @@ import experiencesImage from './images/ship.png';
 import restaurantsImage from './images/restaurant.png';
 
 const CardColumn = ({ children }) => (
-  <Col xs={6} sm={6} md={5} lg={4}>
+  <Col xs={6} md={5} lg={4}>
     {children}
   </Col>
 );
