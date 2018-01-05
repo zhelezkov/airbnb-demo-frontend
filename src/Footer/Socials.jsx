@@ -29,13 +29,17 @@ const Wrapper = styled.div`
   }
 `;
 
+const CenteredRow = styled(Row)`
+  align-items: center;
+`;
+
 export default () => (
   <Wrapper>
-    <Row>
+    <CenteredRow>
       <Icon src={logo} alt="Logo" />
       <Copyright />
-    </Row>
-    <Row>
+    </CenteredRow>
+    <CenteredRow>
       <nav>
         <Link href="#">Terms</Link>
         <Link href="#">Privacy</Link>
@@ -44,6 +48,6 @@ export default () => (
       <Icon src={facebookIcon} alt="Facebook" />
       <Icon src={twitterIcon} alt="Twitter" />
       <Icon src={instagramIcon} alt="Instagram" />
-    </Row>
+    </CenteredRow>
   </Wrapper>
 );
