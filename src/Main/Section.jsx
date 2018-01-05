@@ -30,6 +30,7 @@ const CardsContainer = styled.div`
 const Link = styled.a`
   text-decoration: none;
   color: #383838;
+  white-space: nowrap;
 `;
 
 export default props => (
