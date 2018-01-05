@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Row } from 'react-flexbox-grid';
+import { Grid } from 'react-flexbox-grid';
 
 import Selectors from './Selectors';
 import Navigation from './Navigation';
@@ -20,15 +20,11 @@ const MainContent = styled.div`
 export default () => (
   <Wrapper>
     <Grid>
-      <Row>
-        <MainContent>
-          <Selectors />
-          <Navigation />
-        </MainContent>
-      </Row>
-      <Row>
-        <Socials />
-      </Row>
+      <MainContent>
+        <Selectors />
+        <Navigation />
+      </MainContent>
+      <Socials />
     </Grid>
   </Wrapper>
 );
