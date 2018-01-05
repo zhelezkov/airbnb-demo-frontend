@@ -38,7 +38,7 @@ export default props => (
       <Title>{props.title}</Title>
       {props.seeAll && (
         <Link href="#">
-          SeeAll <img src={arrowRight} alt="See All" width={6} height={10}/>
+          See All <img src={arrowRight} alt="See All" width={6} height={10}/>
         </Link>
       )}
     </Header>
