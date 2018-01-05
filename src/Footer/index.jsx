@@ -24,7 +24,7 @@ const MainContent = styled.div`
 
 export default () => (
   <Wrapper>
-    <Grid>
+    <Grid fluid>
       <MainContent>
         <Selectors />
         <Navigation />
