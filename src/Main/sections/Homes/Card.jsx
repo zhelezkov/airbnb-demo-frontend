@@ -2,20 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
 import Rating from '../../Rating';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { ColumnWrapper, Image } from '../common';
 
 const RowDescription = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-`;
-
-const Image = styled.img`
-  margin-bottom: 0.1rem;
 `;
 
 const Price = styled.a`
@@ -51,7 +43,7 @@ const HostType = styled.span`
 
 export default props => (
   <Col xs={8} sm={8} md={5} lg={4}>
-    <Container>
+    <ColumnWrapper>
       <Image src={props.image} alt={props.title} />
       <RowDescription>
         <Price>{props.price}$</Price>
@@ -68,6 +60,6 @@ export default props => (
         ·
         <HostType>{props.hostType}</HostType>
       </RowDescription>
-    </Container>
+    </ColumnWrapper>
   </Col>
 );

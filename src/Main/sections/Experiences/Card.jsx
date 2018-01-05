@@ -2,18 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
 import Rating from '../../Rating';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { ColumnWrapper, Image } from '../common';
 
 const Description = styled.div`
   display: block;
-`;
-
-const Image = styled.img`
-  margin-bottom: 0.1rem;
 `;
 
 const Price = styled.a`
@@ -33,7 +25,7 @@ const Reviews = styled.a`
 
 export default props => (
   <Col xs={6} sm={6} md={4} lg={3}>
-    <Container>
+    <ColumnWrapper>
       <Image src={props.image} alt={props.title} />
       <Description>
         <Price>{props.price}$</Price>
@@ -41,6 +33,6 @@ export default props => (
       </Description>
       <Rating stars={props.rating} />
       <Reviews href="#">{props.reviewsCount} reviews</Reviews>
-    </Container>
+    </ColumnWrapper>
   </Col>
 );

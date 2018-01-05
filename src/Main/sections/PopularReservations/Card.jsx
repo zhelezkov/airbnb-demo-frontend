@@ -1,15 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Image = styled.img`
-  margin-bottom: 0.1rem;
-`;
+import { ColumnWrapper, Image } from '../common';
 
 const Description = styled.span`
   font-weight: bold;
@@ -27,11 +19,11 @@ const Price = styled.span`
 
 export default props => (
   <Col xs={6} sm={6} md={4} lg={3}>
-    <Container>
+    <ColumnWrapper>
       <Image src={props.image} alt={props.title} />
       <Description>{props.description}</Description>
       <Title>{props.title}</Title>
       <Price>About ${props.price} per person</Price>
-    </Container>
+    </ColumnWrapper>
   </Col>
 );
