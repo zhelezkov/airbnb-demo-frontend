@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row } from 'react-flexbox-grid';
 
+import arrowRight from './arrow-right.svg';
+
 const Container = styled.section`
   margin-bottom: 3rem;
 `;
@@ -34,7 +36,11 @@ export default props => (
   <Container>
     <Header>
       <Title>{props.title}</Title>
-      {props.seeAll && <Link href="#">SeeAll </Link>}
+      {props.seeAll && (
+        <Link href="#">
+          SeeAll <img src={arrowRight} alt="See All" width={6} height={10}/>
+        </Link>
+      )}
     </Header>
     <Row>
       <CardsContainer>{props.children}</CardsContainer>
