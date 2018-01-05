@@ -18,10 +18,16 @@
   font-weight: bold;
 }
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   padding: 0;
-  min-width: 320px;
   font-family: Circular, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #383838;
 }
