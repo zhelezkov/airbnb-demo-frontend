@@ -26,6 +26,7 @@ const Cards = styled.div`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   width: 100%;
+  line-height: 1.3rem;
 `;
 
 const Link = styled.a`
