@@ -28,7 +28,7 @@ const Image = styled.img`
   border-radius: 4px 4px 0 0;
 
   @media (min-width: 768px) {
-    width: auto;
+    width: 96px;
     position: relative;
     margin-top: 0;
     margin-left: -2px;
