@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Col, Grid, Row } from 'react-flexbox-grid';
 import SearchBar from './SearchBar';
 
-import logo from './icons/logo.svg';
 import Menu from './Menu';
-import { Col, Grid, Row } from 'react-flexbox-grid';
+
+import logo from './icons/logo.svg';
+import arrowDown from '../assets/arrow-down.svg';
 
 const Wrapper = styled.div`
   height: 5rem;
@@ -19,7 +21,9 @@ const Content = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.img``;
+const Logo = styled.img`
+  margin-right: 0.5rem;
+`;
 
 export default () => (
   <Wrapper>
@@ -27,7 +31,12 @@ export default () => (
       <Row>
         <Content>
           <Col xs={2} md={1}>
-            <Logo src={logo} />
+            <Content>
+              <Logo src={logo} alt="Logo" />
+              <a className="hidden-lg hidden-xl">
+                <img src={arrowDown} alt="Dropdown"/>
+              </a>
+            </Content>
           </Col>
           <Col xs={10} md={7} lg={5}>
             <SearchBar />
