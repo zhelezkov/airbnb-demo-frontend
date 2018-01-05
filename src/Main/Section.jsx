@@ -24,6 +24,7 @@ const Cards = styled.div`
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
 `;
 
