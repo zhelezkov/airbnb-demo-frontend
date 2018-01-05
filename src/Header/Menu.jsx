@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Nav = styled.nav`
   display: flex;
   flex-grow: 1;
-  margin-right: 6.0625rem;
   justify-content: flex-end;
   font-size: 0.9rem;
 `;
@@ -17,7 +16,7 @@ const Link = styled.a`
 `;
 
 export default () => (
-  <Nav>
+  <Nav className="hidden-xs hidden-sm hidden-md">
     <Link href="#">Become a host</Link>
     <Link href="#">Help</Link>
     <Link href="#">Sign Up</Link>

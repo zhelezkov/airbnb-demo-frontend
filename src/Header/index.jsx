@@ -4,25 +4,37 @@ import SearchBar from './SearchBar';
 
 import logo from './icons/logo.svg';
 import Menu from './Menu';
+import { Col, Grid, Row } from 'react-flexbox-grid';
 
-const Row = styled.div`
-  display: flex;
+const Wrapper = styled.div`
   height: 5rem;
-  align-items: center;
   border-bottom: 1px solid rgba(72, 72, 72, 0.3);
-  box-sizing: border-box;
+  padding-top: 1rem;
   margin-bottom: 3rem;
 `;
 
-const Logo = styled.img`
-  margin-left: 6.0625rem;
-  margin-right: 3.1875rem;
+const Content = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
 `;
 
+const Logo = styled.img``;
+
 export default () => (
-  <Row>
-    <Logo src={logo} />
-    <SearchBar />
-    <Menu />
-  </Row>
+  <Wrapper>
+    <Grid>
+      <Row>
+        <Content>
+          <Col xs={2} md={1}>
+            <Logo src={logo} />
+          </Col>
+          <Col xs={10} md={7} lg={5}>
+            <SearchBar />
+          </Col>
+          <Menu />
+        </Content>
+      </Row>
+    </Grid>
+  </Wrapper>
 );
