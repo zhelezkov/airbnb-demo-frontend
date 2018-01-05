@@ -43,7 +43,7 @@ const HostType = styled.span`
 `;
 
 export default props => (
-  <CardWrapper>
+  <CardWrapper href="#">
     <Image src={props.image} alt={props.title} />
     <RowDescription>
       <Price>{props.price}$</Price>

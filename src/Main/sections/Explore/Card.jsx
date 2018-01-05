@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Title = styled.h3``;
-
-const Container = styled.div`
+const Wrapper = styled.a`
   display: flex;
   border: 1px solid rgba(72, 72, 72, 0.2);
   border-radius: 4px;
@@ -12,6 +10,8 @@ const Container = styled.div`
   align-items: center;
   height: 72px;
   flex-wrap: nowrap;
+  text-decoration: none;
+  color: #383838;
 `;
 
 const Image = styled.img`
@@ -22,8 +22,8 @@ const Image = styled.img`
 `;
 
 export default props => (
-  <Container>
+  <Wrapper href="#">
     <Image src={props.image} alt={props.title} />
-    <Title>{props.title}</Title>
-  </Container>
+    <h3>{props.title}</h3>
+  </Wrapper>
 );

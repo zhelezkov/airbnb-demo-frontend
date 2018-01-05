@@ -19,7 +19,7 @@ const Price = styled.span`
 `;
 
 export default props => (
-  <CardWrapper>
+  <CardWrapper href="#">
     <Image src={props.image} alt={props.title} />
     <Description>{props.description}</Description>
     <Title>{props.title}</Title>

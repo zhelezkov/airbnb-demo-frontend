@@ -10,7 +10,7 @@ const Title = styled.h3`
 `;
 
 export default props => (
-  <CardWrapper>
+  <CardWrapper href="#">
     <Image src={props.image} alt={props.title} />
     <Title>{props.title}</Title>
   </CardWrapper>

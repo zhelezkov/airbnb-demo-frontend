@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
 import Section from '../../Section';
-import FeatureCard from './Card';
+import Card from './Card';
 
 import losAngelesImage from './images/losAngeles.png';
 import seoulImage from './images/seoul.png';
@@ -19,22 +19,22 @@ const CardColumn = ({ children }) => (
 export default () => (
   <Section title="Featured Destinations">
     <CardColumn>
-      <FeatureCard title="Paris" image={parisImage} />
+      <Card title="Paris" image={parisImage} />
     </CardColumn>
     <CardColumn>
-      <FeatureCard title="Miami" image={miamiImage} />
+      <Card title="Miami" image={miamiImage} />
     </CardColumn>
     <CardColumn>
-      <FeatureCard title="Tokyo" image={tokyoImage} />
+      <Card title="Tokyo" image={tokyoImage} />
     </CardColumn>
     <CardColumn>
-      <FeatureCard title="Cape town" image={capeTownImage} />
+      <Card title="Cape town" image={capeTownImage} />
     </CardColumn>
     <CardColumn>
-      <FeatureCard title="Seoul" image={seoulImage} />
+      <Card title="Seoul" image={seoulImage} />
     </CardColumn>
     <CardColumn>
-      <FeatureCard title="Los Angeles" image={losAngelesImage} />
+      <Card title="Los Angeles" image={losAngelesImage} />
     </CardColumn>
   </Section>
 );

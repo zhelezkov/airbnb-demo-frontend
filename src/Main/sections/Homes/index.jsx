@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
 import Section from '../../Section';
-import HomeCard from './Card';
+import Card from './Card';
 
 import private3BedrImage from './images/private3Bedr.png';
 import salentinaImage from './images/salentina.png';
@@ -16,7 +16,7 @@ const CardColumn = ({ children }) => (
 export default () => (
   <Section title="Homes" seeAll>
     <CardColumn>
-      <HomeCard
+      <Card
         title="La Salentina, see, nature & relax"
         image={salentinaImage}
         price={82}
@@ -28,7 +28,7 @@ export default () => (
       />
     </CardColumn>
     <CardColumn>
-      <HomeCard
+      <Card
         title="Your private 3 bedr. riad and exclusive"
         image={private3BedrImage}
         price={82}
@@ -40,7 +40,7 @@ export default () => (
       />
     </CardColumn>
     <CardColumn>
-      <HomeCard
+      <Card
         title="Dreamy Tropical Tree House"
         image={dreamHouseImage}
         price={69}

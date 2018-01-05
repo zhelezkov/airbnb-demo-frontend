@@ -27,7 +27,9 @@ export default props => (
       <Price>{props.price}$</Price>
       <Title>{props.title}</Title>
     </div>
-    <Rating stars={props.rating} />
-    <Reviews href="#">{props.reviewsCount} reviews</Reviews>
+    <div>
+      <Rating stars={props.rating} />
+      <Reviews href="#">{props.reviewsCount} reviews</Reviews>
+    </div>
   </CardWrapper>
 );

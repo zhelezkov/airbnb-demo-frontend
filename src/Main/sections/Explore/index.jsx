@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
 import Section from '../../Section';
-import ExploreCard from './Card';
+import Card from './Card';
 
 import bedImage from './images/bed.png';
 import experiencesImage from './images/ship.png';
@@ -16,13 +16,13 @@ const CardColumn = ({ children }) => (
 export default () => (
   <Section title="Explore Airbnb">
     <CardColumn>
-      <ExploreCard title="Homes" image={bedImage} />
+      <Card title="Homes" image={bedImage} />
     </CardColumn>
     <CardColumn>
-      <ExploreCard title="Experiences" image={experiencesImage} />
+      <Card title="Experiences" image={experiencesImage} />
     </CardColumn>
     <CardColumn>
-      <ExploreCard title="Restaurants" image={restaurantsImage} />
+      <Card title="Restaurants" image={restaurantsImage} />
     </CardColumn>
   </Section>
 );

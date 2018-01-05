@@ -1,7 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+import _ from 'lodash';
 
-export default (props) => (
-  <div>
+import starImage from './star.svg';
 
-  </div>
+const Wrapper = styled.div`
+  display: inline;
+  margin-right: 0.5rem;
+`;
+
+export default ({ stars }) => (
+  <Wrapper>{_.times(stars, _ => <img src={starImage} alt="Star" />)}</Wrapper>
 );
