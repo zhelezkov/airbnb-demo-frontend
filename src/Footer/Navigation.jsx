@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
+import { Link } from './common';
 
 const Container = ({ children }) => (
   <Col mdOffset={1} lgOffset={1} md={2} lg={2}>
@@ -11,13 +12,6 @@ const Container = ({ children }) => (
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-`;
-
-const Link = styled.a`
-  text-decoration: none;
-  color: #383838;
-  font-weight: 300;
-  margin-bottom: 0.5rem;
 `;
 
 const Title = Link.extend`
