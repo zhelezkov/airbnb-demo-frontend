@@ -19,9 +19,14 @@ const Wrapper = styled.div`
   min-height: 3.75rem;
   border-top: rgba(72, 72, 72, 0.08) 1px solid;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-content: center;
   justify-content: space-between;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export default () => (
