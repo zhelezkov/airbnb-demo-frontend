@@ -4,7 +4,7 @@ import { Row } from 'react-flexbox-grid';
 
 import arrowRight from './arrow-right.svg';
 
-const Container = styled.section`
+const Wrapper = styled.section`
   margin-bottom: 3rem;
 `;
 
@@ -19,7 +19,7 @@ const Title = styled.h1`
   margin-bottom: 1.5rem;
 `;
 
-const CardsContainer = styled.div`
+const Cards = styled.div`
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -34,7 +34,7 @@ const Link = styled.a`
 `;
 
 export default props => (
-  <Container>
+  <Wrapper>
     <Header>
       <Title>{props.title}</Title>
       {props.seeAll && (
@@ -44,7 +44,7 @@ export default props => (
       )}
     </Header>
     <Row>
-      <CardsContainer>{props.children}</CardsContainer>
+      <Cards>{props.children}</Cards>
     </Row>
-  </Container>
+  </Wrapper>
 );
