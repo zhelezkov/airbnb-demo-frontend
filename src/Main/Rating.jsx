@@ -10,5 +10,5 @@ const Wrapper = styled.div`
 `;
 
 export default ({ stars }) => (
-  <Wrapper>{_.times(stars, _ => <img src={starImage} alt="Star" />)}</Wrapper>
+  <Wrapper>{_.times(stars, id => <img src={starImage} alt="Star" key={id}/>)}</Wrapper>
 );
