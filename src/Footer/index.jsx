@@ -6,7 +6,7 @@ import Selectors from './Selectors';
 import Navigation from './Navigation';
 import Socials from './Socials';
 
-const Wrapper = styled(Row)`
+const Wrapper = styled.div`
   border-top: rgba(72, 72, 72, 0.3) 1px solid;
 `;
 
