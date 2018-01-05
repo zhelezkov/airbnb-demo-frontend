@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from '../Section';
-import HomeCard from '../cards/HomeCard';
+import Section from '../../Section';
+import HomeCard from './Card';
 
 import private3BedrImage from './images/private3Bedr.png';
 import salentinaImage from './images/salentina.png';

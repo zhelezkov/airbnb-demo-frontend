@@ -13,12 +13,12 @@ const Image = styled.img`
 
 const Description = styled.span`
   font-weight: bold;
-  font-size: 0.625rem;  
+  font-size: 0.625rem;
 `;
 
 const Title = styled.a`
   font-weight: bold;
-  font-size: 1.125rem;  
+  font-size: 1.125rem;
 `;
 
 const Price = styled.span`

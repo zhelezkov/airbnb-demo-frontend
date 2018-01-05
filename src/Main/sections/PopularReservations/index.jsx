@@ -1,11 +1,11 @@
 import React from 'react';
-import Section from '../Section';
+import Section from '../../Section';
 
 import chumleyImage from './images/chumley.png';
 import hanjanImage from './images/hanjan.png';
 import primeMeatsImage from './images/primeMeats.png';
 import seapriceImage from './images/seaprice.png';
-import PopularReservationCard from '../cards/PopularReservationCard';
+import PopularReservationCard from './Card';
 
 export default () => (
   <Section title="Popular Reservations around the world" seeAll>

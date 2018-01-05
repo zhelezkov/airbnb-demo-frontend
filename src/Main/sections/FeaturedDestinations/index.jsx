@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from '../Section';
-import FeatureCard from '../cards/FeatureCard';
+import Section from '../../Section';
+import FeatureCard from './Card';
 
 import losAngelesImage from './images/losAngeles.png';
 import seoulImage from './images/seoul.png';

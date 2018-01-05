@@ -1,11 +1,11 @@
 import React from 'react';
-import Section from '../Section';
+import Section from '../../Section';
 
 import forestImage from './images/forest.png';
 import whaleImage from './images/whale.png';
 import mountainsImage from './images/mountains.png';
 import salsaImage from './images/dance.png';
-import ExperienceCard from '../cards/ExperienceCard';
+import ExperienceCard from './Card';
 
 export default () => (
   <Section title="Experiences" seeAll>

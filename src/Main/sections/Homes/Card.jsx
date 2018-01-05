@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
+import Rating from '../../Rating';
 
 const Container = styled.div`
   display: flex;
@@ -35,8 +36,6 @@ const BedsNumber = styled.span`
   font-weight: 100;
   margin-left: 0.5rem;
 `;
-
-const Rating = styled.label``;
 
 const Reviews = styled.a`
   text-decoration: none;

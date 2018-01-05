@@ -34,7 +34,7 @@ export default props => (
   <Container>
     <Header>
       <Title>{props.title}</Title>
-      {props.seeAll && <Link href="#">SeeAll ></Link>}
+      {props.seeAll && <Link href="#">SeeAll </Link>}
     </Header>
     <Row>
       <CardsContainer>{props.children}</CardsContainer>

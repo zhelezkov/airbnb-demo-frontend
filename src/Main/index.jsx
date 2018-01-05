@@ -1,11 +1,11 @@
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 
-import ExploreSection from './sections/ExploreSection';
-import ExperiencesSection from './sections/ExperiencesSection';
-import HomesSection from './sections/HomesSection';
-import PopularReservations from './sections/PopularReservations';
-import FeaturedDestinations from './sections/FeaturedDestinations';
+import ExploreSection from './sections/Explore/index';
+import ExperiencesSection from './sections/Experiences/index';
+import HomesSection from './sections/Homes/index';
+import PopularReservations from './sections/PopularReservations/index';
+import FeaturedDestinations from './sections/FeaturedDestinations/index';
 
 export default () => (
   <Grid>

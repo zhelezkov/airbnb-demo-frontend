@@ -1,6 +1,6 @@
 import React from 'react';
-import Section from '../Section';
-import ExploreCard from '../cards/ExploreCard';
+import Section from '../../Section';
+import ExploreCard from './Card';
 
 import bedImage from './images/bed.png';
 import experiencesImage from './images/ship.png';
