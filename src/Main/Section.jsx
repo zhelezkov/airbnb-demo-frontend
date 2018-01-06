@@ -15,7 +15,7 @@ const Header = styled.div`
   align-items: center;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   margin-bottom: 1.5rem;
 `;
 
