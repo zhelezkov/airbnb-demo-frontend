@@ -27,13 +27,15 @@ const CenteredRow = styled(Row)`
   align-items: center;
 `;
 
-const Copyright = () => <p>© Airbnb Inc.</p>;
+const Copyright = styled.p`
+  margin-right: 1rem;  
+`;
 
 export default () => (
   <Wrapper>
     <CenteredRow>
       <Logo src={logo} alt="Logo" />
-      <Copyright />
+      <Copyright>© Airbnb Inc.</Copyright>
     </CenteredRow>
     <CenteredRow>
       <nav>
