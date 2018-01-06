@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row } from 'react-flexbox-grid';
+import NextPage from './NextPage';
 
-import arrowRight from './arrow-right.svg';
+import arrowRight from './assets/arrow-right.svg';
 
 const Wrapper = styled.section`
   margin-bottom: 3rem;
@@ -47,14 +48,19 @@ const SeeAllLink = styled.a`
   }
 `;
 
+const Slider = styled(Row)`
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+`;
+
 export default ({ title, children }) => (
   <Wrapper>
     <Header>
       <Title>{title}</Title>
     </Header>
-    <Row>
+    <Slider>
       <Cards>{children}</Cards>
-    </Row>
+    </Slider>
   </Wrapper>
 );
 
@@ -64,8 +70,9 @@ export const SectionMore = ({ title, children }) => (
       <Title>{title}</Title>
       <SeeAllLink href="#" />
     </Header>
-    <Row>
+    <Slider>
       <Cards>{children}</Cards>
-    </Row>
+      <NextPage />
+    </Slider>
   </Wrapper>
 );
