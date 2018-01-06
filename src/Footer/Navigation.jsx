@@ -3,12 +3,6 @@ import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
 import { Link } from './styled';
 
-const Wrapper = ({ children }) => (
-  <Col mdOffset={1} lgOffset={1} md={2} lg={2} className="hidden-xs hidden-sm">
-    {children}
-  </Col>
-);
-
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
@@ -19,6 +13,12 @@ const Title = Link.extend`
   font-weight: bold;
   margin-bottom: 1rem;
 `;
+
+const Wrapper = ({ children }) => (
+  <Col mdOffset={1} lgOffset={1} md={2} lg={2} className="hidden-xs hidden-sm">
+    {children}
+  </Col>
+);
 
 const Airbnb = () => (
   <Nav>
