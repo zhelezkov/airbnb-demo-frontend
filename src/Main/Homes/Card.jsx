@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Rating from '../../Rating';
-import { CardWrapper, Image } from '../common';
+import Rating from '../Rating';
+import { CardWrapper, Image } from '../styled';
 
 const RowDescription = styled.div`
   text-overflow: ellipsis;

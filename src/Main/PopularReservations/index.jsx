@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
-import Section from '../../Section';
+import Section from '../Section';
 import Card from './Card';
 
 import chumleyImage from './images/chumley.png';

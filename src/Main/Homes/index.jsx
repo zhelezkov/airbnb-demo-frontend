@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
-import Section from '../../Section';
+import Section from '../Section';
 import Card from './Card';
 
 import private3BedrImage from './images/private3Bedr.png';
