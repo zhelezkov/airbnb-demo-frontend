@@ -2,35 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import icon from './icons/search.svg';
 
-const Wrapper = styled.form`
+const Form = styled.form`
   display: flex;
-  flex-grow: 1;
-  max-width: 24.5rem;
-  height: 3rem;
+  flex: 1 1 100%;
+  box-sizing: border-box;
+
   border: 1px solid rgba(72, 72, 72, 0.2);
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(72, 72, 72, 0.08);
-  box-sizing: border-box;
-  overflow: hidden;
-  margin-right: 0.5rem;
-`;
-
-const Icon = styled.img`
-  margin: 13px 16px 13px 16px;
+  background: url(${icon}) no-repeat 1rem center;
 `;
 
 const Input = styled.input.attrs({
   type: 'text'
 })`
   width: 100%;
-  margin-right: 1rem;
+  margin: 0.75rem 0.5rem 0.75rem 3rem;
   border: none;
   outline: none;
+  color: #383838;
 `;
 
 export default () => (
-  <Wrapper>
-    <Icon src={icon} />
+  <Form>
     <Input placeholder="Try “Miami“" />
-  </Wrapper>
+  </Form>
 );
