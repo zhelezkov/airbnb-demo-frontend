@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
 
-import arrowDown from '../assets/arrow-down.svg';
+import arrowDown from './images/arrowDownSelect.svg';
 
 const Wrapper = styled.div`
   display: flex;

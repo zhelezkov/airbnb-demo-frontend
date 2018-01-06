@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import arrowDown from '../assets/arrow-down.svg';
+import arrowDown from './icons/arrowDown.svg';
 
 const Button = styled.button`
   margin-right: 0.75rem;
