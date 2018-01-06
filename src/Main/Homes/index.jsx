@@ -7,7 +7,7 @@ import private3BedrImage from './images/private3Bedr.png';
 import salentinaImage from './images/salentina.png';
 import dreamHouseImage from './images/dreamHouse.png';
 
-const CardColumn = ({ children }) => (
+const Column = ({ children }) => (
   <Col xs={8} sm={8} md={5} lg={4}>
     {children}
   </Col>
@@ -15,7 +15,7 @@ const CardColumn = ({ children }) => (
 
 export default () => (
   <SectionMore title="Homes">
-    <CardColumn>
+    <Column>
       <Card
         title="La Salentina, see, nature & relax"
         image={salentinaImage}
@@ -26,8 +26,8 @@ export default () => (
         rating={5}
         hostType="Superhost"
       />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card
         title="Your private 3 bedr. riad and exclusive"
         image={private3BedrImage}
@@ -38,8 +38,8 @@ export default () => (
         rating={5}
         hostType="Superhost"
       />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card
         title="Dreamy Tropical Tree House"
         image={dreamHouseImage}
@@ -50,6 +50,6 @@ export default () => (
         rating={5}
         hostType="Superhost"
       />
-    </CardColumn>
+    </Column>
   </SectionMore>
 );

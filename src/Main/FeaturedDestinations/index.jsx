@@ -10,7 +10,7 @@ import capeTownImage from './images/capeTown.png';
 import miamiImage from './images/miami.png';
 import parisImage from './images/paris.png';
 
-const CardColumn = ({ children }) => (
+const Column = ({ children }) => (
   <Col xs={4} sm={4} md={3} lg={2}>
     {children}
   </Col>
@@ -18,23 +18,23 @@ const CardColumn = ({ children }) => (
 
 export default () => (
   <Section title="Featured Destinations">
-    <CardColumn>
+    <Column>
       <Card title="Paris" image={parisImage} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Miami" image={miamiImage} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Tokyo" image={tokyoImage} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Cape town" image={capeTownImage} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Seoul" image={seoulImage} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Los Angeles" image={losAngelesImage} />
-    </CardColumn>
+    </Column>
   </Section>
 );

@@ -7,7 +7,7 @@ import bedImage from './images/bed.png';
 import experiencesImage from './images/ship.png';
 import restaurantsImage from './images/restaurant.png';
 
-const CardColumn = ({ children }) => (
+const Column = ({ children }) => (
   <Col xs={6} md={5} lg={4}>
     {children}
   </Col>
@@ -15,14 +15,14 @@ const CardColumn = ({ children }) => (
 
 export default () => (
   <Section title="Explore Airbnb">
-    <CardColumn>
+    <Column>
       <Card title="Homes" image={bedImage} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Experiences" image={experiencesImage} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Restaurants" image={restaurantsImage} />
-    </CardColumn>
+    </Column>
   </Section>
 );

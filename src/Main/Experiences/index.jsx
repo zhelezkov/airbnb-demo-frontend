@@ -8,7 +8,7 @@ import whaleImage from './images/whale.png';
 import mountainsImage from './images/mountains.png';
 import salsaImage from './images/dance.png';
 
-const CardColumn = ({ children }) => (
+const Column = ({ children }) => (
   <Col xs={6} sm={6} md={4} lg={3}>
     {children}
   </Col>
@@ -16,13 +16,13 @@ const CardColumn = ({ children }) => (
 
 export default () => (
   <SectionMore title="Experiences">
-    <CardColumn>
+    <Column>
       <Card title="Forest Therapy" image={forestImage} price={29} reviewsCount={44} rating={5} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Whale watching" image={whaleImage} price={69} reviewsCount={46} rating={5} />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card
         title="Table Mountain Summit, Cable Car Down"
         image={mountainsImage}
@@ -30,9 +30,9 @@ export default () => (
         reviewsCount={44}
         rating={5}
       />
-    </CardColumn>
-    <CardColumn>
+    </Column>
+    <Column>
       <Card title="Salsa Night" image={salsaImage} price={50} reviewsCount={44} rating={5} />
-    </CardColumn>
+    </Column>
   </SectionMore>
 );
