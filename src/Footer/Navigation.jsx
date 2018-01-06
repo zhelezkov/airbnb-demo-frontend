@@ -9,7 +9,7 @@ const Nav = styled.nav`
   line-height: 1.5rem;
 `;
 
-const Title = Link.extend`
+const Title = styled.h4`
   margin-right: 1rem;
   margin-bottom: 1rem;
   color: #383838;
