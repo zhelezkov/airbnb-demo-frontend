@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Rating from '../Rating';
 import { CardWrapper, Image, Description } from '../styled';
 
-const ShortDescription = Description.extend`
+const ShortDescription = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -45,15 +45,15 @@ const HostType = styled.span`
 export default props => (
   <CardWrapper href="#">
     <Image src={props.image} alt={props.title} />
-    <div>
+    <ShortDescription>
       <Price>{props.price}$</Price>
       <Title>{props.title}</Title>
-    </div>
-    <ShortDescription>
+    </ShortDescription>
+    <Description>
       <HouseType>{props.houseType}</HouseType>
       ·
       <BedsNumber>{`${props.bedsCount} ${props.bedsCount > 1 ? 'beds' : 'bed'}`}</BedsNumber>
-    </ShortDescription>
+    </Description>
     <Description>
       <Rating stars={props.rating} />
       <Reviews>{props.reviewsCount}</Reviews>
