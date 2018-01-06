@@ -10,8 +10,10 @@ const Nav = styled.nav`
 `;
 
 const Title = Link.extend`
-  font-weight: bold;
+  margin-right: 1rem;
   margin-bottom: 1rem;
+  color: #383838;
+  font-weight: bold;
 `;
 
 const Wrapper = ({ children }) => (
@@ -22,7 +24,7 @@ const Wrapper = ({ children }) => (
 
 const Airbnb = () => (
   <Nav>
-    <Title href="#">Airbnb</Title>
+    <Title>Airbnb</Title>
     <Link href="#">About us</Link>
     <Link href="#">Careers</Link>
     <Link href="#">Press</Link>
@@ -34,7 +36,7 @@ const Airbnb = () => (
 
 const Discover = () => (
   <Nav>
-    <Title href="#">Discover</Title>
+    <Title>Discover</Title>
     <Link href="#">Trust & Safety</Link>
     <Link href="#">Travel Credit</Link>
     <Link href="#">Gift Cards</Link>
@@ -47,7 +49,7 @@ const Discover = () => (
 
 const Hosting = () => (
   <Nav>
-    <Title href="#">Hosting</Title>
+    <Title>Hosting</Title>
     <Link href="#">Why Host</Link>
     <Link href="#">Hospitality</Link>
     <Link href="#">Responsible Hosting</Link>
