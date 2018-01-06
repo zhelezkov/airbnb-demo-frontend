@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row } from 'react-flexbox-grid';
-import { Link } from './styled';
+import { Link as BasicLink } from './styled';
 
 import logo from './images/greyLogo.svg';
 import facebookIcon from './images/facebook.svg';
@@ -28,7 +28,11 @@ const CenteredRow = styled(Row)`
 `;
 
 const Copyright = styled.p`
-  margin-right: 1rem;  
+  margin-right: 1rem;
+`;
+
+const Link = BasicLink.extend`
+  margin-right: 1rem;
 `;
 
 export default () => (

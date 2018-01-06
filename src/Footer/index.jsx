@@ -11,7 +11,7 @@ const Footer = styled.footer`
   border-top: rgba(72, 72, 72, 0.3) 1px solid;
   
   @media (min-width: 992px) {
-    font-size: 1rem;
+    font-size: 0.9375rem;
   }
 `;
 
