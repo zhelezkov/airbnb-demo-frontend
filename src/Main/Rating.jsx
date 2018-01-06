@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import _ from 'lodash';
+import times from 'lodash/times';
 
 import starImage from './star.svg';
 
@@ -10,5 +10,5 @@ const Wrapper = styled.div`
 `;
 
 export default ({ stars }) => (
-  <Wrapper>{_.times(stars, id => <img src={starImage} alt="Star" key={id}/>)}</Wrapper>
+  <Wrapper>{times(stars, id => <img src={starImage} alt="Star" key={id} />)}</Wrapper>
 );
