@@ -8,11 +8,13 @@ import PopularReservations from './PopularReservations';
 import FeaturedDestinations from './FeaturedDestinations';
 
 export default () => (
-  <Grid>
-    <Explore />
-    <Experiences />
-    <Homes />
-    <PopularReservations />
-    <FeaturedDestinations />
-  </Grid>
+  <main>
+    <Grid>
+      <Explore />
+      <Experiences />
+      <Homes />
+      <PopularReservations />
+      <FeaturedDestinations />
+    </Grid>
+  </main>
 );
