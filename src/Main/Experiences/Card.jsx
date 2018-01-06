@@ -29,7 +29,7 @@ export default props => (
     </div>
     <Description>
       <Rating stars={props.rating} />
-      <Reviews href="#">{props.reviewsCount} reviews</Reviews>
+      <Reviews>{props.reviewsCount} reviews</Reviews>
     </Description>
   </CardWrapper>
 );

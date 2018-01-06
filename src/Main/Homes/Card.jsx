@@ -56,7 +56,7 @@ export default props => (
     </ShortDescription>
     <Description>
       <Rating stars={props.rating} />
-      <Reviews href="#">{props.reviewsCount}</Reviews>
+      <Reviews>{props.reviewsCount}</Reviews>
       ·
       <HostType>{props.hostType}</HostType>
     </Description>
