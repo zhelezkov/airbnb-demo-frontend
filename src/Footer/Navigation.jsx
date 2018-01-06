@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
-import { Link } from './common';
+import { Link } from './styled';
 
 const Wrapper = ({ children }) => (
   <Col mdOffset={1} lgOffset={1} md={2} lg={2} className="hidden-xs hidden-sm">
@@ -12,6 +12,7 @@ const Wrapper = ({ children }) => (
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
+  line-height: 1.5rem;
 `;
 
 const Title = Link.extend`

@@ -6,9 +6,9 @@ import Selectors from './Selectors';
 import Navigation from './Navigation';
 import Socials from './Socials';
 
-const Wrapper = styled.div`
-  border-top: rgba(72, 72, 72, 0.3) 1px solid;
+const Footer = styled.footer`
   font-size: 0.75rem;
+  border-top: rgba(72, 72, 72, 0.3) 1px solid;
   
   @media (min-width: 992px) {
     font-size: 1rem;
@@ -17,13 +17,12 @@ const Wrapper = styled.div`
 
 const MainContent = styled.div`
   display: flex;
-  width: 100%;
   padding-top: 3rem;
   padding-bottom: 3rem;
 `;
 
 export default () => (
-  <Wrapper>
+  <Footer>
     <Grid>
       <MainContent>
         <Selectors />
@@ -31,5 +30,5 @@ export default () => (
       </MainContent>
       <Socials />
     </Grid>
-  </Wrapper>
+  </Footer>
 );
