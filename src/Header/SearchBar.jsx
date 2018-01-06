@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import icon from './icons/search.svg';
 
 const Form = styled.form`

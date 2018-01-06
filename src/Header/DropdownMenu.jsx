@@ -13,6 +13,6 @@ const Button = styled.button`
 
 export default () => (
   <Button className="hidden-lg hidden-xl">
-    <img src={arrowDown} alt="Dropdown" />
+    <img src={arrowDown} alt="Dropdown menu" />
   </Button>
-)
+);
