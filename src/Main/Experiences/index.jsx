@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
-import Section from '../Section';
+import { SectionMore } from '../Section';
 import Card from './Card';
 
 import forestImage from './images/forest.png';
@@ -15,7 +15,7 @@ const CardColumn = ({ children }) => (
 );
 
 export default () => (
-  <Section title="Experiences" seeAll>
+  <SectionMore title="Experiences">
     <CardColumn>
       <Card title="Forest Therapy" image={forestImage} price={29} reviewsCount={44} rating={5} />
     </CardColumn>
@@ -34,5 +34,5 @@ export default () => (
     <CardColumn>
       <Card title="Salsa Night" image={salsaImage} price={50} reviewsCount={44} rating={5} />
     </CardColumn>
-  </Section>
+  </SectionMore>
 );

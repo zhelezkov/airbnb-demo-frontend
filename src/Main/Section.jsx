@@ -29,24 +29,44 @@ const Cards = styled.div`
   line-height: 1.3rem;
 `;
 
-const Link = styled.a`
+const SeeAllLink = styled.a`
   text-decoration: none;
   color: #383838;
   white-space: nowrap;
+
+  ::before {
+    content: 'See All ';
+  }
+
+  ::after {
+    display: inline-block;
+    content: '';
+    background-image: url(${arrowRight});
+    background-size: 6px 10px;
+    width: 6px;
+    height: 10px;
+  }
 `;
 
-export default props => (
+export default ({ title, children }) => (
   <Wrapper>
     <Header>
-      <Title>{props.title}</Title>
-      {props.seeAll && (
-        <Link href="#">
-          See All <img src={arrowRight} alt="See All" width={6} height={10}/>
-        </Link>
-      )}
+      <Title>{title}</Title>
     </Header>
     <Row>
-      <Cards>{props.children}</Cards>
+      <Cards>{children}</Cards>
+    </Row>
+  </Wrapper>
+);
+
+export const SectionMore = ({ title, children }) => (
+  <Wrapper>
+    <Header>
+      <Title>{title}</Title>
+      <SeeAllLink href="#" />
+    </Header>
+    <Row>
+      <Cards>{children}</Cards>
     </Row>
   </Wrapper>
 );

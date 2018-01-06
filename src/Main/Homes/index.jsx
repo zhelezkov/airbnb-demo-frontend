@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
-import Section from '../Section';
+import { SectionMore } from '../Section';
 import Card from './Card';
 
 import private3BedrImage from './images/private3Bedr.png';
@@ -14,7 +14,7 @@ const CardColumn = ({ children }) => (
 );
 
 export default () => (
-  <Section title="Homes" seeAll>
+  <SectionMore title="Homes">
     <CardColumn>
       <Card
         title="La Salentina, see, nature & relax"
@@ -51,5 +51,5 @@ export default () => (
         hostType="Superhost"
       />
     </CardColumn>
-  </Section>
+  </SectionMore>
 );

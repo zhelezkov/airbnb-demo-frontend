@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
-import Section from '../Section';
+import { SectionMore } from '../Section';
 import Card from './Card';
 
 import chumleyImage from './images/chumley.png';
@@ -15,38 +15,18 @@ const CardColumn = ({ children }) => (
 );
 
 export default () => (
-  <Section title="Popular Reservations around the world" seeAll>
+  <SectionMore title="Popular Reservations around the world">
     <CardColumn>
-      <Card
-        title="Chumley's"
-        image={chumleyImage}
-        description="SPEAKEASY"
-        price={60}
-      />
+      <Card title="Chumley's" image={chumleyImage} description="SPEAKEASY" price={60} />
     </CardColumn>
     <CardColumn>
-      <Card
-        title="Hanjan"
-        image={hanjanImage}
-        description="KOREAN GASTROPUB"
-        price={50}
-      />
+      <Card title="Hanjan" image={hanjanImage} description="KOREAN GASTROPUB" price={50} />
     </CardColumn>
     <CardColumn>
-      <Card
-        title="Prime Meats"
-        image={primeMeatsImage}
-        description="GERMAN AMERICAN"
-        price={55}
-      />
+      <Card title="Prime Meats" image={primeMeatsImage} description="GERMAN AMERICAN" price={55} />
     </CardColumn>
     <CardColumn>
-      <Card
-        title="Seaprice"
-        image={seapriceImage}
-        description="FINE SEAFOOD"
-        price={70}
-      />
+      <Card title="Seaprice" image={seapriceImage} description="FINE SEAFOOD" price={70} />
     </CardColumn>
-  </Section>
+  </SectionMore>
 );
