@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Rating from '../Rating';
-import { CardWrapper, Image } from '../styled';
+import { CardWrapper, Description, Image } from '../styled';
 
 const Price = styled.span`
   margin-right: 0.5rem;
@@ -27,9 +27,9 @@ export default props => (
       <Price>{props.price}$</Price>
       <Title>{props.title}</Title>
     </div>
-    <div>
+    <Description>
       <Rating stars={props.rating} />
       <Reviews href="#">{props.reviewsCount} reviews</Reviews>
-    </div>
+    </Description>
   </CardWrapper>
 );

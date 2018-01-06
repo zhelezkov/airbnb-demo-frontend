@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardWrapper, Image } from '../styled';
+import { CardWrapper, Image, Description } from '../styled';
 
-const Description = styled.span`
+const SmallDescription = Description.extend`
   font-weight: bold;
   font-size: 0.625rem;
 `;
@@ -21,7 +21,7 @@ const Price = styled.span`
 export default props => (
   <CardWrapper href="#">
     <Image src={props.image} alt={props.title} />
-    <Description>{props.description}</Description>
+    <SmallDescription>{props.description}</SmallDescription>
     <Title>{props.title}</Title>
     <Price>About ${props.price} per person</Price>
   </CardWrapper>

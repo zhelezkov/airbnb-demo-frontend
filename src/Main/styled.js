@@ -11,3 +11,7 @@ export const CardWrapper = styled.a`
   text-decoration: none;
   color: #383838;
 `;
+
+export const Description = styled.p`
+  margin: 0;
+`;

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Rating from '../Rating';
-import { CardWrapper, Image } from '../styled';
+import { CardWrapper, Image, Description } from '../styled';
 
-const RowDescription = styled.div`
+const ShortDescription = Description.extend`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -45,20 +45,20 @@ const HostType = styled.span`
 export default props => (
   <CardWrapper href="#">
     <Image src={props.image} alt={props.title} />
-    <RowDescription>
+    <div>
       <Price>{props.price}$</Price>
       <Title>{props.title}</Title>
-    </RowDescription>
-    <RowDescription>
+    </div>
+    <ShortDescription>
       <HouseType>{props.houseType}</HouseType>
       ·
       <BedsNumber>{`${props.bedsCount} ${props.bedsCount > 1 ? 'beds' : 'bed'}`}</BedsNumber>
-    </RowDescription>
-    <RowDescription>
+    </ShortDescription>
+    <Description>
       <Rating stars={props.rating} />
       <Reviews href="#">{props.reviewsCount}</Reviews>
       ·
       <HostType>{props.hostType}</HostType>
-    </RowDescription>
+    </Description>
   </CardWrapper>
 );

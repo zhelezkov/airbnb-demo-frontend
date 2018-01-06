@@ -4,8 +4,7 @@ import times from 'lodash/times';
 
 import starImage from './star.svg';
 
-const Wrapper = styled.div`
-  display: inline;
+const Wrapper = styled.span`
   margin-right: 0.5rem;
 `;
 
