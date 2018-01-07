@@ -1,5 +1,43 @@
+@font-face {
+  font-family: Circular;
+  src: url(assets/font/Circular_Air-Book.woff) format('woff'),
+    url(assets/font/Circular_Air-Book.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Circular;
+  src: url(assets/font/Circular_Air-Light.woff) format('woff'),
+    url(assets/font/Circular_Air-Light.ttf) format('truetype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Circular;
+  src: url(assets/font/Circular_Air-Bold.woff) format('woff'),
+    url(assets/font/Circular_Air-Bold.ttf) format('truetype');
+  font-weight: bold;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Circular, Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #383838;
 }
