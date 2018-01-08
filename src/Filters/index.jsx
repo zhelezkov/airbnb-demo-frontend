@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import { Grid, Row } from 'react-flexbox-grid';
 
 const Wrapper = styled.div`
+  position: fixed;
+  top: 4.9375rem;
+  left: 0;
+  right: 0;
+  background: white;
   border-bottom: 1px solid rgba(72, 72, 72, 0.3);
 `;
 
