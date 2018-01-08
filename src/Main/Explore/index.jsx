@@ -16,13 +16,13 @@ const Column = ({ children }) => (
 export default () => (
   <Section title="Explore Airbnb">
     <Column>
-      <Card title="Homes" image={bedImage} />
+      <Card title="Homes" image={bedImage} link="/homes" />
     </Column>
     <Column>
-      <Card title="Experiences" image={experiencesImage} />
+      <Card title="Experiences" image={experiencesImage} link="#" />
     </Column>
     <Column>
-      <Card title="Restaurants" image={restaurantsImage} />
+      <Card title="Restaurants" image={restaurantsImage} link="#" />
     </Column>
   </Section>
 );
