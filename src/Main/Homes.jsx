@@ -11,11 +11,15 @@ const Column = ({ children }) => (
   </Col>
 );
 
+const Home = ({home}) => (
+  <Column>
+    <Card {...home} />
+  </Column>
+);
+
 const Homes = ({ homes }) =>
   homes.map(home => (
-    <Column>
-      <Card {...home} />
-    </Column>
+    <Home home={home} key={home.id}/>
   ));
 
 export default () => (

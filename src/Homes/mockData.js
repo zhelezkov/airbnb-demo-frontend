@@ -4,6 +4,7 @@ import dreamHouseImage from '../Homes/images/dreamHouse.png';
 
 export default [
   {
+    id: 0,
     title: 'La Salentina, see, nature & relax',
     image: salentinaImage,
     price: 82,
@@ -14,6 +15,7 @@ export default [
     hostType: 'Superhost'
   },
   {
+    id: 1,
     title: 'Your private 3 bedr. riad and exclusive',
     image: private3BedrImage,
     price: 82,
@@ -24,6 +26,7 @@ export default [
     hostType: 'Superhost'
   },
   {
+    id: 2,
     title: 'Dreamy Tropical Tree House',
     image: dreamHouseImage,
     price: 69,
