@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Rating from '../Rating';
+import Rating from '../UI/Rating';
 import { CardWrapper, Image, Description } from '../styled';
 
 const ShortDescription = styled.div`

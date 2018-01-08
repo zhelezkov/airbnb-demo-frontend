@@ -1,11 +1,11 @@
 import React from 'react';
 import { Col } from 'react-flexbox-grid';
-import { SectionMore } from '../Section';
-import Card from './Card';
+import { SectionMore } from './Section';
+import Card from '../Homes/Card';
 
-import private3BedrImage from './images/private3Bedr.png';
-import salentinaImage from './images/salentina.png';
-import dreamHouseImage from './images/dreamHouse.png';
+import private3BedrImage from '../Homes/images/private3Bedr.png';
+import salentinaImage from '../Homes/images/salentina.png';
+import dreamHouseImage from '../Homes/images/dreamHouse.png';
 
 const Column = ({ children }) => (
   <Col xs={8} sm={8} md={5} lg={4}>

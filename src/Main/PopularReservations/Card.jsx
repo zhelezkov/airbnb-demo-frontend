@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardWrapper, Image, Description } from '../styled';
+import { CardWrapper, Image, Description } from '../../styled';
 
 const SmallDescription = Description.extend`
   font-weight: bold;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardWrapper, Image } from '../styled';
+import { CardWrapper, Image } from '../../styled';
 
 const Title = styled.h3`
   font-weight: bold;

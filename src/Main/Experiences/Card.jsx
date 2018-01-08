@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Rating from '../Rating';
-import { CardWrapper, Description, Image } from '../styled';
+import Rating from '../../UI/Rating';
+import { CardWrapper, Description, Image } from '../../styled';
 
 const Price = styled.span`
   margin-right: 0.5rem;
