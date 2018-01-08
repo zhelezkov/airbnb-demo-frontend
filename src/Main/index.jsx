@@ -6,15 +6,19 @@ import Experiences from './Experiences';
 import Homes from './Homes';
 import PopularReservations from './PopularReservations';
 import FeaturedDestinations from './FeaturedDestinations';
+import Footer from './Footer';
 
 export default () => (
-  <main>
-    <Grid>
-      <Explore />
-      <Experiences />
-      <Homes />
-      <PopularReservations />
-      <FeaturedDestinations />
-    </Grid>
-  </main>
+  <React.Fragment>
+    <main>
+      <Grid>
+        <Explore />
+        <Experiences />
+        <Homes />
+        <PopularReservations />
+        <FeaturedDestinations />
+      </Grid>
+    </main>
+    <Footer />
+  </React.Fragment>
 );
