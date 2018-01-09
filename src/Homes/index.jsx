@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import List from './List';
 
 const Content = styled.div`
-  padding-top: 3.5625rem;
+  padding-top: 5.0625rem;
 `;
 
 export default () => (
