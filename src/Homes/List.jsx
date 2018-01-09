@@ -10,11 +10,15 @@ import Card from './Card';
 import mockData from './mockData';
 
 const MapWrapper = styled.div`
-  position: fixed;
-  width: 300px;
-  height: calc(100% - 8.5rem);
-  right: 0;
-  bottom: 0;
+  display: none;
+  @media (min-width: 992px) {
+    display: block;
+    position: fixed;
+    width: 34%;
+    height: calc(100% - 8.5rem);
+    right: 0;
+    bottom: 0;
+  }
 `;
 
 const HomesRow = styled(Row)`
@@ -25,7 +29,7 @@ const Page = ({ homes, rowSize = 2 }) =>
   chunk(homes, rowSize).map(row => (
     <HomesRow>
       {row.map(home => (
-        <Col lg={4}>
+        <Col xs={12} md={6} lg={4}>
           <Card {...home} />
         </Col>
       ))}
