@@ -25,13 +25,19 @@ const HomesRow = styled(Row)`
   margin-bottom: 2.5rem;
 `;
 
+const Column = ({children}) => (
+  <Col xs={12} md={6} lg={4}>
+    {children}
+  </Col>
+);
+
 const Page = ({ homes, rowSize = 2 }) =>
-  chunk(homes, rowSize).map(row => (
-    <HomesRow>
+  chunk(homes, rowSize).map((row, index) => (
+    <HomesRow key={index}>
       {row.map(home => (
-        <Col xs={12} md={6} lg={4}>
+        <Column key={home.id}>
           <Card {...home} />
-        </Col>
+        </Column>
       ))}
     </HomesRow>
   ));
