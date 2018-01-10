@@ -12,13 +12,3 @@ export const MenuButton = styled.button`
   background-color: ${({ highlighted }) => (highlighted ? '#008489' : '#fff')};
   cursor: pointer;
 `;
-
-export const FadeBackground = styled.div`
-  z-index: 5;
-  background-color: #ffffffaa;
-  position: fixed;
-  top: 8.5rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import ClickOutside from 'react-click-outside';
 import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
-import { MenuButton, FadeBackground } from './styled';
-import ClickOutside from 'react-click-outside';
-import FullScreenWindow from '../UI/FullScreenWindow';
+import { MenuButton } from './styled';
+import ModalWindow from '../UI/ModalWindow';
 
 const InfoPanel = styled.div`
   display: flex;
@@ -19,12 +19,6 @@ const CalendarButton = styled.button`
   cursor: pointer;
 `;
 
-const Wrapper = styled.aside`
-  z-index: 10;
-  background-color: #fff;
-  position: absolute;
-`;
-
 class DatePicker extends React.Component {
   state = {
     startDate: null,
@@ -37,7 +31,7 @@ class DatePicker extends React.Component {
   };
 
   onFocusChange = focusedInput => {
-    this.setState({ focusedInput });
+    this.setState({ focusedInput: !focusedInput ? START_DATE : focusedInput });
   };
 
   datePickerToggle = () => {
@@ -71,7 +65,6 @@ class DatePicker extends React.Component {
           </MenuButton>
           {this.state.datePickerOpen && this.renderDatePicker()}
         </ClickOutside>
-        {this.state.datePickerOpen && <FadeBackground />}
       </div>
     );
   }
@@ -80,8 +73,9 @@ class DatePicker extends React.Component {
     const desktop = matchMedia('(min-width: 992px)').matches;
     const mobile = matchMedia('(max-width: 767px)').matches;
     return (
-      <Wrapper>
+      <ModalWindow>
         <DayPickerRangeController
+          noBorder
           numberOfMonths={desktop ? 2 : 1}
           hideKeyboardShortcutsPanel
           startDate={this.state.startDate}
@@ -91,7 +85,7 @@ class DatePicker extends React.Component {
           onFocusChange={this.onFocusChange}
           renderCalendarInfo={this.renderCalendarInfo}
         />
-      </Wrapper>
+      </ModalWindow>
     );
   }
 }
