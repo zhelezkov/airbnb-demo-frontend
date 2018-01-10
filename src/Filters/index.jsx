@@ -45,7 +45,7 @@ const Buttons = ({ datesClick, datesHighlighted }) => (
 
 class Filters extends React.Component {
   state = {
-    datePickerOpen: true
+    datePickerOpen: false
   };
 
   switchDatePicker = () => {

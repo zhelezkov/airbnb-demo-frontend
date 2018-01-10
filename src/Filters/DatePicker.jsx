@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
-import { Portal } from 'react-portal';
 
 const InfoPanel = styled.div`
   display: flex;
@@ -29,8 +28,8 @@ const Background = styled.div`
   position: fixed;
   top: 8.5rem;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
 `;
 
 export default class DatePicker extends React.Component {

@@ -2,10 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import GoogleMapReact from 'google-map-react';
 import { Col, Grid, Row } from 'react-flexbox-grid';
-import chunk from 'lodash/chunk';
-
+import Pages from './Pages';
 import Filters from '../Filters';
-import Card from './Card';
 
 import mockData from './mockData';
 
@@ -21,32 +19,27 @@ const MapWrapper = styled.div`
   }
 `;
 
-const HomesRow = styled(Row)`
-  margin-bottom: 2.5rem;
+const Basement = styled(Row)`
+  justify-content: center;
+  color: #636363;
 `;
 
-const Column = ({children}) => (
-  <Col xs={12} md={6} lg={4}>
+const ContentWrapper = ({ children }) => (
+  <Col xs={12} lg={8}>
     {children}
   </Col>
 );
-
-const Page = ({ homes, rowSize = 2 }) =>
-  chunk(homes, rowSize).map((row, index) => (
-    <HomesRow key={index}>
-      {row.map(home => (
-        <Column key={home.id}>
-          <Card {...home} />
-        </Column>
-      ))}
-    </HomesRow>
-  ));
 
 export default () => (
   <React.Fragment>
     <Filters />
     <Grid>
-      <Page homes={mockData} />
+      <ContentWrapper>
+        <Pages homes={mockData} pages={17} />
+        <Basement>
+          <p>Enter dates to see full pricing. Additional fees apply. Taxes may be added.</p>
+        </Basement>
+      </ContentWrapper>
     </Grid>
     <MapWrapper>
       <GoogleMapReact defaultCenter={{ lat: 59.95, lng: 30.33 }} defaultZoom={11} />
