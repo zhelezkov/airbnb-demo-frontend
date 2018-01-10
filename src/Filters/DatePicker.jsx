@@ -4,6 +4,7 @@ import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
 import { MenuButton, FadeBackground } from './styled';
 import ClickOutside from 'react-click-outside';
+import FullScreenWindow from '../UI/FullScreenWindow';
 
 const InfoPanel = styled.div`
   display: flex;
@@ -76,10 +77,12 @@ class DatePicker extends React.Component {
   }
 
   renderDatePicker() {
+    const desktop = matchMedia('(min-width: 992px)').matches;
+    const mobile = matchMedia('(max-width: 767px)').matches;
     return (
       <Wrapper>
         <DayPickerRangeController
-          numberOfMonths={matchMedia('(min-width: 992px)').matches ? 2 : 1}
+          numberOfMonths={desktop ? 2 : 1}
           hideKeyboardShortcutsPanel
           startDate={this.state.startDate}
           endDate={this.state.endDate}
