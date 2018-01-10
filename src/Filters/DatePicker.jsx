@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import onClickOutside from "react-onclickoutside";
 import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
 
@@ -32,7 +33,7 @@ const Background = styled.div`
   bottom: 0;
 `;
 
-export default class DatePicker extends React.Component {
+class DatePicker extends React.Component {
   state = {
     startDate: null,
     endDate: null,
@@ -56,6 +57,10 @@ export default class DatePicker extends React.Component {
     </InfoPanel>
   );
 
+  handleClickOutside = (ev) => {
+    this.props.onCancelClick()
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -76,3 +81,5 @@ export default class DatePicker extends React.Component {
     );
   }
 }
+
+export default onClickOutside(DatePicker);
