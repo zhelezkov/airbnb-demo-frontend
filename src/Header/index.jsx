@@ -6,6 +6,7 @@ import DropdownMenu from './DropdownMenu';
 import Menu from './Menu';
 
 import logo from './icons/logo.svg';
+import { Link } from 'react-router-dom';
 
 const Header = styled.header`
   position: fixed;
@@ -34,7 +35,9 @@ export default () => (
   <Header>
     <Grid>
       <Wrapper>
-        <Logo src={logo} alt="Logo" />
+        <Link to="/">
+          <Logo src={logo} alt="Logo" />
+        </Link>
         <DropdownMenu />
         <SearchBar />
         <Menu />
