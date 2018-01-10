@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import onClickOutside from "react-onclickoutside";
 import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
+import { MenuButton, FadeBackground } from './styled';
+import ClickOutside from 'react-click-outside';
 
 const InfoPanel = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-const Button = styled.button`
+const CalendarButton = styled.button`
   appearance: none;
   border: none;
   padding: 1rem;
@@ -17,20 +18,10 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.aside`
   z-index: 10;
   background-color: #fff;
   position: absolute;
-`;
-
-const Background = styled.div`
-  z-index: 5;
-  background-color: #ffffffaa;
-  position: fixed;
-  top: 8.5rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
 `;
 
 class DatePicker extends React.Component {
@@ -48,38 +39,58 @@ class DatePicker extends React.Component {
     this.setState({ focusedInput });
   };
 
+  datePickerToggle = () => {
+    this.setState(prevState => ({ datePickerOpen: !prevState.datePickerOpen }));
+  };
+
+  closeDatePicker = () => {
+    this.setState(prevState => ({ datePickerOpen: false }));
+  };
+
+  saveDates = () => {
+    this.props.onDatesSave(this.state.startDate, this.state.endDate);
+    this.closeDatePicker();
+  };
+
   renderCalendarInfo = () => (
     <InfoPanel>
-      <Button onClick={this.props.onCancelClick}>Cancel</Button>
-      <Button onClick={this.props.onDatesSave} color={'#0f7276'}>
+      <CalendarButton onClick={this.closeDatePicker}>Cancel</CalendarButton>
+      <CalendarButton onClick={this.saveDates} color={'#0f7276'}>
         Apply
-      </Button>
+      </CalendarButton>
     </InfoPanel>
   );
 
-  handleClickOutside = (ev) => {
-    this.props.onCancelClick()
-  };
-
   render() {
     return (
-      <React.Fragment>
-        <Wrapper>
-          <DayPickerRangeController
-            numberOfMonths={matchMedia('(min-width: 992px)').matches ? 2 : 1}
-            hideKeyboardShortcutsPanel
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            onDatesChange={this.onDatesChange}
-            focusedInput={this.state.focusedInput}
-            onFocusChange={this.onFocusChange}
-            renderCalendarInfo={this.renderCalendarInfo}
-          />
-        </Wrapper>
-        <Background />
-      </React.Fragment>
+      <div>
+        <ClickOutside onClickOutside={this.closeDatePicker}>
+          <MenuButton onClick={this.datePickerToggle} highlighted={this.state.datePickerOpen}>
+            Dates
+          </MenuButton>
+          {this.state.datePickerOpen && this.renderDatePicker()}
+        </ClickOutside>
+        {this.state.datePickerOpen && <FadeBackground />}
+      </div>
+    );
+  }
+
+  renderDatePicker() {
+    return (
+      <Wrapper>
+        <DayPickerRangeController
+          numberOfMonths={matchMedia('(min-width: 992px)').matches ? 2 : 1}
+          hideKeyboardShortcutsPanel
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          onDatesChange={this.onDatesChange}
+          focusedInput={this.state.focusedInput}
+          onFocusChange={this.onFocusChange}
+          renderCalendarInfo={this.renderCalendarInfo}
+        />
+      </Wrapper>
     );
   }
 }
 
-export default onClickOutside(DatePicker);
+export default DatePicker;
