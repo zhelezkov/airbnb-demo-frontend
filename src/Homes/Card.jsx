@@ -7,6 +7,7 @@ const ShortDescription = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin-top: 0.5rem;
 `;
 
 const Price = styled.span`

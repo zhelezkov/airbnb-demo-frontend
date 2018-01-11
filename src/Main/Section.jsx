@@ -27,7 +27,6 @@ const Cards = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   flex: 1 1 auto;
-  line-height: 1.3rem;
 `;
 
 const SeeAllLink = styled(Link)`
