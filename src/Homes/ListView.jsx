@@ -22,6 +22,8 @@ const MapWrapper = styled.div`
 const Basement = styled(Row)`
   justify-content: center;
   color: #636363;
+  margin-top: 1rem;
+  margin-bottom: 1.5625rem;
 `;
 
 const ContentWrapper = ({ children }) => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import chunk from 'lodash/chunk';
 import { Row, Col } from 'react-flexbox-grid';
 import Card from './Card';
@@ -8,27 +8,34 @@ const HomesRow = styled(Row)`
   margin-bottom: 2.5rem;
 `;
 
-const PageNumbers = styled(Row)`
+const CenterRow = styled(Row)`
   justify-content: center;
+  margin-bottom: 1rem;
 `;
 
-const PageNumber = styled.button`
+const PageNumber = styled.a`
   width: 2rem;
-  border-radius: 50%;
-  text-align: center;
-  margin-right: 1rem;
-  line-height: 2rem;
-  appearance: none;
+  height: 2rem;
+  margin-right: 0.5rem;
   border: none;
+  border-radius: 50%;
+  color: #008489;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2em;
+  box-sizing: content-box;
+  transition: 0.2s;
 
-  ${({ selected }) => {
-    if (selected) {
-      return `
-        background: #008489;
-        color: white;
-        `;
-    }
-  }};
+  &:hover {
+    text-decoration: underline;
+  }
+
+  ${({ selected }) =>
+    selected &&
+    css`
+      background: #008489;
+      color: #fff;
+    `}};
 `;
 
 const NextPage = styled.button`
@@ -61,20 +68,23 @@ const Page = ({ homes, rowSize = 2 }) =>
   ));
 
 const Pagination = ({ pages }) => (
-  <PageNumbers>
-    <PageNumber selected>1</PageNumber>
-    <PageNumber>2</PageNumber>
-    <PageNumber>3</PageNumber>
-    <PageNumber>...</PageNumber>
-    <PageNumber>17</PageNumber>
+  <CenterRow>
+    <PageNumber selected href="#">
+      1
+    </PageNumber>
+    <PageNumber href="#">2</PageNumber>
+    <PageNumber href="#">3</PageNumber>
+    <PageNumber href="#">...</PageNumber>
+    <PageNumber href="#">17</PageNumber>
     <NextPage />
-  </PageNumbers>
+  </CenterRow>
 );
 
 const Pages = props => (
   <React.Fragment>
     <Page {...props} />
     <Pagination pages={props.pages} />
+    <CenterRow>1 – 18 of 300+ Rentals</CenterRow>
   </React.Fragment>
 );
 
