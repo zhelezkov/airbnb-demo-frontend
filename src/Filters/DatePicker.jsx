@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import ClickOutside from 'react-click-outside';
 import { DayPickerRangeController } from 'react-dates';
 import { START_DATE } from 'react-dates/constants';
+import onClickOutside from "react-onclickoutside";
 import { MenuButton } from './styled';
 import ModalWindow from '../UI/ModalWindow';
 
@@ -47,6 +47,10 @@ class DatePicker extends React.Component {
     this.closeDatePicker();
   };
 
+  handleClickOutside = ev => {
+    this.closeDatePicker();
+  };
+
   renderCalendarInfo = () => (
     <InfoPanel>
       <CalendarButton onClick={this.closeDatePicker}>Cancel</CalendarButton>
@@ -59,12 +63,10 @@ class DatePicker extends React.Component {
   render() {
     return (
       <div>
-        <ClickOutside onClickOutside={this.closeDatePicker}>
-          <MenuButton onClick={this.datePickerToggle} highlighted={this.state.datePickerOpen}>
-            Dates
-          </MenuButton>
-          {this.state.datePickerOpen && this.renderDatePicker()}
-        </ClickOutside>
+        <MenuButton onClick={this.datePickerToggle} highlighted={this.state.datePickerOpen}>
+          Dates
+        </MenuButton>
+        {this.state.datePickerOpen && this.renderDatePicker()}
       </div>
     );
   }
@@ -90,4 +92,4 @@ class DatePicker extends React.Component {
   }
 }
 
-export default DatePicker;
+export default onClickOutside(DatePicker);

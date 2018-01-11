@@ -6,7 +6,7 @@ const Background = styled.div`
   z-index: 5;
   background-color: #ffffffaa;
   position: fixed;
-  top: 8.5rem;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;

@@ -5303,10 +5303,6 @@ react-addons-shallow-compare@^15.6.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-click-outside@tj/react-click-outside:
-  version "1.1.1"
-  resolved "https://codeload.github.com/tj/react-click-outside/tar.gz/7568a29705e0f06136c89cb30cc9dbfc0455b8fb"
-
 react-dates@^16.0.2:
   version "16.0.2"
   resolved "https://registry.yarnpkg.com/react-dates/-/react-dates-16.0.2.tgz#ad650fbc26f77da4959b9c9bb09c7d6da78a4c1a"
@@ -5372,6 +5368,10 @@ react-moment-proptypes@^1.5.0:
   resolved "https://registry.yarnpkg.com/react-moment-proptypes/-/react-moment-proptypes-1.5.0.tgz#4a448cd6479efc5dd509283f361f3753c3abe60e"
   dependencies:
     moment ">=1.6.0"
+
+react-onclickoutside@^6.7.0:
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.7.0.tgz#997a4d533114c9a0a104913638aa26afc084f75c"
 
 react-portal@^4.1.2:
   version "4.1.2"
