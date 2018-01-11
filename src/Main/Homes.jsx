@@ -23,7 +23,7 @@ const Homes = ({ homes }) =>
   ));
 
 export default () => (
-  <SectionMore title="Homes" link="/homes">
+  <SectionMore title="Homes" to="/homes">
     <Homes homes={mockData} />
   </SectionMore>
 );

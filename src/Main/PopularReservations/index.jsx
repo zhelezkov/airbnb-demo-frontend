@@ -15,7 +15,7 @@ const Column = ({ children }) => (
 );
 
 export default () => (
-  <SectionMore title="Popular Reservations around the world" link="#">
+  <SectionMore title="Popular Reservations around the world" to="#">
     <Column>
       <Card title="Chumley's" image={chumleyImage} description="SPEAKEASY" price={60} />
     </Column>

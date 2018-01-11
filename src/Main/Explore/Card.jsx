@@ -41,8 +41,8 @@ const Title = styled.h3`
   margin-left: 1rem;
 `;
 
-export default ({ title, image, link }) => (
-  <Wrapper to={link}>
+export default ({ title, image, to }) => (
+  <Wrapper to={to}>
     <Image src={image} alt={title} />
     <Title>{title}</Title>
   </Wrapper>

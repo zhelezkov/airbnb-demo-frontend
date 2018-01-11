@@ -64,11 +64,11 @@ export default ({ title, children }) => (
   </Wrapper>
 );
 
-export const SectionMore = ({ title, children, link }) => (
+export const SectionMore = ({ title, children, to }) => (
   <Wrapper>
     <Header>
       <Title>{title}</Title>
-      <SeeAllLink to={link} />
+      <SeeAllLink to={to} />
     </Header>
     <Slider>
       <Cards>{children}</Cards>
