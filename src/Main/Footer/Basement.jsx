@@ -35,6 +35,7 @@ const Copyright = styled.p`
 
 const Link = BasicLink.extend`
   margin-right: 1rem;
+  margin-bottom: 0;
 `;
 
 export default () => (
