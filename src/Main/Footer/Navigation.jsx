@@ -6,12 +6,10 @@ import { Link } from './styled';
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  line-height: 1.5rem;
 `;
 
 const Title = styled.h4`
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem 0;
   color: #383838;
   font-weight: bold;
 `;

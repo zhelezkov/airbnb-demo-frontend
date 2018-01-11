@@ -13,6 +13,8 @@ const Logo = styled.img`
 `;
 
 const Wrapper = styled.div`
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-left: 1rem;
   display: flex;
   align-content: center;
