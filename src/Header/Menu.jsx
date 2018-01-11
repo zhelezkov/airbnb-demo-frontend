@@ -16,7 +16,7 @@ const Link = styled.a`
   font-weight: 400;
   color: #383838;
   text-decoration: none;
-  margin-right: 0.5rem;
+  margin-left: 2rem;
 `;
 
 export default () => (
