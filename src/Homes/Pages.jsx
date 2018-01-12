@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import chunk from 'lodash/chunk';
 import { Row, Col } from 'react-flexbox-grid';
 import Card from './Card';
 
@@ -56,16 +55,15 @@ const NextPage = styled.button`
   }
 `;
 
-const Page = ({ homes, rowSize = 2 }) =>
-  chunk(homes, rowSize).map((row, index) => (
-    <HomesRow key={index}>
-      {row.map(home => (
-        <Col xs={12} md={6} key={home.id}>
-          <Card {...home} />
-        </Col>
-      ))}
-    </HomesRow>
-  ));
+const Page = ({ homes }) => (
+  <HomesRow>
+    {homes.map(home => (
+      <Col xs={12} md={6} key={home.id}>
+        <Card {...home} />
+      </Col>
+    ))}
+  </HomesRow>
+);
 
 const Pagination = ({ pages }) => (
   <CenterRow>

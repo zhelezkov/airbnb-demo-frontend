@@ -9,6 +9,7 @@ export const CardWrapper = styled.a`
   flex-direction: column;
   text-decoration: none;
   color: #383838;
+  margin-bottom: 2.5rem;
 `;
 
 export const Description = styled.p`

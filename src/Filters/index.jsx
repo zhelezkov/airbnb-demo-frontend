@@ -6,7 +6,7 @@ import { MenuButton } from './styled';
 
 const Wrapper = styled.div`
   position: fixed;
-  top: 4.9375rem;
+  top: 4.9675rem;
   left: 0;
   right: 0;
   background: white;
