@@ -35,9 +35,10 @@ class Filters extends React.Component {
   };
 
   onDatesSave = (startDate, endDate) => {
-    if (!startDate || !endDate) return;
-    console.log(`Dates saved! start date: ${startDate.format()}, end date: ${endDate.format()}`);
-    this.setState({ startDate, endDate });
+    if (startDate && endDate) {
+      console.log(`Dates saved! start date: ${startDate.format()}, end date: ${endDate.format()}`);
+      this.setState({ startDate, endDate });
+    }
   };
 
   render() {

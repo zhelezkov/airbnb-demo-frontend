@@ -32,7 +32,7 @@ const PageNumber = styled.a`
 
   ${({ selected }) =>
     selected &&
-    css`
+    `
       background: #008489;
       color: #fff;
     `}};
