@@ -11,4 +11,10 @@ export const MenuButton = styled.button`
   color: ${({ highlighted }) => (highlighted ? '#fff' : '#383838')};
   background-color: ${({ highlighted }) => (highlighted ? '#008489' : '#fff')};
   cursor: pointer;
+
+  :hover {
+    background-color: ${({ highlighted }) =>
+      highlighted ? '#008489' : 'rgba(216, 216, 216, 0.3)'};
+    border-color: transparent;
+  }
 `;

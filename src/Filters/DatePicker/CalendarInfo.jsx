@@ -13,6 +13,10 @@ const CalendarButton = styled.button`
   border: none;
   color: ${({ color }) => color};
   cursor: pointer;
+
+  :hover {
+    text-decoration: underline;
+  }
 `;
 
 export default (onClose, onApply) => {

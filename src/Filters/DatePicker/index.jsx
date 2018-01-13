@@ -3,7 +3,7 @@ import { DayPickerRangeController, DateRangePickerInputController } from 'react-
 import { START_DATE, VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-dates/constants';
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
-import { dayBeforeToday } from '../helpers';
+import { daysBeforeToday } from './helpers';
 import CalendarInfo from './CalendarInfo';
 import { buttonDateFormat } from './helpers';
 
@@ -89,7 +89,7 @@ class DatePicker extends React.Component {
       return (
         <DateRangePickerInputController
           noBorder={true}
-          isOutsideRange={dayBeforeToday}
+          isOutsideRange={daysBeforeToday}
           startDate={this.state.startDate}
           endDate={this.state.endDate}
           onDatesChange={this.onDatesChange}
@@ -115,7 +115,7 @@ class DatePicker extends React.Component {
         {this.renderDayRangeInput()}
         <DayPickerRangeController
           noBorder={true}
-          isOutsideRange={dayBeforeToday}
+          isOutsideRange={daysBeforeToday}
           startDate={this.state.startDate}
           endDate={this.state.endDate}
           onDatesChange={this.onDatesChange}
