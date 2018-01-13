@@ -1,11 +1,12 @@
 import React from 'react';
-import { DayPickerRangeController, DateRangePickerInputController } from 'react-dates';
+import { DayPickerRangeController } from 'react-dates';
 import { START_DATE, VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-dates/constants';
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 import { daysBeforeToday } from './helpers';
 import CalendarInfo from './CalendarInfo';
 import { buttonDateFormat } from './helpers';
+import RangeInput from './RangeInput';
 
 class DatePicker extends React.Component {
   state = {
@@ -85,17 +86,15 @@ class DatePicker extends React.Component {
     const md = matchMedia('(min-width: 768px)').matches;
     const lg = matchMedia('(min-width: 992px)').matches;
 
+    const { startDate, endDate, focusedInput } = this.state;
+
     if (!md && !lg) {
       return (
-        <DateRangePickerInputController
-          noBorder={true}
-          isOutsideRange={daysBeforeToday}
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          onDatesChange={this.onDatesChange}
-          startDatePlaceholderText="Check-in"
-          endDatePlaceholderText="Check-out"
-          displayFormat="MMM DD"
+        <RangeInput
+          startDate={startDate}
+          endDate={endDate}
+          focus={focusedInput}
+          onFocusChange={this.onFocusChange}
         />
       );
     }

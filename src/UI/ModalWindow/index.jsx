@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import onClickOutside from 'react-onclickoutside';
 import { Portal } from 'react-portal';
 import FadeBackground from './FadeBackground';
-import ScrollLock from '../ScrollLock';
+import ScrollLock from 'react-scrolllock';
 
 const Wrapper = styled.div`
   z-index: 2000;
@@ -45,12 +45,13 @@ const Footer = styled.footer`
   align-items: center;
   border-top: 0.5px #d5d5d5 solid;
   padding: 0.5rem;
+  background: #fff;
 `;
 
 const Content = styled.div`
   position: absolute;
   top: 3.875rem;
-  bottom: 6.5rem;
+  bottom: 5rem;
   width: 100%;
 
   @media (min-width: 768px) {
@@ -62,6 +63,7 @@ const Button = styled.button`
   appearance: none;
   border: none;
   color: #0f7276;
+  cursor: pointer;
 `;
 
 const CloseButton = Button.extend`
@@ -86,7 +88,7 @@ class ModalWindow extends React.Component {
   renderModalWindow() {
     return (
       <Portal>
-        <Wrapper>
+        <Wrapper innerRef={modalWindow => this.modalWindow = modalWindow}>
           <Header>
             <CloseButton onClick={this.props.onClose}>&#10005;</CloseButton>
             {this.props.title}
@@ -96,7 +98,7 @@ class ModalWindow extends React.Component {
           <Footer>
             <SaveButton onClick={this.props.onSave}>Save</SaveButton>
           </Footer>
-          <ScrollLock />
+          <ScrollLock touchScrollTarget={this.modalWindow}/>
         </Wrapper>
       </Portal>
     );
