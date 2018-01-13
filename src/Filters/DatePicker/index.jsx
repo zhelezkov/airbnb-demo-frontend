@@ -20,6 +20,15 @@ class DatePicker extends React.Component {
     this.setState({ isOpen: false });
   };
 
+  reset = () => {
+    this.setState({ startDate: null, endDate: null, focusedInput: START_DATE });
+  };
+
+  cancel = () => {
+    this.reset();
+    this.close();
+  };
+
   saveDates = () => {
     this.props.onDatesSave(this.state.startDate, this.state.endDate);
     this.close();
@@ -33,13 +42,13 @@ class DatePicker extends React.Component {
   mdCalendarProps = {
     orientation: HORIZONTAL_ORIENTATION,
     numberOfMonths: 1,
-    renderCalendarInfo: CalendarInfo(this.close, this.saveDates)
+    renderCalendarInfo: CalendarInfo(this.cancel, this.saveDates)
   };
 
   lgCalendarProps = {
     orientation: HORIZONTAL_ORIENTATION,
     numberOfMonths: 2,
-    renderCalendarInfo: CalendarInfo(this.close, this.saveDates)
+    renderCalendarInfo: CalendarInfo(this.cancel, this.saveDates)
   };
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -52,10 +61,6 @@ class DatePicker extends React.Component {
 
   datePickerToggle = () => {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
-  };
-
-  reset = () => {
-    this.setState({ startDate: null, endDate: null, focusedInput: START_DATE });
   };
 
   componentDidMount() {
