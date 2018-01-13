@@ -28,7 +28,6 @@ const Select = styled.select`
   background: url(${arrowDown}) right center no-repeat;
   background-origin: content-box;
   border: 1px solid rgba(72, 72, 72, 0.2);
-  box-shadow: 0 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
   color: #383838;
 `;
