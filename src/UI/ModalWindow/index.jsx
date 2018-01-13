@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ScrollLock from 'react-scrolllock';
 import FadeBackground from './FadeBackground';
+import ScrollLock from '../ScrollLock';
 
 const Wrapper = styled.div`
   z-index: 100;
@@ -87,7 +87,6 @@ export default class ModalWindow extends React.Component {
       <Wrapper>
         <Content>{this.props.children}</Content>
         <FadeBackground />
-        <ScrollLock />
       </Wrapper>
     );
   }

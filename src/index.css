@@ -29,6 +29,10 @@ html {
   }
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 *,
 *:before,
 *:after {
