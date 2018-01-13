@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row as BasicRow } from 'react-flexbox-grid';
-import DatePicker from './DatePicker';
+import DatePicker from './DatePicker/index';
 import { MenuButton } from './styled';
 
 const Wrapper = styled.div`

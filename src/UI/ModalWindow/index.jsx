@@ -64,7 +64,7 @@ const SaveButton = Button.extend`
 `;
 
 export default class ModalWindow extends React.Component {
-  renderMobile() {
+  renderModalWindow() {
     return (
       <Wrapper>
         <Header>
@@ -82,7 +82,7 @@ export default class ModalWindow extends React.Component {
     );
   }
 
-  renderDesktop() {
+  renderPopupWindow() {
     return (
       <Wrapper>
         <Content>{this.props.children}</Content>
@@ -92,9 +92,9 @@ export default class ModalWindow extends React.Component {
   }
 
   render() {
-    const mobile = matchMedia('(max-width: 767px)').matches;
+    const md = matchMedia('(min-width: 768px)').matches;
 
-    if (mobile) return this.renderMobile();
-    return this.renderDesktop();
+    if (md) return this.renderPopupWindow();
+    return this.renderModalWindow();
   }
 }
