@@ -29,8 +29,15 @@ const FakeButtons = () => (
 );
 
 class Filters extends React.Component {
+  state = {
+    startDate: null,
+    endDate: null
+  };
+
   onDatesSave = (startDate, endDate) => {
+    if (!startDate || !endDate) return;
     console.log(`Dates saved! start date: ${startDate.format()}, end date: ${endDate.format()}`);
+    this.setState({ startDate, endDate });
   };
 
   render() {

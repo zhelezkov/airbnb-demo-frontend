@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DayPickerRangeController } from 'react-dates';
+import { DayPickerRangeController, DateRangePickerInputController } from 'react-dates';
 import { START_DATE, VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-dates/constants';
 import onClickOutside from 'react-onclickoutside';
 import { MenuButton } from './styled';
@@ -53,11 +53,11 @@ class DatePicker extends React.Component {
   };
 
   datePickerToggle = () => {
-    this.setState(prevState => ({ datePickerOpen: !prevState.datePickerOpen }));
+    this.setState(prevState => ({ open: !prevState.open }));
   };
 
   close = () => {
-    this.setState(prevState => ({ datePickerOpen: false }));
+    this.setState(prevState => ({ open: false }));
   };
 
   saveDates = () => {
@@ -74,11 +74,11 @@ class DatePicker extends React.Component {
   };
 
   componentDidMount() {
-    window.addEventListener("resize", this.close);
+    window.addEventListener('resize', this.close);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.close);
+    window.removeEventListener('resize', this.close);
   }
 
   renderCalendarInfo = () => (
@@ -94,20 +94,22 @@ class DatePicker extends React.Component {
     const mobile = matchMedia('(max-width: 767px)').matches;
     const laptop = matchMedia('(max-width: 991px)').matches;
 
-    const platformProps = mobile ? mobileCalendarProps : laptop ? laptopCalendarProps : desktopCalendarProps;
+    const platformProps = mobile
+      ? mobileCalendarProps
+      : laptop ? laptopCalendarProps : desktopCalendarProps;
     return (
       <ModalWindow title="Dates" onClose={this.close} onReset={this.reset} onSave={this.saveDates}>
-        <DayPickerRangeController
-          {...platformProps}
-          noBorder
-          isOutsideRange={dayBeforeToday}
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          onDatesChange={this.onDatesChange}
-          focusedInput={this.state.focusedInput}
-          onFocusChange={this.onFocusChange}
-          hideKeyboardShortcutsPanel={true}
-        />
+          <DayPickerRangeController
+            {...platformProps}
+            noBorder
+            isOutsideRange={dayBeforeToday}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            onDatesChange={this.onDatesChange}
+            focusedInput={this.state.focusedInput}
+            onFocusChange={this.onFocusChange}
+            hideKeyboardShortcutsPanel={true}
+          />
       </ModalWindow>
     );
   }
@@ -115,10 +117,10 @@ class DatePicker extends React.Component {
   render() {
     return (
       <div>
-        <MenuButton onClick={this.datePickerToggle} highlighted={this.state.datePickerOpen}>
+        <MenuButton onClick={this.datePickerToggle} highlighted={this.state.open}>
           Dates
         </MenuButton>
-        {this.state.datePickerOpen && this.renderDatePicker()}
+        {this.state.open && this.renderDatePicker()}
       </div>
     );
   }
