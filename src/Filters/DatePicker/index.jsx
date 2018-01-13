@@ -1,7 +1,6 @@
 import React from 'react';
 import { DayPickerRangeController, DateRangePickerInputController } from 'react-dates';
 import { START_DATE, VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-dates/constants';
-import onClickOutside from 'react-onclickoutside';
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 import { dayBeforeToday } from '../helpers';
@@ -58,10 +57,6 @@ class DatePicker extends React.Component {
     this.setState({ startDate: null, endDate: null, focusedInput: START_DATE });
   };
 
-  handleClickOutside = ev => {
-    this.close();
-  };
-
   componentDidMount() {
     window.addEventListener('resize', this.close);
   }
@@ -71,10 +66,10 @@ class DatePicker extends React.Component {
   }
 
   buttonTitle() {
-    const {startDate, endDate, isOpen} = this.state;
+    const { startDate, endDate, isOpen } = this.state;
     if (startDate && endDate) return buttonDateFormat(startDate, endDate);
     if (isOpen) return 'Check in – Check out';
-    return 'Dates'
+    return 'Dates';
   }
 
   datePickerAdaptiveProps() {
@@ -86,11 +81,38 @@ class DatePicker extends React.Component {
     return this.xsCalendarProps;
   }
 
+  renderDayRangeInput() {
+    const md = matchMedia('(min-width: 768px)').matches;
+    const lg = matchMedia('(min-width: 992px)').matches;
+
+    if (!md && !lg) {
+      return (
+        <DateRangePickerInputController
+          noBorder={true}
+          isOutsideRange={dayBeforeToday}
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          onDatesChange={this.onDatesChange}
+          startDatePlaceholderText="Check-in"
+          endDatePlaceholderText="Check-out"
+          displayFormat="MMM DD"
+        />
+      );
+    }
+  }
+
   renderDatePicker() {
     const calendarProps = this.datePickerAdaptiveProps();
 
     return (
-      <ModalWindow title="Dates" onClose={this.close} onReset={this.reset} onSave={this.saveDates}>
+      <ModalWindow
+        title="Dates"
+        onClose={this.close}
+        onReset={this.reset}
+        onSave={this.saveDates}
+        noClickOutside={this.toggleButton}
+      >
+        {this.renderDayRangeInput()}
         <DayPickerRangeController
           noBorder={true}
           isOutsideRange={dayBeforeToday}
@@ -109,7 +131,11 @@ class DatePicker extends React.Component {
   render() {
     return (
       <div>
-        <MenuButton onClick={this.datePickerToggle} highlighted={this.state.isOpen}>
+        <MenuButton
+          onClick={this.datePickerToggle}
+          highlighted={this.state.isOpen}
+          innerRef={toggleButton => (this.toggleButton = toggleButton)}
+        >
           {this.buttonTitle()}
         </MenuButton>
         {this.state.isOpen && this.renderDatePicker()}
@@ -118,4 +144,4 @@ class DatePicker extends React.Component {
   }
 }
 
-export default onClickOutside(DatePicker);
+export default DatePicker;

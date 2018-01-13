@@ -1,33 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
+import onClickOutside from 'react-onclickoutside';
+import { Portal } from 'react-portal';
 import FadeBackground from './FadeBackground';
 import ScrollLock from '../ScrollLock';
 
 const Wrapper = styled.div`
-  z-index: 100;
-  display: flex;
-
-  @media (max-width: 767px) {
-    position: fixed;
-    background-color: #fff;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    flex-direction: column;
-  }
+  z-index: 2000;
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
   @media (min-width: 768px) {
-    display: block;
     position: absolute;
-    background-color: #fff;
     border: 1px rgba(72, 72, 72, 0.2) solid;
     border-radius: 4px;
     padding: 0.5rem;
+    top: initial;
+    right: initial;
+    bottom: initial;
+    left: initial;
   }
 `;
 
 const Header = styled.header`
+  position: absolute;
+  top: 0;
+  width: 100%;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -36,6 +38,9 @@ const Header = styled.header`
 `;
 
 const Footer = styled.footer`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   border-top: 0.5px #d5d5d5 solid;
@@ -43,7 +48,14 @@ const Footer = styled.footer`
 `;
 
 const Content = styled.div`
-  flex: 1 1 100%;
+  position: absolute;
+  top: 3.875rem;
+  bottom: 6.5rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    position: initial;
+  }
 `;
 
 const Button = styled.button`
@@ -63,22 +75,27 @@ const SaveButton = Button.extend`
   padding: 0.85rem 8.25rem 0.85rem 8.25rem;
 `;
 
-export default class ModalWindow extends React.Component {
+class ModalWindow extends React.Component {
+  handleClickOutside = ev => {
+    if (ev.target !== this.props.noClickOutside) this.props.onClose();
+  };
+
   renderModalWindow() {
     return (
-      <Wrapper>
-        <Header>
-          <CloseButton onClick={this.props.onClose}>&#10005;</CloseButton>
-          {this.props.title}
-          <Button onClick={this.props.onReset}>Reset</Button>
-        </Header>
-        <Content>{this.props.children}</Content>
-        <Footer>
-          <SaveButton onClick={this.props.onSave}>Save</SaveButton>
-        </Footer>
-        <FadeBackground />
-        <ScrollLock />
-      </Wrapper>
+      <Portal>
+        <Wrapper>
+          <Header>
+            <CloseButton onClick={this.props.onClose}>&#10005;</CloseButton>
+            {this.props.title}
+            <Button onClick={this.props.onReset}>Reset</Button>
+          </Header>
+          <Content>{this.props.children}</Content>
+          <Footer>
+            <SaveButton onClick={this.props.onSave}>Save</SaveButton>
+          </Footer>
+          <ScrollLock />
+        </Wrapper>
+      </Portal>
     );
   }
 
@@ -98,3 +115,5 @@ export default class ModalWindow extends React.Component {
     return this.renderModalWindow();
   }
 }
+
+export default onClickOutside(ModalWindow);
