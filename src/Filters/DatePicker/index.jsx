@@ -11,11 +11,12 @@ class DatePicker extends React.Component {
   state = {
     startDate: null,
     endDate: null,
+    isOpen: false,
     focusedInput: START_DATE
   };
 
   close = () => {
-    this.setState({ open: false });
+    this.setState({ isOpen: false });
   };
 
   saveDates = () => {
@@ -49,7 +50,7 @@ class DatePicker extends React.Component {
   };
 
   datePickerToggle = () => {
-    this.setState(prevState => ({ open: !prevState.open }));
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
   };
 
   reset = () => {
@@ -69,7 +70,7 @@ class DatePicker extends React.Component {
   }
 
   datePickerAdaptiveProps() {
-    const md = matchMedia('(min-width: 992px)').matches;
+    const md = matchMedia('(min-width: 768px)').matches;
     const lg = matchMedia('(min-width: 992px)').matches;
 
     if (lg) return this.lgCalendarProps;
@@ -100,10 +101,10 @@ class DatePicker extends React.Component {
   render() {
     return (
       <div>
-        <MenuButton onClick={this.datePickerToggle} highlighted={this.state.open}>
+        <MenuButton onClick={this.datePickerToggle} highlighted={this.state.isOpen}>
           Dates
         </MenuButton>
-        {this.state.open && this.renderDatePicker()}
+        {this.state.isOpen && this.renderDatePicker()}
       </div>
     );
   }
