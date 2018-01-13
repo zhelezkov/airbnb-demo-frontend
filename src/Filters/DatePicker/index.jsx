@@ -6,6 +6,7 @@ import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 import { dayBeforeToday } from '../helpers';
 import CalendarInfo from './CalendarInfo';
+import { buttonDateFormat } from './helpers';
 
 class DatePicker extends React.Component {
   state = {
@@ -69,6 +70,13 @@ class DatePicker extends React.Component {
     window.removeEventListener('resize', this.close);
   }
 
+  buttonDescription() {
+    const {startDate, endDate, isOpen} = this.state;
+    if (startDate && endDate) return buttonDateFormat(startDate, endDate);
+    if (isOpen) return 'Check in – Check out';
+    return 'Dates'
+  }
+
   datePickerAdaptiveProps() {
     const md = matchMedia('(min-width: 768px)').matches;
     const lg = matchMedia('(min-width: 992px)').matches;
@@ -102,7 +110,7 @@ class DatePicker extends React.Component {
     return (
       <div>
         <MenuButton onClick={this.datePickerToggle} highlighted={this.state.isOpen}>
-          Dates
+          {this.buttonDescription()}
         </MenuButton>
         {this.state.isOpen && this.renderDatePicker()}
       </div>
