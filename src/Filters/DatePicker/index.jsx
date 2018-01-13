@@ -70,7 +70,7 @@ class DatePicker extends React.Component {
     window.removeEventListener('resize', this.close);
   }
 
-  buttonDescription() {
+  buttonTitle() {
     const {startDate, endDate, isOpen} = this.state;
     if (startDate && endDate) return buttonDateFormat(startDate, endDate);
     if (isOpen) return 'Check in – Check out';
@@ -110,7 +110,7 @@ class DatePicker extends React.Component {
     return (
       <div>
         <MenuButton onClick={this.datePickerToggle} highlighted={this.state.isOpen}>
-          {this.buttonDescription()}
+          {this.buttonTitle()}
         </MenuButton>
         {this.state.isOpen && this.renderDatePicker()}
       </div>
