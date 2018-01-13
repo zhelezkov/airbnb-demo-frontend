@@ -10,6 +10,7 @@ const HomesRow = styled(Row)`
 const CenterRow = styled(Row)`
   justify-content: center;
   margin-bottom: 1rem;
+  color: #636363;
 `;
 
 const PageNumber = styled.a`
