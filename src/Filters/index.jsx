@@ -19,13 +19,13 @@ const Row = styled(BasicRow)`
 `;
 
 const FakeButtons = () => (
-  <Row>
+  <React.Fragment>
     <MenuButton>Guests</MenuButton>
     <MenuButton className="hidden-xs hidden-sm hidden-md">Room type</MenuButton>
     <MenuButton className="hidden-xs hidden-sm hidden-md">Price</MenuButton>
     <MenuButton className="hidden-xs hidden-sm hidden-md">Instant book</MenuButton>
     <MenuButton>More filters</MenuButton>
-  </Row>
+  </React.Fragment>
 );
 
 class Filters extends React.Component {
