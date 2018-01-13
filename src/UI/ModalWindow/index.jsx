@@ -69,7 +69,6 @@ const CloseButton = Button.extend`
 `;
 
 const SaveButton = Button.extend`
-  flex: 1 0 100%;
   color: #ffffff;
   background-color: #ff5a5f;
   padding: 0.85rem 8.25rem 0.85rem 8.25rem;
