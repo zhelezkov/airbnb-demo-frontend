@@ -62,14 +62,6 @@ class DatePicker extends React.Component {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
   };
 
-  componentDidMount() {
-    window.addEventListener('resize', this.close);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.close);
-  }
-
   datePickerAdaptiveProps() {
     const md = matchMedia('(min-width: 768px)').matches;
     const lg = matchMedia('(min-width: 992px)').matches;
