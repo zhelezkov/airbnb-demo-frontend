@@ -3,9 +3,8 @@ import { DayPickerRangeController } from 'react-dates';
 import { START_DATE, VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-dates/constants';
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
-import { daysBeforeToday } from './helpers';
+import { daysBeforeToday, getButtonTitle } from './helpers';
 import CalendarInfo from './CalendarInfo';
-import { buttonDateFormat } from './helpers';
 import RangeInput from './RangeInput';
 
 class DatePicker extends React.Component {
@@ -71,13 +70,6 @@ class DatePicker extends React.Component {
     window.removeEventListener('resize', this.close);
   }
 
-  buttonTitle() {
-    const { startDate, endDate, isOpen } = this.state;
-    if (startDate && endDate) return buttonDateFormat(startDate, endDate);
-    if (isOpen) return 'Check in – Check out';
-    return 'Dates';
-  }
-
   datePickerAdaptiveProps() {
     const md = matchMedia('(min-width: 768px)').matches;
     const lg = matchMedia('(min-width: 992px)').matches;
@@ -140,7 +132,7 @@ class DatePicker extends React.Component {
           highlighted={this.state.isOpen}
           innerRef={toggleButton => (this.toggleButton = toggleButton)}
         >
-          {this.buttonTitle()}
+          {getButtonTitle(this.state.startDate, this.state.endDate, this.state.isOpen)}
         </MenuButton>
         {this.state.isOpen && this.renderDatePicker()}
       </div>
