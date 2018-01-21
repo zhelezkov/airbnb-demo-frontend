@@ -6,12 +6,11 @@ const InfoPanel = styled.div`
   justify-content: space-between;
 `;
 
-const CalendarButton = styled.button`
+const Button = styled.button`
   padding: 1rem;
   appearance: none;
   background: none;
   border: none;
-  color: ${({ color }) => color};
   cursor: pointer;
 
   :hover {
@@ -19,13 +18,15 @@ const CalendarButton = styled.button`
   }
 `;
 
+const ApplyButton = Button.extend`
+  color: #0f7276;
+`;
+
 export default (onClose, onApply) => {
   return () => (
     <InfoPanel>
-      <CalendarButton onClick={onClose}>Cancel</CalendarButton>
-      <CalendarButton onClick={onApply} color={'#0f7276'}>
-        Apply
-      </CalendarButton>
+      <Button onClick={onClose}>Cancel</Button>
+      <ApplyButton onClick={onApply}>Apply</ApplyButton>
     </InfoPanel>
   );
 };
