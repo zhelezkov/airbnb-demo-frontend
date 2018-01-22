@@ -4,7 +4,6 @@ import { START_DATE, VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-d
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 import { daysBeforeToday, getButtonTitle } from './helpers';
-import CalendarInfo  from '../InfoPanel';
 import RangeInput from './RangeInput';
 
 class DatePicker extends React.Component {
@@ -16,16 +15,12 @@ class DatePicker extends React.Component {
   };
 
   close = () => {
+    this.reset();
     this.setState({ isOpen: false });
   };
 
   reset = () => {
     this.setState({ startDate: null, endDate: null, focusedInput: START_DATE });
-  };
-
-  cancel = () => {
-    this.reset();
-    this.close();
   };
 
   saveDates = () => {
@@ -41,13 +36,11 @@ class DatePicker extends React.Component {
   mdCalendarProps = {
     orientation: HORIZONTAL_ORIENTATION,
     numberOfMonths: 1,
-    renderCalendarInfo: () => (<CalendarInfo onClose={this.cancel} onApply={this.saveDates} />)
   };
 
   lgCalendarProps = {
     orientation: HORIZONTAL_ORIENTATION,
     numberOfMonths: 2,
-    renderCalendarInfo: () => (<CalendarInfo onClose={this.cancel} onApply={this.saveDates} />)
   };
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -99,6 +92,7 @@ class DatePicker extends React.Component {
         onReset={this.reset}
         onSave={this.saveDates}
         noClickOutside={this.toggleButton}
+        renderHeaderBorder={false}
       >
         {this.renderDayRangeInput()}
         <DayPickerRangeController

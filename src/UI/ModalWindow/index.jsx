@@ -4,6 +4,7 @@ import onClickOutside from 'react-onclickoutside';
 import { Portal } from 'react-portal';
 import FadeBackground from './FadeBackground';
 import ScrollLock from './ScrollLock';
+import InfoPanel from './InfoPanel';
 
 const Wrapper = styled.div`
   z-index: 2000;
@@ -35,7 +36,7 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
-  ${({border}) => (border && 'border-bottom: 0.5px solid rgba(72, 72, 72, 0.3);')};
+  ${({ border }) => border && 'border-bottom: 0.5px solid rgba(72, 72, 72, 0.3);'};
 `;
 
 const Footer = styled.footer`
@@ -82,6 +83,11 @@ const SaveButton = Button.extend`
 `;
 
 class ModalWindow extends React.Component {
+  static defaultProps = {
+    renderHeaderBorder: true,
+    renderInfoPanel: true
+  };
+
   handleClickOutside = ev => {
     if (ev.target !== this.props.noClickOutside) this.props.onClose();
   };
@@ -90,7 +96,7 @@ class ModalWindow extends React.Component {
     return (
       <Portal>
         <Wrapper role="dialog">
-          <Header border={this.props.headerBorder}>
+          <Header border={this.props.renderHeaderBorder}>
             <CloseButton onClick={this.props.onClose}>&#10005;</CloseButton>
             {this.props.title}
             <Button onClick={this.props.onReset}>Reset</Button>
@@ -109,6 +115,9 @@ class ModalWindow extends React.Component {
     return (
       <Wrapper>
         <Content>{this.props.children}</Content>
+        {this.props.renderInfoPanel && (
+          <InfoPanel onClose={this.props.onClose} onApply={this.props.onSave} />
+        )}
         <FadeBackground />
       </Wrapper>
     );

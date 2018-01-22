@@ -2,7 +2,6 @@ import React from 'react';
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 import Picker from './Picker';
-import InfoPanel from '../InfoPanel';
 
 export default class Guests extends React.Component {
   state = {
@@ -22,8 +21,6 @@ export default class Guests extends React.Component {
   saveGuests = () => {};
 
   renderGuestsPicker() {
-    const md = matchMedia('(min-width: 768px)').matches;
-
     return (
       <ModalWindow
         title="Dates"
@@ -31,12 +28,10 @@ export default class Guests extends React.Component {
         onReset={this.reset}
         onSave={this.saveGuests}
         noClickOutside={this.toggleButton}
-        headerBorder={true}
       >
         <Picker title="Adults" />
         <Picker title="Children" description="Ages 2 – 12" />
         <Picker title="Infants" description="Under 2" />
-        {md && <InfoPanel />}
       </ModalWindow>
     );
   }
