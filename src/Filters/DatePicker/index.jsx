@@ -4,7 +4,7 @@ import { START_DATE, VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-d
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 import { daysBeforeToday, getButtonTitle } from './helpers';
-import CalendarInfo  from './CalendarInfo';
+import CalendarInfo  from '../InfoPanel';
 import RangeInput from './RangeInput';
 
 class DatePicker extends React.Component {

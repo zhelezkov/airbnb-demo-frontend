@@ -19,7 +19,7 @@ const Button = styled.button`
 `;
 
 const ApplyButton = Button.extend`
-  color: #0f7276;
+  color: #008489;
 `;
 
 export default ({ onClose, onApply }) => (

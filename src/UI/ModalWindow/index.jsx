@@ -35,6 +35,7 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
+  ${({border}) => (border && 'border-bottom: 0.5px solid rgba(72, 72, 72, 0.3);')};
 `;
 
 const Footer = styled.footer`
@@ -89,7 +90,7 @@ class ModalWindow extends React.Component {
     return (
       <Portal>
         <Wrapper role="dialog">
-          <Header>
+          <Header border={this.props.headerBorder}>
             <CloseButton onClick={this.props.onClose}>&#10005;</CloseButton>
             {this.props.title}
             <Button onClick={this.props.onReset}>Reset</Button>
