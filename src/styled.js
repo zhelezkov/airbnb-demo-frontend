@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Image = styled.img`
-  margin-bottom: 0.1rem;
   width: 100%;
 `;
 
@@ -10,8 +9,9 @@ export const CardWrapper = styled.a`
   flex-direction: column;
   text-decoration: none;
   color: #383838;
+  margin-bottom: 2.5rem;
 `;
 
 export const Description = styled.p`
-  margin: 0;
+  margin: 0.5rem 0 0 0;
 `;

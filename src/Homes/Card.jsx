@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Rating from '../Rating';
+import Rating from '../UI/Rating';
 import { CardWrapper, Image, Description } from '../styled';
 
 const ShortDescription = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin-top: 0.5rem;
 `;
 
 const Price = styled.span`
@@ -42,23 +43,23 @@ const HostType = styled.span`
   margin-left: 0.5rem;
 `;
 
-export default props => (
+export default ({title, image, price, houseType, beds, rating, reviews, hostType}) => (
   <CardWrapper href="#">
-    <Image src={props.image} alt={props.title} />
+    <Image src={image} alt={title} />
     <ShortDescription>
-      <Price>{props.price}$</Price>
-      <Title>{props.title}</Title>
+      <Price>{price}$</Price>
+      <Title>{title}</Title>
     </ShortDescription>
     <Description>
-      <HouseType>{props.houseType}</HouseType>
+      <HouseType>{houseType}</HouseType>
       ·
-      <BedsNumber>{`${props.bedsCount} ${props.bedsCount > 1 ? 'beds' : 'bed'}`}</BedsNumber>
+      <BedsNumber>{`${beds} ${beds > 1 ? 'beds' : 'bed'}`}</BedsNumber>
     </Description>
     <Description>
-      <Rating stars={props.rating} />
-      <Reviews>{props.reviewsCount}</Reviews>
+      <Rating stars={rating} />
+      <Reviews>{reviews}</Reviews>
       ·
-      <HostType>{props.hostType}</HostType>
+      <HostType>{hostType}</HostType>
     </Description>
   </CardWrapper>
 );

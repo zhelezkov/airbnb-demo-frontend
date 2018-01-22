@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import times from 'lodash/times';
 
-import starImage from './assets/star.svg';
+import starImage from '../Main/assets/star.svg';
 
 const Wrapper = styled.span`
   margin-right: 0.5rem;

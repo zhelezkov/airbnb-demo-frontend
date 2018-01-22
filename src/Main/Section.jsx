@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
 import NextPage from './NextPage';
 
 import arrowRight from './assets/arrow-right.svg';
 
 const Wrapper = styled.section`
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 `;
 
 const Header = styled.div`
@@ -26,10 +27,9 @@ const Cards = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   flex: 1 1 auto;
-  line-height: 1.3rem;
 `;
 
-const SeeAllLink = styled.a`
+const SeeAllLink = styled(Link)`
   text-decoration: none;
   color: #383838;
   white-space: nowrap;
@@ -64,11 +64,11 @@ export default ({ title, children }) => (
   </Wrapper>
 );
 
-export const SectionMore = ({ title, children }) => (
+export const SectionMore = ({ title, children, to }) => (
   <Wrapper>
     <Header>
       <Title>{title}</Title>
-      <SeeAllLink href="#" />
+      <SeeAllLink to={to} />
     </Header>
     <Slider>
       <Cards>{children}</Cards>

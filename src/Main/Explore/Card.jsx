@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const Wrapper = styled.a`
+const Wrapper = styled(Link)`
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
   flex-direction: column;
 
   text-decoration: none;
-  
+
   border: 1px solid rgba(72, 72, 72, 0.2);
   border-radius: 4px;
   box-sizing: border-box;
@@ -40,9 +41,9 @@ const Title = styled.h3`
   margin-left: 1rem;
 `;
 
-export default props => (
-  <Wrapper href="#" image={props.image}>
-    <Image src={props.image} alt={props.title} />
-    <Title>{props.title}</Title>
+export default ({ title, image, to }) => (
+  <Wrapper to={to}>
+    <Image src={image} alt={title} />
+    <Title>{title}</Title>
   </Wrapper>
 );

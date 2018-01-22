@@ -16,7 +16,13 @@ const Link = styled.a`
   font-weight: 400;
   color: #383838;
   text-decoration: none;
-  margin-right: 0.5rem;
+  margin-left: 2rem;
+  padding: 0.5rem;
+  border-bottom: 2px transparent solid;
+    
+  :hover {
+    border-bottom-color: #383838;
+  }
 `;
 
 export default () => (

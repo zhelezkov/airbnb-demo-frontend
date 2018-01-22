@@ -13,6 +13,8 @@ const Logo = styled.img`
 `;
 
 const Wrapper = styled.div`
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-left: 1rem;
   display: flex;
   align-content: center;
@@ -33,6 +35,7 @@ const Copyright = styled.p`
 
 const Link = BasicLink.extend`
   margin-right: 1rem;
+  margin-bottom: 0;
 `;
 
 export default () => (

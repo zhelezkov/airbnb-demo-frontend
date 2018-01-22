@@ -4,7 +4,7 @@ import { Grid } from 'react-flexbox-grid';
 
 import Selectors from './Selectors';
 import Navigation from './Navigation';
-import Socials from './Socials';
+import Basement from './Basement';
 
 const Footer = styled.footer`
   font-size: 0.75rem;
@@ -28,7 +28,7 @@ export default () => (
         <Selectors />
         <Navigation />
       </MainContent>
-      <Socials />
+      <Basement />
     </Grid>
   </Footer>
 );

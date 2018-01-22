@@ -1,14 +1,25 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import styled from 'styled-components';
+
 import Header from './Header';
 import Main from './Main';
-import Footer from './Footer';
+import Homes from './Homes';
+
+const Content = styled.div`
+  padding-top: 4.9375rem;
+`;
 
 const App = () => (
-  <React.Fragment>
-    <Header />
-    <Main />
-    <Footer />
-  </React.Fragment>
+  <BrowserRouter>
+    <React.Fragment>
+      <Header />
+      <Content>
+        <Route path="/" exact component={Main} />
+        <Route path="/homes" component={Homes} />
+      </Content>
+    </React.Fragment>
+  </BrowserRouter>
 );
 
 export default App;
