@@ -22,11 +22,9 @@ const ApplyButton = Button.extend`
   color: #0f7276;
 `;
 
-export const createCalendarInfo = (onClose, onApply) => {
-  return () => (
-    <InfoPanel>
-      <Button onClick={onClose}>Cancel</Button>
-      <ApplyButton onClick={onApply}>Apply</ApplyButton>
-    </InfoPanel>
-  );
-};
+export default ({ onClose, onApply }) => (
+  <InfoPanel>
+    <Button onClick={onClose}>Cancel</Button>
+    <ApplyButton onClick={onApply}>Apply</ApplyButton>
+  </InfoPanel>
+);

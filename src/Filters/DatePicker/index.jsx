@@ -4,7 +4,7 @@ import { START_DATE, VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-d
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 import { daysBeforeToday, getButtonTitle } from './helpers';
-import { createCalendarInfo } from './CalendarInfo';
+import CalendarInfo  from './CalendarInfo';
 import RangeInput from './RangeInput';
 
 class DatePicker extends React.Component {
@@ -41,13 +41,13 @@ class DatePicker extends React.Component {
   mdCalendarProps = {
     orientation: HORIZONTAL_ORIENTATION,
     numberOfMonths: 1,
-    renderCalendarInfo: createCalendarInfo(this.cancel, this.saveDates)
+    renderCalendarInfo: () => (<CalendarInfo onClose={this.cancel} onApply={this.saveDates} />)
   };
 
   lgCalendarProps = {
     orientation: HORIZONTAL_ORIENTATION,
     numberOfMonths: 2,
-    renderCalendarInfo: createCalendarInfo(this.cancel, this.saveDates)
+    renderCalendarInfo: () => (<CalendarInfo onClose={this.cancel} onApply={this.saveDates} />)
   };
 
   onDatesChange = ({ startDate, endDate }) => {
