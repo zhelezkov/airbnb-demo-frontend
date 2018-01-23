@@ -49,7 +49,6 @@ export default () => (
       <ContentWrapper>
         <Pages homes={mockData} pages={17} />
         <Basement>
-          <div/>
           <p>Enter dates to see full pricing. Additional fees apply. Taxes may be added.</p>
           <MapButton className="hidden-lg hidden-xl">
             <img src={mapIcon} alt="Map button" />

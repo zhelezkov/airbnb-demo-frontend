@@ -15,7 +15,7 @@ export default [
     beds: 9,
     reviews: 97,
     rating: 5,
-    hostType: 'Superhost'
+    hostType: 'Superhost',
   },
   {
     id: 1,
@@ -26,7 +26,7 @@ export default [
     beds: 5,
     reviews: 161,
     rating: 5,
-    hostType: 'Superhost'
+    hostType: 'Superhost',
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ export default [
     beds: 1,
     reviews: 364,
     rating: 5,
-    hostType: 'Superhost'
+    hostType: 'Superhost',
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ export default [
     beds: 1,
     reviews: 369,
     rating: 5,
-    hostType: 'Superhost'
+    hostType: 'Superhost',
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ export default [
     beds: 6,
     reviews: 105,
     rating: 5,
-    hostType: 'Superhost'
+    hostType: 'Superhost',
   },
   {
     id: 5,
@@ -70,6 +70,6 @@ export default [
     beds: 3,
     reviews: 221,
     rating: 5,
-    hostType: 'Superhost'
-  }
+    hostType: 'Superhost',
+  },
 ];

@@ -5,7 +5,7 @@ import Picker from './Picker';
 
 export default class Guests extends React.Component {
   state = {
-    isOpen: false
+    isOpen: false,
   };
 
   close = () => {
@@ -42,7 +42,9 @@ export default class Guests extends React.Component {
         <MenuButton
           onClick={this.guestsChooserToggle}
           highlighted={this.state.isOpen}
-          innerRef={toggleButton => (this.toggleButton = toggleButton)}
+          innerRef={(toggleButton) => {
+            this.toggleButton = toggleButton;
+          }}
         >
           Guests
         </MenuButton>

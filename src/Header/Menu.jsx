@@ -19,7 +19,7 @@ const Link = styled.a`
   margin-left: 2rem;
   padding: 0.5rem;
   border-bottom: 2px transparent solid;
-    
+
   :hover {
     border-bottom-color: #383838;
   }

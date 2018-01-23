@@ -43,7 +43,9 @@ const HostType = styled.span`
   margin-left: 0.5rem;
 `;
 
-export default ({title, image, price, houseType, beds, rating, reviews, hostType}) => (
+export default ({
+  title, image, price, houseType, beds, rating, reviews, hostType,
+}) => (
   <CardWrapper href="#">
     <Image src={image} alt={title} />
     <ShortDescription>

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Grid } from 'react-flexbox-grid';
 import SearchBar from './SearchBar';
 import DropdownMenu from './DropdownMenu';
 import Menu from './Menu';
 
 import logo from './icons/logo.svg';
-import { Link } from 'react-router-dom';
 
 const Header = styled.header`
   position: fixed;

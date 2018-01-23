@@ -11,7 +11,15 @@ class DatePicker extends React.Component {
     startDate: null,
     endDate: null,
     isOpen: false,
-    focusedInput: START_DATE
+    focusedInput: START_DATE,
+  };
+
+  onDatesChange = ({ startDate, endDate }) => {
+    this.setState({ startDate, endDate });
+  };
+
+  onFocusChange = (focusedInput) => {
+    this.setState({ focusedInput: !focusedInput ? START_DATE : focusedInput });
   };
 
   close = () => {
@@ -30,7 +38,7 @@ class DatePicker extends React.Component {
 
   xsCalendarProps = {
     orientation: VERTICAL_SCROLLABLE,
-    numberOfMonths: 4
+    numberOfMonths: 4,
   };
 
   mdCalendarProps = {
@@ -41,14 +49,6 @@ class DatePicker extends React.Component {
   lgCalendarProps = {
     orientation: HORIZONTAL_ORIENTATION,
     numberOfMonths: 2,
-  };
-
-  onDatesChange = ({ startDate, endDate }) => {
-    this.setState({ startDate, endDate });
-  };
-
-  onFocusChange = focusedInput => {
-    this.setState({ focusedInput: !focusedInput ? START_DATE : focusedInput });
   };
 
   datePickerToggle = () => {
@@ -64,26 +64,12 @@ class DatePicker extends React.Component {
     return this.xsCalendarProps;
   }
 
-  renderDayRangeInput() {
+  renderDatePicker() {
+    const calendarProps = this.datePickerAdaptiveProps();
     const md = matchMedia('(min-width: 768px)').matches;
     const lg = matchMedia('(min-width: 992px)').matches;
 
     const { startDate, endDate, focusedInput } = this.state;
-
-    if (!md && !lg) {
-      return (
-        <RangeInput
-          startDate={startDate}
-          endDate={endDate}
-          focus={focusedInput}
-          onFocusChange={this.onFocusChange}
-        />
-      );
-    }
-  }
-
-  renderDatePicker() {
-    const calendarProps = this.datePickerAdaptiveProps();
 
     return (
       <ModalWindow
@@ -94,16 +80,24 @@ class DatePicker extends React.Component {
         noClickOutside={this.toggleButton}
         renderHeaderBorder={false}
       >
-        {this.renderDayRangeInput()}
+        {!md &&
+        !lg && (
+          <RangeInput
+            startDate={startDate}
+            endDate={endDate}
+            focus={focusedInput}
+            onFocusChange={this.onFocusChange}
+          />
+        )}
         <DayPickerRangeController
-          noBorder={true}
+          noBorder
           isOutsideRange={daysBeforeToday}
           startDate={this.state.startDate}
           endDate={this.state.endDate}
           onDatesChange={this.onDatesChange}
           focusedInput={this.state.focusedInput}
           onFocusChange={this.onFocusChange}
-          hideKeyboardShortcutsPanel={true}
+          hideKeyboardShortcutsPanel
           {...calendarProps}
         />
       </ModalWindow>
@@ -116,7 +110,9 @@ class DatePicker extends React.Component {
         <MenuButton
           onClick={this.datePickerToggle}
           highlighted={this.state.isOpen}
-          innerRef={toggleButton => (this.toggleButton = toggleButton)}
+          innerRef={(toggleButton) => {
+            this.toggleButton = toggleButton;
+          }}
         >
           {getButtonTitle(this.state.startDate, this.state.endDate, this.state.isOpen)}
         </MenuButton>

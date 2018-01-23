@@ -16,4 +16,4 @@ export default () => (
   <Portal>
     <Background />
   </Portal>
-)
+);

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
 import Card from './Card';
 
@@ -68,7 +68,7 @@ const Page = ({ homes }) => (
   </HomesRow>
 );
 
-const Pagination = ({ pages }) => (
+const Pagination = () => (
   <CenterRow>
     <PageNumber selected href="#">
       1
