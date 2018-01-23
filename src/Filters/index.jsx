@@ -4,7 +4,9 @@ import { Grid, Row as BasicRow } from 'react-flexbox-grid';
 import DatePicker from './DatePicker/index';
 import { MenuButton } from './styled';
 import Guests from './Guests';
-import RoomsSelector from './RoomsSelector';
+import Rooms from './Rooms';
+import Price from './Price';
+import InstantBook from './InstantBook';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -22,8 +24,6 @@ const Row = styled(BasicRow)`
 
 const FakeButtons = () => (
   <React.Fragment>
-    <MenuButton className="hidden-xs hidden-sm hidden-md">Price</MenuButton>
-    <MenuButton className="hidden-xs hidden-sm hidden-md">Instant book</MenuButton>
     <MenuButton>More filters</MenuButton>
   </React.Fragment>
 );
@@ -60,7 +60,9 @@ class Filters extends React.Component {
           <Row>
             <DatePicker onDatesSave={this.onDatesSave} />
             <Guests onGuestsSave={this.onGuestsSave} />
-            <RoomsSelector className="hidden-xs hidden-sm hidden-md" />
+            <Rooms />
+            <Price />
+            <InstantBook />
             <FakeButtons />
           </Row>
         </Grid>

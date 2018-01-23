@@ -1,9 +1,8 @@
 import React from 'react';
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
-import Selector from './Selector';
 
-export default class Rooms extends React.Component {
+export default class Price extends React.Component {
   state = {
     isOpen: false,
   };
@@ -15,24 +14,21 @@ export default class Rooms extends React.Component {
     this.setState({ isOpen: false });
   };
 
-  roomsSelectorToggle = () => {
+  priceSelectorToggle = () => {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
   };
 
-  saveRooms = () => {
-  };
+  savePrice = () => {};
 
-  renderRoomsSelector() {
+  renderPriceSelector() {
     return (
       <ModalWindow
-        title="Rooms"
+        title="Price"
         onClose={this.close}
         onReset={this.reset}
-        onSave={this.saveRooms}
+        onSave={this.savePrice}
         noClickOutside={this.toggleButton}
-      >
-        <Selector title="Entire home" description="Have a place to yourself" />
-      </ModalWindow>
+      />
     );
   }
 
@@ -40,7 +36,7 @@ export default class Rooms extends React.Component {
     return (
       <div className="hidden-xs hidden-sm hidden-md">
         <MenuButton
-          onClick={this.roomsSelectorToggle}
+          onClick={this.priceSelectorToggle}
           highlighted={this.state.isOpen}
           innerRef={(toggleButton) => {
             this.toggleButton = toggleButton;
@@ -48,7 +44,7 @@ export default class Rooms extends React.Component {
         >
           Room type
         </MenuButton>
-        {this.state.isOpen && this.renderRoomsSelector()}
+        {this.state.isOpen && this.renderPriceSelector()}
       </div>
     );
   }
