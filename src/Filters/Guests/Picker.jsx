@@ -30,16 +30,18 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default ({ title, description }) => (
+export default ({
+  title, description, onIncrement, onDecrement, value,
+}) => (
   <Wrapper>
     <div>
       <Title>{title}</Title>
       <Description>{description}</Description>
     </div>
     <div>
-      <Button>-</Button>
-      0
-      <Button>+</Button>
+      <Button onClick={onDecrement}>-</Button>
+      {value}
+      <Button onClick={onIncrement}>+</Button>
     </div>
   </Wrapper>
 );

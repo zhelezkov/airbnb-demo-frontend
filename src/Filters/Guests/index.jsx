@@ -6,6 +6,9 @@ import Picker from './Picker';
 export default class Guests extends React.Component {
   state = {
     isOpen: false,
+    adultsCount: 0,
+    childrenCount: 0,
+    infantsCount: 0,
   };
 
   close = () => {
@@ -18,20 +21,64 @@ export default class Guests extends React.Component {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
   };
 
-  saveGuests = () => {};
+  saveGuests = () => {
+    const { adultsCount, childrenCount, infantsCount } = this.state;
+    this.props.onGuestsSave(adultsCount, childrenCount, infantsCount);
+  };
+
+  incrementAdult = () => {
+    this.setState(({ adultsCount }) => ({ adultsCount: adultsCount + 1 }));
+  };
+
+  decrementAdult = () => {
+    this.setState(({ adultsCount }) => ({ adultsCount: adultsCount - 1 }));
+  };
+
+  incrementChildren = () => {
+    this.setState(({ childrenCount }) => ({ childrenCount: childrenCount + 1 }));
+  };
+
+  decrementChildren = () => {
+    this.setState(({ childrenCount }) => ({ childrenCount: childrenCount - 1 }));
+  };
+
+  incrementInfants = () => {
+    this.setState(({ infantsCount }) => ({ infantsCount: infantsCount + 1 }));
+  };
+
+  decrementInfants = () => {
+    this.setState(({ infantsCount }) => ({ infantsCount: infantsCount - 1 }));
+  };
 
   renderGuestsPicker() {
     return (
       <ModalWindow
-        title="Dates"
+        title="Guests"
         onClose={this.close}
         onReset={this.reset}
         onSave={this.saveGuests}
         noClickOutside={this.toggleButton}
       >
-        <Picker title="Adults" />
-        <Picker title="Children" description="Ages 2 – 12" />
-        <Picker title="Infants" description="Under 2" />
+        <Picker
+          title="Adults"
+          onIncrement={this.incrementAdult}
+          onDecrement={this.decrementAdult}
+          value={this.state.adultsCount}
+        />
+        <Picker
+          title="Children"
+          description="Ages 2 – 12"
+          onIncrement={this.incrementChildren}
+          onDecrement={this.decrementChildren}
+          value={this.state.childrenCount}
+        />
+        <Picker
+          title="Infants"
+          description="Under 2"
+          onIncrement={this.incrementInfants}
+          onDecrement={this.decrementInfants}
+          value={this.state.infantsCount}
+        />
       </ModalWindow>
     );
   }

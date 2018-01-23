@@ -32,6 +32,9 @@ class Filters extends React.Component {
   state = {
     startDate: null,
     endDate: null,
+    adultsCount: 0,
+    childrenCount: 0,
+    infantsCount: 0,
   };
 
   onDatesSave = (startDate, endDate) => {
@@ -42,13 +45,21 @@ class Filters extends React.Component {
     }
   };
 
+  onGuestsSave = (adultsCount, childrenCount, infantsCount) => {
+    this.setState({ adultsCount, childrenCount, infantsCount }, () => {
+      console.log(`Guests saved! adults count: ${this.state.adultsCount}, 
+        children count: ${this.state.childrenCount}, 
+        infants count: ${this.state.infantsCount}`);
+    });
+  };
+
   render() {
     return (
       <Wrapper>
         <Grid>
           <Row>
             <DatePicker onDatesSave={this.onDatesSave} />
-            <Guests />
+            <Guests onGuestsSave={this.onGuestsSave} />
             <FakeButtons />
           </Row>
         </Grid>
