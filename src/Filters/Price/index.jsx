@@ -1,4 +1,5 @@
 import React from 'react';
+import Rheostat from 'rheostat';
 import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 
@@ -28,7 +29,13 @@ export default class Price extends React.Component {
         onReset={this.reset}
         onSave={this.savePrice}
         noClickOutside={this.toggleButton}
-      />
+      >
+        <Rheostat
+          min={1}
+          max={100}
+          values={[1, 100]}
+        />
+      </ModalWindow>
     );
   }
 
