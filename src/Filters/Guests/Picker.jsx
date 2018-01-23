@@ -5,7 +5,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 20.375rem;
   margin: 2rem 1rem 2rem 1.5rem;
 `;
 
