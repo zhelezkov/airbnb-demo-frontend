@@ -12,10 +12,13 @@ export default class Guests extends React.Component {
   };
 
   close = () => {
+    this.reset();
     this.setState({ isOpen: false });
   };
 
-  reset = () => {};
+  reset = () => {
+    this.setState({ adultsCount: 0, childrenCount: 0, infantsCount: 0 });
+  };
 
   guestsChooserToggle = () => {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
