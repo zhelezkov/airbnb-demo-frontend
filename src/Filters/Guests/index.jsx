@@ -12,7 +12,6 @@ export default class Guests extends React.Component {
   };
 
   close = () => {
-    this.reset();
     this.setState({ isOpen: false });
   };
 
@@ -26,7 +25,8 @@ export default class Guests extends React.Component {
 
   saveGuests = () => {
     const { adultsCount, childrenCount, infantsCount } = this.state;
-    this.props.onGuestsSave(adultsCount, childrenCount, infantsCount);
+    this.props.onSave(adultsCount, childrenCount, infantsCount);
+    this.close();
   };
 
   incrementAdult = () => {

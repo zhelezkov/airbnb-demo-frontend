@@ -3,15 +3,27 @@ import { MenuButton } from '../styled';
 import ModalWindow from '../../UI/ModalWindow';
 import Selector from './Selector';
 
+import entireHomeIcon from './icons/entireHome.svg';
+import privateRoomIcon from './icons/privateRoom.svg';
+import sharedRoomIcon from './icons/sharedRoom.svg';
+
 export default class Rooms extends React.Component {
   state = {
     isOpen: false,
+    entireHomeSelected: false,
+    privateRoomSelected: false,
+    sharedRoomSelected: false,
   };
 
-  reset = () => {};
+  reset = () => {
+    this.setState({
+      entireHomeSelected: false,
+      privateRoomSelected: false,
+      sharedRoomSelected: false,
+    });
+  };
 
   close = () => {
-    this.reset();
     this.setState({ isOpen: false });
   };
 
@@ -20,6 +32,21 @@ export default class Rooms extends React.Component {
   };
 
   saveRooms = () => {
+    const { entireHomeSelected, privateRoomSelected, sharedRoomSelected } = this.state;
+    this.props.onSave(entireHomeSelected, privateRoomSelected, sharedRoomSelected);
+    this.close();
+  };
+
+  toggleEntireHome = () => {
+    this.setState(({ entireHomeSelected }) => ({ entireHomeSelected: !entireHomeSelected }));
+  };
+
+  togglePrivateRoom = () => {
+    this.setState(({ privateRoomSelected }) => ({ privateRoomSelected: !privateRoomSelected }));
+  };
+
+  toggleSharedRoom = () => {
+    this.setState(({ sharedRoomSelected }) => ({ sharedRoomSelected: !sharedRoomSelected }));
   };
 
   renderRoomsSelector() {
@@ -31,7 +58,27 @@ export default class Rooms extends React.Component {
         onSave={this.saveRooms}
         noClickOutside={this.toggleButton}
       >
-        <Selector title="Entire home" description="Have a place to yourself" />
+        <Selector
+          title="Entire home"
+          description="Have a place to yourself"
+          checked={this.state.entireHomeSelected}
+          icon={entireHomeIcon}
+          onChange={this.toggleEntireHome}
+        />
+        <Selector
+          title="Private room"
+          description="Have your own room and share some common spaces"
+          checked={this.state.privateRoomSelected}
+          icon={privateRoomIcon}
+          onChange={this.togglePrivateRoom}
+        />
+        <Selector
+          title="Shared room"
+          description="Stay in a shared space, like a common room"
+          checked={this.state.sharedRoomSelected}
+          icon={sharedRoomIcon}
+          onChange={this.toggleSharedRoom}
+        />
       </ModalWindow>
     );
   }

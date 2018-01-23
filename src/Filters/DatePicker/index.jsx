@@ -23,7 +23,6 @@ class DatePicker extends React.Component {
   };
 
   close = () => {
-    this.reset();
     this.setState({ isOpen: false });
   };
 
@@ -32,7 +31,7 @@ class DatePicker extends React.Component {
   };
 
   saveDates = () => {
-    this.props.onDatesSave(this.state.startDate, this.state.endDate);
+    this.props.onSave(this.state.startDate, this.state.endDate);
     this.close();
   };
 

@@ -32,9 +32,14 @@ class Filters extends React.Component {
   state = {
     startDate: null,
     endDate: null,
+
     adultsCount: 0,
     childrenCount: 0,
     infantsCount: 0,
+
+    entireHomeSelected: false,
+    privateRoomSelected: false,
+    sharedRoomSelected: false,
   };
 
   onDatesSave = (startDate, endDate) => {
@@ -53,14 +58,22 @@ class Filters extends React.Component {
     });
   };
 
+  onRoomTypesSave = (entireHomeSelected, privateRoomSelected, sharedRoomSelected) => {
+    this.setState({ entireHomeSelected, privateRoomSelected, sharedRoomSelected }, () => {
+      console.log(`Room types saved! entire home selected: ${this.state.entireHomeSelected}, 
+        private room selected: ${this.state.privateRoomSelected}, 
+        shared room selected: ${this.state.sharedRoomSelected}`);
+    });
+  };
+
   render() {
     return (
       <Wrapper>
         <Grid>
           <Row>
-            <DatePicker onDatesSave={this.onDatesSave} />
-            <Guests onGuestsSave={this.onGuestsSave} />
-            <Rooms />
+            <DatePicker onSave={this.onDatesSave} />
+            <Guests onSave={this.onGuestsSave} />
+            <Rooms onSave={this.onRoomTypesSave}/>
             <Price />
             <InstantBook />
             <FakeButtons />
