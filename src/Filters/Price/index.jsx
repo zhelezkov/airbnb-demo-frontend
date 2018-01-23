@@ -42,7 +42,7 @@ export default class Price extends React.Component {
             this.toggleButton = toggleButton;
           }}
         >
-          Room type
+          Price
         </MenuButton>
         {this.state.isOpen && this.renderPriceSelector()}
       </div>
