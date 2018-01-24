@@ -30,7 +30,7 @@ const Button = styled.button`
 `;
 
 export default ({
-  title, description, onIncrement, onDecrement, value,
+  title, description, onIncrement, onDecrement, value, name,
 }) => (
   <Wrapper>
     <div>
@@ -38,9 +38,13 @@ export default ({
       <Description>{description}</Description>
     </div>
     <div>
-      <Button onClick={onDecrement}>-</Button>
+      <Button name={name} onClick={onDecrement}>
+        -
+      </Button>
       {value}
-      <Button onClick={onIncrement}>+</Button>
+      <Button name={name} onClick={onIncrement}>
+        +
+      </Button>
     </div>
   </Wrapper>
 );

@@ -1,10 +1,10 @@
 import React from 'react';
-import Guests from './Guests';
 import Rooms from './Rooms';
 import Price from './Price';
 import InstantBook from './InstantBook';
 import { MenuButton } from './styled';
-import DatePickerContainer from './DatePicker/Container';
+import DatePickerContainer from './DatePicker/Controller';
+import GuestsContainer from './Guests/Controller';
 
 const isOpen = (filter, openedFilter) => filter === openedFilter;
 
@@ -42,7 +42,7 @@ export default class Modals extends React.Component {
         openedFilter={this.state.openedFilter}
       >
         <DatePickerContainer onSave={this.props.onDatesSave} />
-        <Guests onSave={this.props.onGuestsSave} />
+        <GuestsContainer onSave={this.props.onGuestsSave} />
         <Rooms onSave={this.props.onRoomTypesSave} />
         <Price />
         <InstantBook />

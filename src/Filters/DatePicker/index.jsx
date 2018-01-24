@@ -28,11 +28,9 @@ function getDatePickerAdaptiveProps() {
   return xsCalendarProps;
 }
 
-export default () => {
-  const {
-    startDate, endDate, focusedInput, onDatePickerFocusChange, onDatesChange,
-  } = this.props;
-
+export default ({
+  startDate, endDate, focusedInput, onDatePickerFocusChange, onDatesChange,
+}) => {
   const calendarProps = getDatePickerAdaptiveProps();
   const md = matchMedia('(min-width: 768px)').matches;
   const lg = matchMedia('(min-width: 992px)').matches;

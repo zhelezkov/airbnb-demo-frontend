@@ -4,7 +4,7 @@ import ModalContainer from '../ModalContainer';
 import DatePicker from './index';
 import { getButtonTitle } from './helpers';
 
-export default class Container extends React.Component {
+export default class DatePickerController extends React.Component {
   state = {
     startDate: null,
     endDate: null,
