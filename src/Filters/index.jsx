@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row as BasicRow } from 'react-flexbox-grid';
-import DatePicker from './DatePicker/index';
-import { MenuButton } from './styled';
-import Guests from './Guests';
-import Rooms from './Rooms';
-import Price from './Price';
-import InstantBook from './InstantBook';
+import Modals from './Modals';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -21,12 +16,6 @@ const Wrapper = styled.div`
 const Row = styled(BasicRow)`
   flex-wrap: nowrap;
 `;
-
-const FakeButtons = () => (
-  <React.Fragment>
-    <MenuButton>More filters</MenuButton>
-  </React.Fragment>
-);
 
 class Filters extends React.Component {
   state = {
@@ -43,6 +32,7 @@ class Filters extends React.Component {
   };
 
   onDatesSave = (startDate, endDate) => {
+    console.log('attempt to save date')
     if (startDate && endDate) {
       this.setState({ startDate, endDate }, () => {
         console.log(`Dates saved! start date: ${this.state.startDate.format()}, end date: ${this.state.endDate.format()}`);
@@ -71,12 +61,11 @@ class Filters extends React.Component {
       <Wrapper>
         <Grid>
           <Row>
-            <DatePicker onSave={this.onDatesSave} />
-            <Guests onSave={this.onGuestsSave} />
-            <Rooms onSave={this.onRoomTypesSave}/>
-            <Price />
-            <InstantBook />
-            <FakeButtons />
+            <Modals
+              onDatesSave={this.onDatesSave}
+              onGuestsSave={this.onGuestsSave}
+              onRoomTypesSave={this.onRoomTypesSave}
+            />
           </Row>
         </Grid>
       </Wrapper>

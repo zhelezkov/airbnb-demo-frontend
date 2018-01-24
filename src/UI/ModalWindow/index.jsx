@@ -86,10 +86,10 @@ const SaveButton = Button.extend`
 class ModalWindow extends React.Component {
   static defaultProps = {
     renderHeaderBorder: true,
-    renderInfoPanel: true
+    renderInfoPanel: true,
   };
 
-  handleClickOutside = ev => {
+  handleClickOutside = (ev) => {
     if (ev.target !== this.props.noClickOutside) this.props.onClose();
   };
 

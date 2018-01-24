@@ -5,14 +5,18 @@ import Picker from './Picker';
 
 export default class Guests extends React.Component {
   state = {
-    isOpen: false,
     adultsCount: 0,
     childrenCount: 0,
     infantsCount: 0,
   };
 
+  onWindowClose = () => {
+    this.reset();
+    this.close();
+  };
+
   close = () => {
-    this.setState({ isOpen: false });
+    this.props.onClose('Guests');
   };
 
   reset = () => {
@@ -57,7 +61,7 @@ export default class Guests extends React.Component {
     return (
       <ModalWindow
         title="Guests"
-        onClose={this.close}
+        onClose={this.onWindowClose}
         onReset={this.reset}
         onSave={this.saveGuests}
         noClickOutside={this.toggleButton}
