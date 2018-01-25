@@ -117,7 +117,7 @@ class ModalWindow extends React.Component {
       <Wrapper>
         <Content>{this.props.children}</Content>
         {this.props.renderInfoPanel && (
-          <InfoPanel onClose={this.props.onClose} onApply={this.props.onSave} />
+          <InfoPanel onCancel={this.props.onCancel} onApply={this.props.onSave} />
         )}
         <FadeBackground />
       </Wrapper>

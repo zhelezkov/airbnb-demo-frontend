@@ -3,24 +3,16 @@ import ModalWindow from '../UI/ModalWindow';
 import { MenuButton } from './styled';
 
 export default class ModalContainer extends React.Component {
-  onWindowClose = () => {
+  onCancel = () => {
     this.props.onReset();
-    this.close();
-  };
-
-  open() {
-    this.props.onOpen();
-  }
-
-  close() {
     this.props.onClose();
-  }
+  };
 
   toggleWindow = () => {
     if (this.props.isOpen) {
-      this.close();
+      this.props.onClose();
     } else {
-      this.open();
+      this.props.onOpen();
     }
   };
 
@@ -29,7 +21,8 @@ export default class ModalContainer extends React.Component {
     return (
       <ModalWindow
         title={this.props.title}
-        onClose={this.onWindowClose}
+        onCancel={this.onCancel}
+        onClose={this.props.onClose}
         onReset={this.props.onReset}
         onSave={this.props.onSave}
         noClickOutside={this.toggleButton}
