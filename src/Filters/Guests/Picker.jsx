@@ -27,24 +27,42 @@ const Button = styled.button`
   border-radius: 50%;
   background: none;
   cursor: pointer;
+  
+  &:disabled {
+    opacity: 0.5;
+  }
+`;
+
+const Value = styled.span`
+  width: 1rem;
+  text-align: center;
+`;
+
+const SelectorsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default ({
-  title, description, onIncrement, onDecrement, value, name,
+  title, description, onIncrement, onDecrement, value, name, decrementDisabled,
 }) => (
   <Wrapper>
     <div>
       <Title>{title}</Title>
       <Description>{description}</Description>
     </div>
-    <div>
-      <Button name={name} onClick={onDecrement}>
+    <SelectorsWrapper>
+      <Button name={name} onClick={onDecrement} disabled={decrementDisabled}>
         -
       </Button>
-      {value}
+      <Value>
+        {value}
+      </Value>
       <Button name={name} onClick={onIncrement}>
         +
       </Button>
-    </div>
+    </SelectorsWrapper>
   </Wrapper>
 );

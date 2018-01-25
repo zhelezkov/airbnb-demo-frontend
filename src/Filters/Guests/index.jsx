@@ -19,6 +19,7 @@ export default class Guests extends React.Component {
           onIncrement={this.increment}
           onDecrement={this.decrement}
           value={this.props.adultsCount}
+          decrementDisabled={this.props.adultsCount <= 0}
         />
         <Picker
           title="Children"
@@ -27,6 +28,7 @@ export default class Guests extends React.Component {
           onIncrement={this.increment}
           onDecrement={this.decrement}
           value={this.props.childrenCount}
+          decrementDisabled={this.props.childrenCount <= 0}
         />
         <Picker
           title="Infants"
@@ -35,6 +37,7 @@ export default class Guests extends React.Component {
           onIncrement={this.increment}
           onDecrement={this.decrement}
           value={this.props.infantsCount}
+          decrementDisabled={this.props.infantsCount <= 0}
         />
       </React.Fragment>
     );
