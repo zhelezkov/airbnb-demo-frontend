@@ -33,6 +33,7 @@ export default class PriceController extends React.Component {
         buttonTitle="Price"
         onReset={this.reset}
         onSave={this.save}
+        className="hidden-xs hidden-sm hidden-md"
       >
         <Wrapper>
           <PriceSelector />

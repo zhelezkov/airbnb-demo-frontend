@@ -29,6 +29,8 @@ export default class GuestsController extends React.Component {
   };
 
   render() {
+    const md = matchMedia('(min-width: 768px)').matches;
+
     const { adultsCount, childrenCount, infantsCount } = this.state;
     return (
       <ModalContainer
@@ -45,7 +47,7 @@ export default class GuestsController extends React.Component {
           childrenCount={childrenCount}
           infantsCount={infantsCount}
         />
-        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
+        {md && <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />}
       </ModalContainer>
     );
   }

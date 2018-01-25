@@ -26,15 +26,20 @@ export default class FilterContainer extends React.Component {
         noClickOutside={this.toggleButton}
         renderHeaderBorder={this.props.renderHeaderBorder}
       >
-        {React.Children.map(this.props.children, child =>
-          React.cloneElement(child, { onCancel: this.onCancel }))}
+        {React.Children.map(this.props.children, (child) => {
+          try {
+            return React.cloneElement(child, { onCancel: this.onCancel });
+          } catch (e) {
+            return child;
+          }
+        })}
       </ModalWindow>
     );
   }
 
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         <MenuButton
           onClick={this.toggleWindow}
           highlighted={this.props.isOpen}

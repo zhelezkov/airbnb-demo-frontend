@@ -41,6 +41,7 @@ export default class RoomsController extends React.Component {
         buttonTitle="Room type"
         onReset={this.reset}
         onSave={this.save}
+        className="hidden-xs hidden-sm hidden-md"
       >
         <Wrapper>
           <Rooms {...this.state} onSelect={this.selectHomeType} />
