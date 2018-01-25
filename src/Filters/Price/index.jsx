@@ -92,9 +92,23 @@ const HistogramAligned = styled(Histogram)`
   margin-bottom: -6px;
 `;
 
-export default () => (
+const PriceRange = styled.div`
+  font-weight: 100;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+`;
+
+const Description = styled.div`
+  font-weight: 100;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+`;
+
+export default ({ onChange, min, max }) => (
   <React.Fragment>
+    <PriceRange>$10 – $1000+</PriceRange>
+    <Description>The average nightly price is $75.</Description>
     <HistogramAligned />
-    <Rheostat values={[0, 100]} handle={Handle} progressBar={ProgressBar} />
+    <Rheostat handle={Handle} progressBar={ProgressBar} onChange={onChange} values={[min, max]} />
   </React.Fragment>
 );

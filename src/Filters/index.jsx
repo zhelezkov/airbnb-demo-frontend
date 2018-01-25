@@ -60,8 +60,8 @@ class Filters extends React.Component {
     },
 
     price: {
-      min: Number.NEGATIVE_INFINITY,
-      max: Number.POSITIVE_INFINITY,
+      min: 0,
+      max: 100,
     },
   };
 

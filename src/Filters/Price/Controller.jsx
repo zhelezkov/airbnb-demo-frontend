@@ -12,7 +12,12 @@ const Wrapper = styled.div`
 export default class PriceController extends React.Component {
   state = {
     min: 0,
-    max: 0,
+    max: 100,
+  };
+
+  onChange = ({ values }) => {
+    const [min, max] = values;
+    this.setState({ min, max });
   };
 
   reset = () => {
@@ -35,7 +40,7 @@ export default class PriceController extends React.Component {
         className="hidden-xs hidden-sm hidden-md"
       >
         <Wrapper>
-          <PriceSelector />
+          <PriceSelector onChange={this.onChange} min={this.state.min} max={this.state.max} />
         </Wrapper>
         <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
       </ModalContainer>
