@@ -2,7 +2,7 @@ import React from 'react';
 import ModalWindow from '../UI/ModalWindow';
 import { MenuButton } from './styled';
 
-export default class ModalContainer extends React.Component {
+export default class FilterContainer extends React.Component {
   onCancel = () => {
     this.props.onReset();
     this.props.onClose();
@@ -17,7 +17,6 @@ export default class ModalContainer extends React.Component {
   };
 
   renderWindow() {
-    const child = React.Children.only(this.props.children);
     return (
       <ModalWindow
         title={this.props.title}
@@ -28,7 +27,7 @@ export default class ModalContainer extends React.Component {
         noClickOutside={this.toggleButton}
         renderHeaderBorder={this.props.renderHeaderBorder}
       >
-        {child}
+        {this.props.children}
       </ModalWindow>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import ModalContainer from '../ModalContainer';
+import ModalContainer from '../Container';
 import Guests from './index';
 
 export default class GuestsController extends React.Component {

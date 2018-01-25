@@ -36,7 +36,7 @@ export default ({
   const lg = matchMedia('(min-width: 992px)').matches;
 
   return (
-    <div>
+    <React.Fragment>
       {!md &&
       !lg && (
         <RangeInput
@@ -57,6 +57,6 @@ export default ({
         hideKeyboardShortcutsPanel
         {...calendarProps}
       />
-    </div>
+    </React.Fragment>
   );
 }

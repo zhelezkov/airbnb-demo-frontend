@@ -1,8 +1,9 @@
 import React from 'react';
 import { START_DATE } from 'react-dates/constants';
-import ModalContainer from '../ModalContainer';
+import Container from '../Container';
 import DatePicker from './index';
 import { getButtonTitle } from './helpers';
+import InfoPanel from '../InfoPanel';
 
 export default class DatePickerController extends React.Component {
   state = {
@@ -32,12 +33,13 @@ export default class DatePickerController extends React.Component {
     const { startDate, endDate, focusedInput } = this.state;
 
     return (
-      <ModalContainer
+      <Container
         {...this.props}
         title="Dates"
         buttonTitle={getButtonTitle(startDate, endDate, this.props.isOpen)}
         onReset={this.reset}
         onSave={this.saveDates}
+        renderHeaderBorder={false}
       >
         <DatePicker
           startDate={startDate}
@@ -46,7 +48,8 @@ export default class DatePickerController extends React.Component {
           onDatesChange={this.onDatesChange}
           onDatePickerFocusChange={this.onDatePickerFocusChange}
         />
-      </ModalContainer>
+        <InfoPanel onCancel={this.props.onCancel} onApply={this.saveDates} />
+      </Container>
     );
   }
 }
