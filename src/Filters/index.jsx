@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row as BasicRow } from 'react-flexbox-grid';
-import InstantBook from './InstantBook';
 import { MenuButton } from './styled';
 import DatePicker from './DatePicker/Controller';
 import Guests from './Guests/Controller';
 import Rooms from './Rooms/Controller';
 import Price from './Price/Controller';
+import InstantBook from './InstantBook/Controller';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -62,6 +62,10 @@ class Filters extends React.Component {
     price: {
       min: 0,
       max: 100,
+    },
+
+    instantBook: {
+      activated: false,
     },
   };
 

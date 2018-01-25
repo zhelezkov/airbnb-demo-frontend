@@ -92,13 +92,13 @@ const HistogramAligned = styled(Histogram)`
   margin-bottom: -6px;
 `;
 
-const PriceRange = styled.div`
+const PriceRange = styled.p`
   font-weight: 100;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 `;
 
-const Description = styled.div`
+const Description = styled.p`
   font-weight: 100;
   font-size: 0.85rem;
   margin-bottom: 1rem;
