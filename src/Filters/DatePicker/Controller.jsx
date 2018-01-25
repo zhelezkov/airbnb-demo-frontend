@@ -24,7 +24,7 @@ export default class DatePickerController extends React.Component {
     this.setState({ startDate: null, endDate: null, focusedInput: START_DATE });
   };
 
-  saveDates = () => {
+  save = () => {
     this.props.onSave(this.state.startDate, this.state.endDate);
     this.props.onClose();
   };
@@ -38,7 +38,7 @@ export default class DatePickerController extends React.Component {
         title="Dates"
         buttonTitle={getButtonTitle(startDate, endDate, this.props.isOpen)}
         onReset={this.reset}
-        onSave={this.saveDates}
+        onSave={this.save}
         renderHeaderBorder={false}
       >
         <DatePicker
@@ -48,7 +48,7 @@ export default class DatePickerController extends React.Component {
           onDatesChange={this.onDatesChange}
           onDatePickerFocusChange={this.onDatePickerFocusChange}
         />
-        <InfoPanel onCancel={this.props.onCancel} onApply={this.saveDates} />
+        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
       </Container>
     );
   }

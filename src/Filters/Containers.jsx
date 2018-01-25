@@ -1,10 +1,10 @@
 import React from 'react';
-import Rooms from './Rooms';
 import Price from './Price';
 import InstantBook from './InstantBook';
 import { MenuButton } from './styled';
 import DatePickerContainer from './DatePicker/Controller';
 import GuestsContainer from './Guests/Controller';
+import RoomsController from './Rooms/Controller';
 
 const isOpen = (filter, openedFilter) => filter === openedFilter;
 
@@ -21,7 +21,7 @@ const WrapperIngestor = ({
     });
   });
 
-export default class Modals extends React.Component {
+export default class Containers extends React.Component {
   state = {
     openedFilter: null,
   };
@@ -43,7 +43,7 @@ export default class Modals extends React.Component {
       >
         <DatePickerContainer onSave={this.props.onDatesSave} />
         <GuestsContainer onSave={this.props.onGuestsSave} />
-        <Rooms onSave={this.props.onRoomTypesSave} />
+        <RoomsController onSave={this.props.onRoomsSave} />
         <Price />
         <InstantBook />
         <MenuButton>More filters</MenuButton>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row as BasicRow } from 'react-flexbox-grid';
-import Modals from './Modals';
+import Containers from './Containers';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -26,13 +26,13 @@ class Filters extends React.Component {
     childrenCount: 0,
     infantsCount: 0,
 
-    entireHomeSelected: false,
-    privateRoomSelected: false,
-    sharedRoomSelected: false,
+    entireHome: false,
+    privateRoom: false,
+    sharedRoom: false,
   };
 
   onDatesSave = (startDate, endDate) => {
-    console.log('attempt to save date')
+    console.log('attempt to save date');
     if (startDate && endDate) {
       this.setState({ startDate, endDate }, () => {
         console.log(`Dates saved! start date: ${this.state.startDate.format()}, end date: ${this.state.endDate.format()}`);
@@ -48,11 +48,11 @@ class Filters extends React.Component {
     });
   };
 
-  onRoomTypesSave = (entireHomeSelected, privateRoomSelected, sharedRoomSelected) => {
-    this.setState({ entireHomeSelected, privateRoomSelected, sharedRoomSelected }, () => {
-      console.log(`Room types saved! entire home selected: ${this.state.entireHomeSelected}, 
-        private room selected: ${this.state.privateRoomSelected}, 
-        shared room selected: ${this.state.sharedRoomSelected}`);
+  onRoomsSave = (entireHome, privateRoom, sharedRoom) => {
+    this.setState({ entireHome, privateRoom, sharedRoom }, () => {
+      console.log(`Room types saved! entire home selected: ${this.state.entireHome}, 
+        private room selected: ${this.state.privateRoom}, 
+        shared room selected: ${this.state.sharedRoom}`);
     });
   };
 
@@ -61,10 +61,10 @@ class Filters extends React.Component {
       <Wrapper>
         <Grid>
           <Row>
-            <Modals
+            <Containers
               onDatesSave={this.onDatesSave}
               onGuestsSave={this.onGuestsSave}
-              onRoomTypesSave={this.onRoomTypesSave}
+              onRoomsSave={this.onRoomsSave}
             />
           </Row>
         </Grid>

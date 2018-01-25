@@ -35,11 +35,11 @@ const Icon = styled.img`
 `;
 
 export default ({
-  title, description, icon, checked, onChange,
+  title, description, icon, checked, onChange, name,
 }) => (
   <Wrapper>
     <Content>
-      <Checkbox checked={checked} onChange={onChange} />
+      <Checkbox checked={checked} onChange={onChange} name={name} />
       <div>
         <Title>{title}</Title>
         <Description>{description}</Description>

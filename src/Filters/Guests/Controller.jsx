@@ -1,6 +1,7 @@
 import React from 'react';
 import ModalContainer from '../Container';
 import Guests from './index';
+import InfoPanel from '../InfoPanel';
 
 export default class GuestsController extends React.Component {
   state = {
@@ -17,7 +18,7 @@ export default class GuestsController extends React.Component {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
   };
 
-  saveGuests = () => {
+  save = () => {
     const { adultsCount, childrenCount, infantsCount } = this.state;
     this.props.onSave(adultsCount, childrenCount, infantsCount);
     this.props.onClose();
@@ -39,7 +40,7 @@ export default class GuestsController extends React.Component {
         title="Guests"
         buttonTitle="Guests"
         onReset={this.reset}
-        onSave={this.saveDates}
+        onSave={this.save}
       >
         <Guests
           onIncrement={this.increment}
@@ -48,6 +49,7 @@ export default class GuestsController extends React.Component {
           childrenCount={childrenCount}
           infantsCount={infantsCount}
         />
+        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
       </ModalContainer>
     );
   }

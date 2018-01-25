@@ -4,7 +4,6 @@ import onClickOutside from 'react-onclickoutside';
 import { Portal } from 'react-portal';
 import FadeBackground from './FadeBackground';
 import ScrollLock from './ScrollLock';
-import InfoPanel from '../../Filters/InfoPanel';
 
 const Wrapper = styled.div`
   z-index: 2000;
