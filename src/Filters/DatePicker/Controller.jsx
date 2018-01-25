@@ -21,11 +21,11 @@ export default class DatePickerController extends React.Component {
   };
 
   reset = () => {
-    this.setState({ startDate: null, endDate: null, focusedInput: START_DATE });
+    this.setState({ ...this.props.getSavedState() });
   };
 
   save = () => {
-    this.props.onSave(this.state.startDate, this.state.endDate);
+    this.props.onSave(this.state);
     this.props.onClose();
   };
 

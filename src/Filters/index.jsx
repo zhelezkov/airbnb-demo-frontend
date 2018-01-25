@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row as BasicRow } from 'react-flexbox-grid';
-import Containers from './Containers';
+import InstantBook from './InstantBook';
+import { MenuButton } from './styled';
+import DatePicker from './DatePicker/Controller';
+import Guests from './Guests/Controller';
+import Rooms from './Rooms/Controller';
+import Price from './Price/Controller';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -17,53 +22,61 @@ const Row = styled(BasicRow)`
   flex-wrap: nowrap;
 `;
 
+const isOpen = (filter, openedFilter) => filter === openedFilter;
+
+const WrapperIngestor = ({
+  onOpen, onClose, openedFilter, children, getSavedState, onSave,
+}) =>
+  children.map((child) => {
+    const filterName = child.props.name;
+    return React.cloneElement(child, {
+      getSavedState: () => getSavedState(filterName),
+      onSave: localState => onSave(filterName, localState),
+      onOpen: () => onOpen(filterName),
+      onClose: () => onClose(filterName),
+      isOpen: isOpen(filterName, openedFilter),
+      key: filterName,
+    });
+  });
+
 class Filters extends React.Component {
   state = {
-    startDate: null,
-    endDate: null,
+    openedFilter: null,
+    dates: {
+      startDate: null,
+      endDate: null,
+    },
 
-    adultsCount: 0,
-    childrenCount: 0,
-    infantsCount: 0,
+    guests: {
+      adultsCount: 0,
+      childrenCount: 0,
+      infantsCount: 0,
+    },
 
-    entireHome: false,
-    privateRoom: false,
-    sharedRoom: false,
+    homes: {
+      entireHome: false,
+      privateRoom: false,
+      sharedRoom: false,
+    },
 
-    minPrice: Number.NEGATIVE_INFINITY,
-    maxPrice: Number.POSITIVE_INFINITY,
+    price: {
+      min: Number.NEGATIVE_INFINITY,
+      max: Number.POSITIVE_INFINITY,
+    },
   };
 
-  onDatesSave = (startDate, endDate) => {
-    console.log('attempt to save date');
-    if (startDate && endDate) {
-      this.setState({ startDate, endDate }, () => {
-        console.log(`Dates saved! start date: ${this.state.startDate.format()}, end date: ${this.state.endDate.format()}`);
-      });
-    }
+  onSave = (filterName, localFilterState) => {
+    this.setState({ [filterName]: { ...localFilterState } });
   };
 
-  onGuestsSave = (adultsCount, childrenCount, infantsCount) => {
-    this.setState({ adultsCount, childrenCount, infantsCount }, () => {
-      console.log(`Guests saved! adults count: ${this.state.adultsCount}, 
-        children count: ${this.state.childrenCount}, 
-        infants count: ${this.state.infantsCount}`);
-    });
+  getSavedState = filterName => this.state[filterName];
+
+  open = (filterName) => {
+    this.setState({ openedFilter: filterName });
   };
 
-  onRoomsSave = (entireHome, privateRoom, sharedRoom) => {
-    this.setState({ entireHome, privateRoom, sharedRoom }, () => {
-      console.log(`Room types saved! entire home selected: ${this.state.entireHome}, 
-        private room selected: ${this.state.privateRoom}, 
-        shared room selected: ${this.state.sharedRoom}`);
-    });
-  };
-
-  onPriceSave = (minPrice, maxPrice) => {
-    this.setState({ minPrice, maxPrice }, () => {
-      console.log(`Price saved! min price: ${this.state.minPrice}, 
-        max price: ${this.state.maxPrice}`);
-    });
+  close = () => {
+    this.setState({ openedFilter: null });
   };
 
   render() {
@@ -71,12 +84,20 @@ class Filters extends React.Component {
       <Wrapper>
         <Grid>
           <Row>
-            <Containers
-              onDatesSave={this.onDatesSave}
-              onGuestsSave={this.onGuestsSave}
-              onRoomsSave={this.onRoomsSave}
-              onPriceSave={this.onPriceSave}
-            />
+            <WrapperIngestor
+              onOpen={this.open}
+              onClose={this.close}
+              onSave={this.onSave}
+              openedFilter={this.state.openedFilter}
+              getSavedState={this.getSavedState}
+            >
+              <DatePicker name="dates" />
+              <Guests name="guests" />
+              <Rooms name="homes" />
+              <Price name="price" />
+              <InstantBook name="instantBook" />
+              <MenuButton name="moreFilters">More filters</MenuButton>
+            </WrapperIngestor>
           </Row>
         </Grid>
       </Wrapper>

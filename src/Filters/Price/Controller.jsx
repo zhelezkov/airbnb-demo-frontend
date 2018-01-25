@@ -16,12 +16,11 @@ export default class PriceController extends React.Component {
   };
 
   reset = () => {
-    this.setState({ min: Number.NEGATIVE_INFINITY, max: Number.POSITIVE_INFINITY });
+    this.setState({ ...this.props.getSavedState() });
   };
 
   save = () => {
-    const { min, max } = this.state;
-    this.props.onSave(min, max);
+    this.props.onSave(this.state);
     this.props.onClose();
   };
 

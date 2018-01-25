@@ -11,12 +11,11 @@ export default class GuestsController extends React.Component {
   };
 
   reset = () => {
-    this.setState({ adultsCount: 0, childrenCount: 0, infantsCount: 0 });
+    this.setState({ ...this.props.getSavedState() });
   };
 
   save = () => {
-    const { adultsCount, childrenCount, infantsCount } = this.state;
-    this.props.onSave(adultsCount, childrenCount, infantsCount);
+    this.props.onSave(this.state);
     this.props.onClose();
   };
 

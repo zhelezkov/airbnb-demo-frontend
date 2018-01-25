@@ -89,7 +89,9 @@ class ModalWindow extends React.Component {
   };
 
   handleClickOutside = (ev) => {
-    if (ev.target !== this.props.noClickOutside && ev.target.name !== 'filterButton') this.props.onClose();
+    if (ev.target !== this.props.noClickOutside && ev.target.name !== 'filterButton') {
+      this.props.onClose();
+    }
   };
 
   renderModalWindow() {

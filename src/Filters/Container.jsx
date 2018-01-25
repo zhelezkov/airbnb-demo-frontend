@@ -20,7 +20,7 @@ export default class FilterContainer extends React.Component {
     return (
       <ModalWindow
         title={this.props.title}
-        onClose={this.props.onClose}
+        onClose={this.onCancel}
         onReset={this.props.onReset}
         onSave={this.props.onSave}
         noClickOutside={this.toggleButton}
