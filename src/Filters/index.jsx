@@ -29,6 +29,9 @@ class Filters extends React.Component {
     entireHome: false,
     privateRoom: false,
     sharedRoom: false,
+
+    minPrice: Number.NEGATIVE_INFINITY,
+    maxPrice: Number.POSITIVE_INFINITY,
   };
 
   onDatesSave = (startDate, endDate) => {
@@ -56,6 +59,13 @@ class Filters extends React.Component {
     });
   };
 
+  onPriceSave = (minPrice, maxPrice) => {
+    this.setState({ minPrice, maxPrice }, () => {
+      console.log(`Price saved! min price: ${this.state.minPrice}, 
+        max price: ${this.state.maxPrice}`);
+    });
+  };
+
   render() {
     return (
       <Wrapper>
@@ -65,6 +75,7 @@ class Filters extends React.Component {
               onDatesSave={this.onDatesSave}
               onGuestsSave={this.onGuestsSave}
               onRoomsSave={this.onRoomsSave}
+              onPriceSave={this.onPriceSave}
             />
           </Row>
         </Grid>

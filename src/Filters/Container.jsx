@@ -20,14 +20,14 @@ export default class FilterContainer extends React.Component {
     return (
       <ModalWindow
         title={this.props.title}
-        onCancel={this.onCancel}
         onClose={this.props.onClose}
         onReset={this.props.onReset}
         onSave={this.props.onSave}
         noClickOutside={this.toggleButton}
         renderHeaderBorder={this.props.renderHeaderBorder}
       >
-        {this.props.children}
+        {React.Children.map(this.props.children, child =>
+          React.cloneElement(child, { onCancel: this.onCancel }))}
       </ModalWindow>
     );
   }

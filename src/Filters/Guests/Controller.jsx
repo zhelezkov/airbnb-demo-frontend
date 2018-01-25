@@ -14,10 +14,6 @@ export default class GuestsController extends React.Component {
     this.setState({ adultsCount: 0, childrenCount: 0, infantsCount: 0 });
   };
 
-  guestsChooserToggle = () => {
-    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
-  };
-
   save = () => {
     const { adultsCount, childrenCount, infantsCount } = this.state;
     this.props.onSave(adultsCount, childrenCount, infantsCount);

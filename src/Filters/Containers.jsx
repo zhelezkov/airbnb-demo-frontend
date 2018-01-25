@@ -1,10 +1,10 @@
 import React from 'react';
-import Price from './Price';
 import InstantBook from './InstantBook';
 import { MenuButton } from './styled';
-import DatePickerContainer from './DatePicker/Controller';
-import GuestsContainer from './Guests/Controller';
-import RoomsController from './Rooms/Controller';
+import DatePicker from './DatePicker/Controller';
+import Guests from './Guests/Controller';
+import Rooms from './Rooms/Controller';
+import Price from './Price/Controller';
 
 const isOpen = (filter, openedFilter) => filter === openedFilter;
 
@@ -41,10 +41,10 @@ export default class Containers extends React.Component {
         onClose={this.close}
         openedFilter={this.state.openedFilter}
       >
-        <DatePickerContainer onSave={this.props.onDatesSave} />
-        <GuestsContainer onSave={this.props.onGuestsSave} />
-        <RoomsController onSave={this.props.onRoomsSave} />
-        <Price />
+        <DatePicker onSave={this.props.onDatesSave} />
+        <Guests onSave={this.props.onGuestsSave} />
+        <Rooms onSave={this.props.onRoomsSave} />
+        <Price onSave={this.props.onPriceSave} />
         <InstantBook />
         <MenuButton>More filters</MenuButton>
       </WrapperIngestor>

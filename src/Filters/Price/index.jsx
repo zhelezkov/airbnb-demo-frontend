@@ -1,58 +1,44 @@
 import React from 'react';
 import Rheostat from 'rheostat';
-import { MenuButton } from '../styled';
-import ModalWindow from '../../UI/ModalWindow';
+import styled, { injectGlobal } from 'styled-components';
 
-export default class Price extends React.Component {
-  state = {
-    isOpen: false,
-  };
-
-  reset = () => {};
-
-  close = () => {
-    this.reset();
-    this.setState({ isOpen: false });
-  };
-
-  priceSelectorToggle = () => {
-    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
-  };
-
-  savePrice = () => {};
-
-  renderPriceSelector() {
-    return (
-      <ModalWindow
-        title="Price"
-        onClose={this.close}
-        onReset={this.reset}
-        onSave={this.savePrice}
-        noClickOutside={this.toggleButton}
-      >
-        <Rheostat
-          min={1}
-          max={100}
-          values={[1, 100]}
-        />
-      </ModalWindow>
-    );
+/* eslint-disable no-unused-expressions */
+injectGlobal`
+  .rheostat-horizontal {
+    height: 24px;
   }
-
-  render() {
-    return (
-      <div className="hidden-xs hidden-sm hidden-md">
-        <MenuButton
-          onClick={this.priceSelectorToggle}
-          highlighted={this.state.isOpen}
-          innerRef={(toggleButton) => {
-            this.toggleButton = toggleButton;
-          }}
-        >
-          Price
-        </MenuButton>
-        {this.state.isOpen && this.renderPriceSelector()}
-      </div>
-    );
+  
+  .rheostat-horizontal .rheostat-background {
+    display: none;
   }
-}
+  
+  .rheostat-horizontal .rheostat-progress {
+    height: 6px;
+    top: 2px;
+  }
+  
+  .rheostat-horizontal .rheostat-handle {
+    margin-left: -12px;
+    top: -7px;
+  }
+`;
+
+const Handle = styled.div`
+  background: white none;
+  border-radius: 100%;
+  border: 1px solid #008489;
+  cursor: ew-resize;
+`;
+
+const ProgressBar = styled.div`
+  background: #008489;  
+  height: 6px;
+`;
+
+export default () => (
+  <Rheostat
+    values={[0, 100]}
+    handle={Handle}
+    progressBar={ProgressBar}
+  />
+);
