@@ -48,7 +48,7 @@ export default class DatePickerController extends React.Component {
           onDatesChange={this.onDatesChange}
           onDatePickerFocusChange={this.onDatePickerFocusChange}
         />
-        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
+        <InfoPanel />
       </Modal>
     );
   }

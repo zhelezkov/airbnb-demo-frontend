@@ -42,7 +42,7 @@ export default class PriceController extends React.Component {
         <Wrapper>
           <PriceSelector onChange={this.onChange} min={this.state.min} max={this.state.max} />
         </Wrapper>
-        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
+        <InfoPanel />
       </Modal>
     );
   }

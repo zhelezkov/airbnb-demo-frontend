@@ -44,7 +44,7 @@ export default class RoomsController extends React.Component {
         <Wrapper>
           <Rooms {...this.state} onSelect={this.selectHomeType} />
         </Wrapper>
-        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
+        <InfoPanel />
       </Modal>
     );
   }

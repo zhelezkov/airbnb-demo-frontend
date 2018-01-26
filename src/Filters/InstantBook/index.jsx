@@ -28,7 +28,7 @@ export default class InstantBookController extends React.Component {
         className="hidden-xs hidden-sm hidden-md"
       >
         <InstantBook />
-        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
+        <InfoPanel />
       </Modal>
     );
   }

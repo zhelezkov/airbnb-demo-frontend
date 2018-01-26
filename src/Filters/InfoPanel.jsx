@@ -22,9 +22,9 @@ const ApplyButton = Button.extend`
   color: #008489;
 `;
 
-export default ({ onCancel, onApply }) => (
+export default ({ onCancel, onSave }) => (
   <InfoPanel>
     <Button onClick={onCancel}>Cancel</Button>
-    <ApplyButton onClick={onApply}>Apply</ApplyButton>
+    <ApplyButton onClick={onSave}>Apply</ApplyButton>
   </InfoPanel>
 );

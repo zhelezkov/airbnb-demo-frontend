@@ -2,7 +2,7 @@ import React from 'react';
 import ModalWindow from '../UI/ModalWindow';
 import { MenuButton } from './styled';
 
-export default class FilterContainer extends React.Component {
+export default class ModalFilter extends React.Component {
   onCancel = () => {
     this.props.onReset();
     this.props.onClose();
@@ -27,7 +27,10 @@ export default class FilterContainer extends React.Component {
       >
         {React.Children.map(this.props.children, (child) => {
           try {
-            return React.cloneElement(child, { onCancel: this.onCancel });
+            return React.cloneElement(child, {
+              onCancel: this.onCancel,
+              onSave: this.props.onSave,
+            });
           } catch (e) {
             return child;
           }
@@ -39,10 +42,7 @@ export default class FilterContainer extends React.Component {
   render() {
     return (
       <div className={this.props.className}>
-        <MenuButton
-          onClick={this.toggleWindow}
-          highlighted={this.props.isOpen}
-        >
+        <MenuButton onClick={this.toggleWindow} highlighted={this.props.isOpen}>
           {this.props.buttonTitle}
         </MenuButton>
         {this.props.isOpen && this.renderWindow()}
