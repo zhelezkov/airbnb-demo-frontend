@@ -23,7 +23,6 @@ export default class FilterContainer extends React.Component {
         onClose={this.onCancel}
         onReset={this.props.onReset}
         onSave={this.props.onSave}
-        noClickOutside={this.toggleButton}
         renderHeaderBorder={this.props.renderHeaderBorder}
       >
         {React.Children.map(this.props.children, (child) => {
@@ -43,9 +42,6 @@ export default class FilterContainer extends React.Component {
         <MenuButton
           onClick={this.toggleWindow}
           highlighted={this.props.isOpen}
-          innerRef={(toggleButton) => {
-            this.toggleButton = toggleButton;
-          }}
         >
           {this.props.buttonTitle}
         </MenuButton>
