@@ -2,12 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import checkbox from './icons/checkbox.svg';
 
-const Wrapper = styled.div`
+const Wrapper = styled.label`
   display: flex;
   flex-direction: row;
   margin: 1.5rem 1rem 1rem;
   justify-content: space-between;
   color: #383838;
+  cursor: pointer;
 `;
 
 const Content = styled.div`
