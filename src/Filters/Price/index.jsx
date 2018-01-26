@@ -1,35 +1,10 @@
 import React from 'react';
 import Rheostat from 'rheostat';
-import styled, { injectGlobal } from 'styled-components';
+import styled from 'styled-components';
 import { letterFrequency } from '@vx/mock-data';
 import { Group } from '@vx/group';
 import { Bar } from '@vx/shape';
 import { scaleLinear, scaleBand } from '@vx/scale';
-
-/* eslint-disable no-unused-expressions */
-injectGlobal`
-  .rheostat-horizontal {
-    height: 24px;
-  }
-  
-  .rheostat-horizontal .rheostat-background {
-    height: 6px;
-    top: 2px;
-    background: #E0E0E0;
-    border: none;
-    width: 100%;
-  }
-  
-  .rheostat-horizontal .rheostat-progress {
-    height: 6px;
-    top: 2px;
-  }
-  
-  .rheostat-horizontal .rheostat-handle {
-    margin-left: -12px;
-    top: -7px;
-  }
-`;
 
 const Handle = styled.div`
   background: white none;
