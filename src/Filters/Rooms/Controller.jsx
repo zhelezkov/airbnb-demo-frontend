@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ModalContainer from '../Container';
 import Rooms from './index';
 import InfoPanel from '../InfoPanel';
+import { getButtonTitle } from './helpers';
 
 const Wrapper = styled.div`
   width: 20.375rem;
@@ -16,16 +17,11 @@ export default class RoomsController extends React.Component {
   };
 
   reset = () => {
-    this.setState({
-      entireHome: false,
-      privateRoom: false,
-      sharedRoom: false,
-    });
+    this.setState({ ...this.props.getSavedState() });
   };
 
   save = () => {
-    const { entireHome, privateRoom, sharedRoom } = this.state;
-    this.props.onSave(entireHome, privateRoom, sharedRoom);
+    this.props.onSave(this.state);
     this.props.onClose();
   };
 
@@ -34,11 +30,13 @@ export default class RoomsController extends React.Component {
   };
 
   render() {
+    const { entireHome, privateRoom, sharedRoom } = this.state;
+
     return (
       <ModalContainer
         {...this.props}
         title="Room type"
-        buttonTitle="Room type"
+        buttonTitle={getButtonTitle(entireHome, privateRoom, sharedRoom)}
         onReset={this.reset}
         onSave={this.save}
         className="hidden-xs hidden-sm hidden-md"
