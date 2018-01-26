@@ -42,7 +42,10 @@ export default class ModalFilter extends React.Component {
   render() {
     return (
       <div className={this.props.className}>
-        <MenuButton onClick={this.toggleWindow} highlighted={this.props.isOpen}>
+        <MenuButton
+          onClick={this.toggleWindow}
+          highlighted={this.props.isOpen || this.props.buttonHighlight}
+        >
           {this.props.buttonTitle}
         </MenuButton>
         {this.props.isOpen && this.renderWindow()}

@@ -8,6 +8,10 @@ export default class InstantBookController extends React.Component {
     activated: false,
   };
 
+  onSwitchToggle = () => {
+    this.setState(prevState => ({ activated: !prevState.activated }));
+  };
+
   reset = () => {
     this.setState({ ...this.props.getSavedState() });
   };
@@ -25,9 +29,10 @@ export default class InstantBookController extends React.Component {
         buttonTitle="Instant book"
         onReset={this.reset}
         onSave={this.save}
+        buttonHighlight={this.state.activated}
         className="hidden-xs hidden-sm hidden-md"
       >
-        <InstantBook />
+        <InstantBook onToggle={this.onSwitchToggle} on={this.state.activated} />
         <InfoPanel />
       </Modal>
     );

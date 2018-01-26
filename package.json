@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "@vx/group": "^0.0.153",
+    "@vx/mock-data": "^0.0.153",
     "@vx/scale": "^0.0.153",
     "@vx/shape": "^0.0.153",
-    "@vx/mock-data": "^0.0.153",
     "google-map-react": "^0.27.0",
     "lodash": "^4.17.4",
     "moment": "^2.20.1",

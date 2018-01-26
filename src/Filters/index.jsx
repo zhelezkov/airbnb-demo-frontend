@@ -5,6 +5,7 @@ import DatePicker from './DatePicker';
 import Guests from './Guests';
 import Rooms from './Rooms';
 import Price from './Price';
+import InstantBook from './InstantBook';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -97,7 +98,7 @@ class Filters extends React.Component {
               <Guests name="guests" />
               <Rooms name="homes" />
               <Price name="price" />
-              {/*<InstantBook name="instantBook" />*/}
+              <InstantBook name="instantBook" />
               {/*<MenuButton name="moreFilters">More filters</MenuButton>*/}
             </WrapperIngestor>
           </Row>
