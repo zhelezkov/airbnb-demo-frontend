@@ -4,7 +4,7 @@ import { MenuButton } from './styled';
 
 export default class ModalFilter extends React.Component {
   onCancel = () => {
-    this.props.onReset();
+    this.props.onCancel();
     this.props.onClose();
   };
 

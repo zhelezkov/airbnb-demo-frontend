@@ -5,11 +5,15 @@ import DatePicker from './PureFilter';
 import { getButtonTitle } from './helpers';
 import InfoPanel from '../InfoPanel';
 
+const initialState = {
+  startDate: null,
+  endDate: null,
+  focusedInput: START_DATE,
+};
+
 export default class DatePickerController extends React.Component {
   state = {
-    startDate: null,
-    endDate: null,
-    focusedInput: START_DATE,
+    ...initialState,
   };
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -20,8 +24,12 @@ export default class DatePickerController extends React.Component {
     this.setState({ focusedInput: !focusedInput ? START_DATE : focusedInput });
   };
 
-  reset = () => {
+  onCancel = () => {
     this.setState({ ...this.props.getSavedState() });
+  };
+
+  reset = () => {
+    this.setState({ ...initialState });
   };
 
   save = () => {
@@ -37,6 +45,7 @@ export default class DatePickerController extends React.Component {
         {...this.props}
         title="Dates"
         buttonTitle={getButtonTitle(startDate, endDate, this.props.isOpen)}
+        onCancel={this.onCancel}
         onReset={this.reset}
         onSave={this.save}
         renderHeaderBorder={false}

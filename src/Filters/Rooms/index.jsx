@@ -9,15 +9,23 @@ const Wrapper = styled.div`
   width: 20.375rem;
 `;
 
+const initialState = {
+  entireHome: false,
+  privateRoom: false,
+  sharedRoom: false,
+};
+
 export default class RoomsController extends React.Component {
   state = {
-    entireHome: false,
-    privateRoom: false,
-    sharedRoom: false,
+    ...initialState,
+  };
+
+  onCancel = () => {
+    this.setState({ ...this.props.getSavedState() });
   };
 
   reset = () => {
-    this.setState({ ...this.props.getSavedState() });
+    this.setState({ ...initialState });
   };
 
   save = () => {
@@ -37,6 +45,7 @@ export default class RoomsController extends React.Component {
         {...this.props}
         title="Room type"
         buttonTitle={getButtonTitle(entireHome, privateRoom, sharedRoom)}
+        onCancel={this.onCancel}
         onReset={this.reset}
         onSave={this.save}
         className="hidden-xs hidden-sm hidden-md"

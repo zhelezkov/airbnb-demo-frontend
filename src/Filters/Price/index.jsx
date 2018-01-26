@@ -20,8 +20,12 @@ export default class PriceController extends React.Component {
     this.setState({ min, max });
   };
 
-  reset = () => {
+  onCancel = () => {
     this.setState({ ...this.props.getSavedState() });
+  };
+
+  reset = () => {
+    this.setState({ min: 0, max: 100 });
   };
 
   save = () => {
@@ -35,6 +39,7 @@ export default class PriceController extends React.Component {
         {...this.props}
         title="Price"
         buttonTitle="Price"
+        onCancel={this.onCancel}
         onReset={this.reset}
         onSave={this.save}
         className="hidden-xs hidden-sm hidden-md"

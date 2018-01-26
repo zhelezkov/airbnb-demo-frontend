@@ -12,8 +12,12 @@ export default class InstantBookController extends React.Component {
     this.setState(prevState => ({ activated: !prevState.activated }));
   };
 
-  reset = () => {
+  onCancel = () => {
     this.setState({ ...this.props.getSavedState() });
+  };
+
+  reset = () => {
+    this.setState({ activated: false });
   };
 
   save = () => {
@@ -27,6 +31,7 @@ export default class InstantBookController extends React.Component {
         {...this.props}
         title="Instant book"
         buttonTitle="Instant book"
+        onCancel={this.onCancel}
         onReset={this.reset}
         onSave={this.save}
         buttonHighlight={this.state.activated}

@@ -4,15 +4,23 @@ import Guests from './PureFilter';
 import InfoPanel from '../InfoPanel';
 import { getButtonTitle } from './helpers';
 
+const initialState = {
+  adultsCount: 0,
+  childrenCount: 0,
+  infantsCount: 0,
+};
+
 export default class GuestsController extends React.Component {
   state = {
-    adultsCount: 0,
-    childrenCount: 0,
-    infantsCount: 0,
+    ...initialState,
+  };
+
+  onCancel = () => {
+    this.setState({ ...this.props.getSavedState() });
   };
 
   reset = () => {
-    this.setState({ ...this.props.getSavedState() });
+    this.setState({ ...initialState });
   };
 
   save = () => {
@@ -38,6 +46,7 @@ export default class GuestsController extends React.Component {
         {...this.props}
         title="Guests"
         buttonTitle={getButtonTitle(adultsCount + childrenCount + infantsCount)}
+        onCancel={this.onCancel}
         onReset={this.reset}
         onSave={this.save}
       >
