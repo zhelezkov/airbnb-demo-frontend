@@ -23,6 +23,7 @@ export default class ModalFilter extends React.Component {
         onClose={this.onCancel}
         onReset={this.props.onReset}
         onSave={this.props.onSave}
+        fillAllSpace={this.props.fillAllSpace}
         renderHeaderBorder={this.props.renderHeaderBorder}
       >
         {React.Children.map(this.props.children, (child) => {
