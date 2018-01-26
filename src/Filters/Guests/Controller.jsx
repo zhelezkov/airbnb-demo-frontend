@@ -2,6 +2,7 @@ import React from 'react';
 import ModalContainer from '../Container';
 import Guests from './index';
 import InfoPanel from '../InfoPanel';
+import { getButtonTitle } from './helpers';
 
 export default class GuestsController extends React.Component {
   state = {
@@ -35,7 +36,7 @@ export default class GuestsController extends React.Component {
       <ModalContainer
         {...this.props}
         title="Guests"
-        buttonTitle="Guests"
+        buttonTitle={getButtonTitle(adultsCount + childrenCount + infantsCount)}
         onReset={this.reset}
         onSave={this.save}
       >

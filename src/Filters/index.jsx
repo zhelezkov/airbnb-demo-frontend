@@ -99,8 +99,8 @@ class Filters extends React.Component {
               <Guests name="guests" />
               <Rooms name="homes" />
               <Price name="price" />
-              <InstantBook name="instantBook" />
-              <MenuButton name="moreFilters">More filters</MenuButton>
+              {/*<InstantBook name="instantBook" />*/}
+              {/*<MenuButton name="moreFilters">More filters</MenuButton>*/}
             </WrapperIngestor>
           </Row>
         </Grid>
