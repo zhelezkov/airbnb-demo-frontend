@@ -1,17 +1,35 @@
 import React from 'react';
-import styled from 'styled-components';
+import Modal from '../Modal';
+import InfoPanel from '../InfoPanel';
+import InstantBook from './PureFilter';
 
-const Title = styled.h3`
-  font-weight: 400;
-`;
+export default class InstantBookController extends React.Component {
+  state = {
+    activated: false,
+  };
 
-const Description = styled.p`
-  font-weight: 100;
-`;
+  reset = () => {
+    this.setState({ ...this.props.getSavedState() });
+  };
 
-export default () => (
-  <React.Fragment>
-    <Title>Instant book</Title>
-    <Description>Listings you can book without waiting for host approval.</Description>
-  </React.Fragment>
-);
+  save = () => {
+    this.props.onSave(this.state);
+    this.props.onClose();
+  };
+
+  render() {
+    return (
+      <Modal
+        {...this.props}
+        title="Instant book"
+        buttonTitle="Instant book"
+        onReset={this.reset}
+        onSave={this.save}
+        className="hidden-xs hidden-sm hidden-md"
+      >
+        <InstantBook />
+        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
+      </Modal>
+    );
+  }
+}

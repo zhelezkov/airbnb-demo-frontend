@@ -1,45 +1,54 @@
 import React from 'react';
-import Picker from './Picker';
+import Modal from '../Modal';
+import Guests from './PureFilter';
+import InfoPanel from '../InfoPanel';
+import { getButtonTitle } from './helpers';
 
-export default class Guests extends React.Component {
-  increment = (ev) => {
-    this.props.onIncrement(ev.target.name);
+export default class GuestsController extends React.Component {
+  state = {
+    adultsCount: 0,
+    childrenCount: 0,
+    infantsCount: 0,
   };
 
-  decrement = (ev) => {
-    this.props.onDecrement(ev.target.name);
+  reset = () => {
+    this.setState({ ...this.props.getSavedState() });
+  };
+
+  save = () => {
+    this.props.onSave(this.state);
+    this.props.onClose();
+  };
+
+  increment = (type) => {
+    this.setState(prevState => ({ [type]: prevState[type] + 1 }));
+  };
+
+  decrement = (type) => {
+    this.setState(prevState => ({ [type]: prevState[type] - 1 }));
   };
 
   render() {
+    const md = matchMedia('(min-width: 768px)').matches;
+
+    const { adultsCount, childrenCount, infantsCount } = this.state;
     return (
-      <React.Fragment>
-        <Picker
-          title="Adults"
-          name="adultsCount"
+      <Modal
+        {...this.props}
+        title="Guests"
+        buttonTitle={getButtonTitle(adultsCount + childrenCount + infantsCount)}
+        onReset={this.reset}
+        onSave={this.save}
+      >
+        <Guests
           onIncrement={this.increment}
           onDecrement={this.decrement}
-          value={this.props.adultsCount}
-          decrementDisabled={this.props.adultsCount <= 0}
+          adultsCount={adultsCount}
+          childrenCount={childrenCount}
+          infantsCount={infantsCount}
         />
-        <Picker
-          title="Children"
-          description="Ages 2 – 12"
-          name="childrenCount"
-          onIncrement={this.increment}
-          onDecrement={this.decrement}
-          value={this.props.childrenCount}
-          decrementDisabled={this.props.childrenCount <= 0}
-        />
-        <Picker
-          title="Infants"
-          description="Under 2"
-          name="infantsCount"
-          onIncrement={this.increment}
-          onDecrement={this.decrement}
-          value={this.props.infantsCount}
-          decrementDisabled={this.props.infantsCount <= 0}
-        />
-      </React.Fragment>
+        {md && <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />}
+      </Modal>
     );
   }
 }

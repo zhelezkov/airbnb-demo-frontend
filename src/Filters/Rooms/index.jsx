@@ -1,43 +1,51 @@
 import React from 'react';
-import Selector from './Selector';
+import styled from 'styled-components';
+import Modal from '../Modal';
+import Rooms from './PureFilter';
+import InfoPanel from '../InfoPanel';
+import { getButtonTitle } from './helpers';
 
-import entireHomeIcon from './icons/entireHome.svg';
-import privateRoomIcon from './icons/privateRoom.svg';
-import sharedRoomIcon from './icons/sharedRoom.svg';
+const Wrapper = styled.div`
+  width: 20.375rem;
+`;
 
-export default class Rooms extends React.Component {
-  select = (ev) => {
-    this.props.onSelect(ev.target.name);
+export default class RoomsController extends React.Component {
+  state = {
+    entireHome: false,
+    privateRoom: false,
+    sharedRoom: false,
+  };
+
+  reset = () => {
+    this.setState({ ...this.props.getSavedState() });
+  };
+
+  save = () => {
+    this.props.onSave(this.state);
+    this.props.onClose();
+  };
+
+  selectHomeType = (homeType) => {
+    this.setState(prevState => ({ [homeType]: !prevState[homeType] }));
   };
 
   render() {
+    const { entireHome, privateRoom, sharedRoom } = this.state;
+
     return (
-      <React.Fragment>
-        <Selector
-          title="Entire home"
-          description="Have a place to yourself"
-          name="entireHome"
-          checked={this.props.entireHome}
-          icon={entireHomeIcon}
-          onChange={this.select}
-        />
-        <Selector
-          title="Private room"
-          description="Have your own room and share some common spaces"
-          name="privateRoom"
-          checked={this.props.privateRoom}
-          icon={privateRoomIcon}
-          onChange={this.select}
-        />
-        <Selector
-          title="Shared room"
-          description="Stay in a shared space, like a common room"
-          name="sharedRoom"
-          checked={this.props.sharedRoom}
-          icon={sharedRoomIcon}
-          onChange={this.select}
-        />
-      </React.Fragment>
+      <Modal
+        {...this.props}
+        title="Room type"
+        buttonTitle={getButtonTitle(entireHome, privateRoom, sharedRoom)}
+        onReset={this.reset}
+        onSave={this.save}
+        className="hidden-xs hidden-sm hidden-md"
+      >
+        <Wrapper>
+          <Rooms {...this.state} onSelect={this.selectHomeType} />
+        </Wrapper>
+        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
+      </Modal>
     );
   }
 }

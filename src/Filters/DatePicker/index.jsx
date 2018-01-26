@@ -1,62 +1,55 @@
 import React from 'react';
-import { DayPickerRangeController } from 'react-dates';
-import { VERTICAL_SCROLLABLE, HORIZONTAL_ORIENTATION } from 'react-dates/constants';
-import { daysBeforeToday } from './helpers';
-import RangeInput from './RangeInput';
+import { START_DATE } from 'react-dates/constants';
+import Modal from '../Modal';
+import DatePicker from './PureFilter';
+import { getButtonTitle } from './helpers';
+import InfoPanel from '../InfoPanel';
 
-const xsCalendarProps = {
-  orientation: VERTICAL_SCROLLABLE,
-  numberOfMonths: 4,
-};
+export default class DatePickerController extends React.Component {
+  state = {
+    startDate: null,
+    endDate: null,
+    focusedInput: START_DATE,
+  };
 
-const mdCalendarProps = {
-  orientation: HORIZONTAL_ORIENTATION,
-  numberOfMonths: 1,
-};
+  onDatesChange = ({ startDate, endDate }) => {
+    this.setState({ startDate, endDate });
+  };
 
-const lgCalendarProps = {
-  orientation: HORIZONTAL_ORIENTATION,
-  numberOfMonths: 2,
-};
+  onDatePickerFocusChange = (focusedInput) => {
+    this.setState({ focusedInput: !focusedInput ? START_DATE : focusedInput });
+  };
 
-function getDatePickerAdaptiveProps() {
-  const md = matchMedia('(min-width: 768px)').matches;
-  const lg = matchMedia('(min-width: 992px)').matches;
+  reset = () => {
+    this.setState({ ...this.props.getSavedState() });
+  };
 
-  if (lg) return lgCalendarProps;
-  if (md) return mdCalendarProps;
-  return xsCalendarProps;
-}
+  save = () => {
+    this.props.onSave(this.state);
+    this.props.onClose();
+  };
 
-export default ({
-  startDate, endDate, focusedInput, onDatePickerFocusChange, onDatesChange,
-}) => {
-  const calendarProps = getDatePickerAdaptiveProps();
-  const md = matchMedia('(min-width: 768px)').matches;
-  const lg = matchMedia('(min-width: 992px)').matches;
+  render() {
+    const { startDate, endDate, focusedInput } = this.state;
 
-  return (
-    <React.Fragment>
-      {!md &&
-      !lg && (
-        <RangeInput
+    return (
+      <Modal
+        {...this.props}
+        title="Dates"
+        buttonTitle={getButtonTitle(startDate, endDate, this.props.isOpen)}
+        onReset={this.reset}
+        onSave={this.save}
+        renderHeaderBorder={false}
+      >
+        <DatePicker
           startDate={startDate}
           endDate={endDate}
-          focus={focusedInput}
-          onFocusChange={onDatePickerFocusChange}
+          focusedInput={focusedInput}
+          onDatesChange={this.onDatesChange}
+          onDatePickerFocusChange={this.onDatePickerFocusChange}
         />
-      )}
-      <DayPickerRangeController
-        noBorder
-        isOutsideRange={daysBeforeToday}
-        startDate={startDate}
-        endDate={endDate}
-        onDatesChange={onDatesChange}
-        focusedInput={focusedInput}
-        onFocusChange={onDatePickerFocusChange}
-        hideKeyboardShortcutsPanel
-        {...calendarProps}
-      />
-    </React.Fragment>
-  );
+        <InfoPanel onCancel={this.props.onCancel} onApply={this.save} />
+      </Modal>
+    );
+  }
 }

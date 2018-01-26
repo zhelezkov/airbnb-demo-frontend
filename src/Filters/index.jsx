@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row as BasicRow } from 'react-flexbox-grid';
-import DatePicker from './DatePicker/Controller';
-import Guests from './Guests/Controller';
-import Rooms from './Rooms/Controller';
-import Price from './Price/Controller';
+import DatePicker from './DatePicker';
+import Guests from './Guests';
+import Rooms from './Rooms';
+import Price from './Price';
 
 const Wrapper = styled.div`
   position: fixed;
