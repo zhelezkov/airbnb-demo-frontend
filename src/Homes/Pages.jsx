@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Row, Col } from 'react-flexbox-grid';
+import { Row, Col as BasicCol } from 'react-flexbox-grid';
 import Card from './Card';
-
-const HomesRow = styled(Row)`
-  margin-bottom: 2.5rem;
-`;
 
 const CenterRow = styled(Row)`
   justify-content: center;
@@ -58,14 +54,18 @@ const NextPage = styled.button`
   }
 `;
 
+const Col = styled(BasicCol)`
+  margin-bottom: 2.5rem;
+`;
+
 const Page = ({ homes }) => (
-  <HomesRow>
+  <Row>
     {homes.map(home => (
       <Col xs={12} md={6} key={home.id}>
         <Card {...home} />
       </Col>
     ))}
-  </HomesRow>
+  </Row>
 );
 
 const Pagination = () => (
