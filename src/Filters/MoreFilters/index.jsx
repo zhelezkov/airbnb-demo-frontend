@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Col, Grid } from 'react-flexbox-grid';
 import Modal from '../Modal';
-import Facilities from './Facilities';
+import RoomsAndBeds from './RoomsAndBeds';
 import MoreOptions from './MoreOptions';
 import Amenities from './Amenities';
+import Facilities from './Facilities';
 
 const Content = styled.div`
   background-color: #fff;
@@ -91,7 +92,7 @@ export default class MoreFiltersController extends React.Component {
         fillAllSpace
       >
         <Wrapper>
-          <Facilities
+          <RoomsAndBeds
             onIncrement={this.increment}
             onDecrement={this.decrement}
             bedrooms={facilities.bedrooms}
@@ -100,6 +101,7 @@ export default class MoreFiltersController extends React.Component {
           />
           <MoreOptions onToggle={this.superhostToggle} on={this.state.moreOptions.superhost} />
           <Amenities />
+          <Facilities />
         </Wrapper>
       </Modal>
     );
