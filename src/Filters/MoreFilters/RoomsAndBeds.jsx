@@ -38,6 +38,7 @@ export default class RoomsAndBeds extends React.Component {
             onDecrement={this.decrement}
             value={bedrooms}
             name="bedrooms"
+            decrementDisabled={bedrooms <= 0}
           />
         </Picker>
         <Picker>
@@ -47,6 +48,7 @@ export default class RoomsAndBeds extends React.Component {
             onDecrement={this.decrement}
             value={beds}
             name="beds"
+            decrementDisabled={beds <= 0}
           />
         </Picker>
         <Picker>
@@ -56,6 +58,7 @@ export default class RoomsAndBeds extends React.Component {
             onDecrement={this.decrement}
             value={bathrooms}
             name="bathrooms"
+            decrementDisabled={bathrooms <= 0}
           />
         </Picker>
       </SectionWrapper>
