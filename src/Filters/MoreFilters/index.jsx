@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Col, Grid } from 'react-flexbox-grid';
 import Modal from '../Modal';
 import RoomsAndBeds from './RoomsAndBeds';
@@ -7,16 +6,13 @@ import MoreOptions from './MoreOptions';
 import Amenities from './Amenities';
 import Facilities from './Facilities';
 import InfoPanel from './InfoPanel';
-
-const Content = styled.div`
-  background-color: #fff;
-  padding-top: 3rem;
-`;
+import ScrollLock from '../../UI/ModalWindow/ScrollLock';
+import Content from './icons/Content';
 
 const Wrapper = ({ children, onCancel, onSave }) => (
   <Grid>
     <Col xs={12} lg={8}>
-      <Content>
+      <Content onCancel={onCancel}>
         {React.Children.map(children, child =>
           React.cloneElement(child, {
             onCancel,
@@ -140,6 +136,7 @@ export default class MoreFiltersController extends React.Component {
           <Amenities onCheck={this.onAmenitiesCheck} values={amenities} />
           <Facilities onCheck={this.onFacilitiesCheck} values={facilities} />
           <InfoPanel />
+          <ScrollLock />
         </Wrapper>
       </Modal>
     );

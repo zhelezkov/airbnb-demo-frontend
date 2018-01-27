@@ -12,8 +12,8 @@ const Background = styled.div`
   bottom: 0;
 `;
 
-export default () => (
+export default ({ onClick }) => (
   <Portal>
-    <Background />
+    <Background onClick={onClick} />
   </Portal>
 );

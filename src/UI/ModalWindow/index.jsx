@@ -16,16 +16,18 @@ const Wrapper = styled.div`
 
   @media (min-width: 768px) {
     position: absolute;
-    ${({ fillAllSpace }) => (!fillAllSpace && 'border: 1px rgba(72, 72, 72, 0.2) solid;')};
+    ${({ fillAllSpace }) => !fillAllSpace && 'border: 1px rgba(72, 72, 72, 0.2) solid;'};
     border-radius: 4px;
     min-width: 20.375rem;
     top: initial;
     right: ${({ fillAllSpace }) => (fillAllSpace ? 0 : 'initial')};
     bottom: initial;
     left: ${({ fillAllSpace }) => (fillAllSpace ? 0 : 'initial')};
-    ${({ fillAllSpace }) => (fillAllSpace && `
+    ${({ fillAllSpace }) =>
+    fillAllSpace &&
+      `
       background-color: transparent;
-    `)};
+    `};
   }
 `;
 
@@ -54,9 +56,10 @@ const Footer = styled.footer`
 
 const Content = styled.div`
   position: absolute;
-  top: 3.875rem;
+  top: 4rem;
   bottom: 5rem;
   width: 100%;
+  overflow: auto;
 
   @media (min-width: 768px) {
     position: initial;
