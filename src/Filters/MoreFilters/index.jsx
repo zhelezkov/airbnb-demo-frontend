@@ -21,13 +21,25 @@ const Wrapper = ({ children }) => (
 );
 
 const initialState = {
-  facilities: {
+  roomsAndBeds: {
     bedrooms: 0,
     beds: 0,
     bathrooms: 0,
   },
   moreOptions: {
     superhost: false,
+  },
+  amenities: {
+    heating: false,
+    kitchen: false,
+    tv: false,
+    wifi: false,
+  },
+  facilities: {
+    elebator: false,
+    pool: false,
+    freeParking: false,
+    wheelchair: false
   },
 };
 
@@ -38,6 +50,44 @@ export default class MoreFiltersController extends React.Component {
 
   onCancel = () => {
     this.setState({ ...this.props.getSavedState() });
+  };
+
+  onAmenitiesCheck = (ev) => {
+    const amenityName = ev.target.name;
+    this.setState(prevState => ({
+      amenities: {
+        ...prevState.amenities,
+        [amenityName]: !prevState.amenities[amenityName],
+      },
+    }));
+  };
+
+  onFacilitiesCheck = (ev) => {
+    const facilityName = ev.target.name;
+    this.setState(prevState => ({
+      facilities: {
+        ...prevState.facilities,
+        [facilityName]: !prevState.facilities[facilityName],
+      },
+    }));
+  };
+
+  onRoomsAndBedsIncrement = (type) => {
+    this.setState(prevState => ({
+      roomsAndBeds: {
+        ...prevState.roomsAndBeds,
+        [type]: prevState.roomsAndBeds[type] + 1,
+      },
+    }));
+  };
+
+  onRoomsAndBedsDecrement = (type) => {
+    this.setState(prevState => ({
+      roomsAndBeds: {
+        ...prevState.roomsAndBeds,
+        [type]: prevState.roomsAndBeds[type] - 1,
+      },
+    }));
   };
 
   getSavedState = filterName => this.state[filterName];
@@ -51,24 +101,6 @@ export default class MoreFiltersController extends React.Component {
     this.props.onClose();
   };
 
-  increment = (type) => {
-    this.setState(prevState => ({
-      facilities: {
-        ...prevState.facilities,
-        [type]: prevState.facilities[type] + 1,
-      },
-    }));
-  };
-
-  decrement = (type) => {
-    this.setState(prevState => ({
-      facilities: {
-        ...prevState.facilities,
-        [type]: prevState.facilities[type] - 1,
-      },
-    }));
-  };
-
   superhostToggle = () => {
     this.setState(prevState => ({
       moreOptions: {
@@ -79,7 +111,9 @@ export default class MoreFiltersController extends React.Component {
   };
 
   render() {
-    const { facilities } = this.state;
+    const {
+      roomsAndBeds, moreOptions, amenities, facilities,
+    } = this.state;
 
     return (
       <Modal
@@ -93,15 +127,13 @@ export default class MoreFiltersController extends React.Component {
       >
         <Wrapper>
           <RoomsAndBeds
-            onIncrement={this.increment}
-            onDecrement={this.decrement}
-            bedrooms={facilities.bedrooms}
-            beds={facilities.beds}
-            bathrooms={facilities.bathrooms}
+            onIncrement={this.onRoomsAndBedsIncrement}
+            onDecrement={this.onRoomsAndBedsDecrement}
+            values={roomsAndBeds}
           />
-          <MoreOptions onToggle={this.superhostToggle} on={this.state.moreOptions.superhost} />
-          <Amenities />
-          <Facilities />
+          <MoreOptions onToggle={this.superhostToggle} on={moreOptions.superhost} />
+          <Amenities onCheck={this.onAmenitiesCheck} values={amenities} />
+          <Facilities onCheck={this.onFacilitiesCheck} values={facilities} />
         </Wrapper>
       </Modal>
     );

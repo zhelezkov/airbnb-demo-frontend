@@ -9,27 +9,38 @@ const Description = styled.div`
   align-self: center;
 `;
 
-const Checkbox = ({ title }) => (
+const Checkboxes = styled(Row)`
+  margin-bottom: 1rem;
+`;
+
+const Checkbox = ({
+  title, name, onChange, checked,
+}) => (
   <Col lg={6}>
     <Row>
-      <BasicCheckbox />
+      <BasicCheckbox name={name} onChange={onChange} checked={checked} />
       <Description>{title}</Description>
     </Row>
   </Col>
 );
 
-export default ({ onClick }) => (
-  <SectionWrapper>
-    <Title>Amenities</Title>
-    <Grid>
-      <Row>
-        <Checkbox title="Heating" />
-        <Checkbox title="Kitchen" />
-      </Row>
-      <Row>
-        <Checkbox title="TV" />
-        <Checkbox title="Wireless Internet" />
-      </Row>
-    </Grid>
-  </SectionWrapper>
-);
+export default ({ onCheck, values }) => {
+  const {
+    heating, kitchen, tv, wifi,
+  } = values;
+  return (
+    <SectionWrapper>
+      <Title>Amenities</Title>
+      <Grid>
+        <Checkboxes>
+          <Checkbox title="Heating" name="heating" onChange={onCheck} cheked={heating} />
+          <Checkbox title="Kitchen" name="kitchen" onChange={onCheck} checked={kitchen} />
+        </Checkboxes>
+        <Checkboxes>
+          <Checkbox title="TV" name="tv" onChange={onCheck} checked={tv} />
+          <Checkbox title="Wireless Internet" name="wifi" onChange={onCheck} checked={wifi} />
+        </Checkboxes>
+      </Grid>
+    </SectionWrapper>
+  );
+};

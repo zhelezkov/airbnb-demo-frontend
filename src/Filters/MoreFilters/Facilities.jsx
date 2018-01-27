@@ -9,27 +9,48 @@ const Description = styled.div`
   align-self: center;
 `;
 
-const Checkbox = ({ title }) => (
+const Checkboxes = styled(Row)`
+  margin-bottom: 1rem;
+`;
+
+const Checkbox = ({
+  title, name, onChange, checked,
+}) => (
   <Col lg={6}>
     <Row>
-      <BasicCheckbox />
+      <BasicCheckbox name={name} onChange={onChange} checked={checked} />
       <Description>{title}</Description>
     </Row>
   </Col>
 );
 
-export default ({ onClick }) => (
-  <SectionWrapper>
-    <Title>Amenities</Title>
-    <Grid>
-      <Row>
-        <Checkbox title="Elebator" />
-        <Checkbox title="Free parking on premises" />
-      </Row>
-      <Row>
-        <Checkbox title="Pool" />
-        <Checkbox title="Wheelchair accessible" />
-      </Row>
-    </Grid>
-  </SectionWrapper>
-);
+export default ({ onCheck, values }) => {
+  const {
+    elebator, pool, freeParking, wheelchair,
+  } = values;
+  return (
+    <SectionWrapper>
+      <Title>Amenities</Title>
+      <Grid>
+        <Checkboxes>
+          <Checkbox title="Elebator" name="elebator" onChange={onCheck} cheked={elebator} />
+          <Checkbox title="Pool" name="pool" onChange={onCheck} checked={pool} />
+        </Checkboxes>
+        <Checkboxes>
+          <Checkbox
+            title="Free parking on premises"
+            name="freeParking"
+            onChange={onCheck}
+            checked={freeParking}
+          />
+          <Checkbox
+            title="Wheelchair accessible"
+            name="wheelchair"
+            onChange={onCheck}
+            checked={wheelchair}
+          />
+        </Checkboxes>
+      </Grid>
+    </SectionWrapper>
+  );
+};
