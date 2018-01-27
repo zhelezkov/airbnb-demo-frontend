@@ -22,12 +22,20 @@ const Row = styled(BasicRow)`
   flex-wrap: nowrap;
 `;
 
+const ButtonsWrapper = ({ children }) => (
+  <Grid>
+    <Col xs={12}>
+      <Row>{children}</Row>
+    </Col>
+  </Grid>
+);
+
 const isOpen = (filter, openedFilter) => filter === openedFilter;
 
-const WrapperIngestor = ({
+const Ingestor = ({
   onOpen, onClose, openedFilter, children, getSavedState, onSave,
 }) =>
-  children.map((child) => {
+  React.Children.map(children, (child) => {
     const filterName = child.props.name;
     return React.cloneElement(child, {
       getSavedState: () => getSavedState(filterName),
@@ -86,26 +94,22 @@ class Filters extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Grid>
-          <Col xs={12} lg={8}>
-            <Row>
-              <WrapperIngestor
-                onOpen={this.open}
-                onClose={this.close}
-                onSave={this.onSave}
-                openedFilter={this.state.openedFilter}
-                getSavedState={this.getSavedState}
-              >
-                <DatePicker name="dates" />
-                <Guests name="guests" />
-                <Rooms name="homes" />
-                <Price name="price" />
-                <InstantBook name="instantBook" />
-                {/* <MoreFilters name="moreFilters" /> */}
-              </WrapperIngestor>
-            </Row>
-          </Col>
-        </Grid>
+        <ButtonsWrapper>
+          <Ingestor
+            onOpen={this.open}
+            onClose={this.close}
+            onSave={this.onSave}
+            openedFilter={this.state.openedFilter}
+            getSavedState={this.getSavedState}
+          >
+            <DatePicker name="dates" />
+            <Guests name="guests" />
+            <Rooms name="homes" />
+            <Price name="price" />
+            <InstantBook name="instantBook" />
+            <MoreFilters name="moreFilters" />
+          </Ingestor>
+        </ButtonsWrapper>
       </Wrapper>
     );
   }

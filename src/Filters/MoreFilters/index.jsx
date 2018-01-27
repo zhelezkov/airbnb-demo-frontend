@@ -1,14 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Col, Grid } from 'react-flexbox-grid';
 import Modal from '../Modal';
-import InfoPanel from '../InfoPanel';
 import Facilities from './Facilities';
-import { Col, Grid, Row } from 'react-flexbox-grid';
 
-const Wrapper = styled.div`
-  margin-left: 5.0625rem;
-  margin-right: 5.0625rem;
+const Content = styled.div`
+  background-color: #fff;
+  padding-top: 3rem;
 `;
+
+const Wrapper = ({ children }) => (
+  <Grid>
+    <Col xs={12} lg={8}>
+      <Content>{children}</Content>
+    </Col>
+  </Grid>
+);
 
 const initialState = {
   facilities: {
@@ -69,14 +76,15 @@ export default class MoreFiltersController extends React.Component {
         onSave={this.save}
         fillAllSpace
       >
-        <Facilities
-          onIncrement={this.increment}
-          onDecrement={this.decrement}
-          bedrooms={facilities.bedrooms}
-          beds={facilities.beds}
-          bathrooms={facilities.bathrooms}
-        />
-        <InfoPanel />
+        <Wrapper>
+          <Facilities
+            onIncrement={this.increment}
+            onDecrement={this.decrement}
+            bedrooms={facilities.bedrooms}
+            beds={facilities.beds}
+            bathrooms={facilities.bathrooms}
+          />
+        </Wrapper>
       </Modal>
     );
   }

@@ -18,14 +18,13 @@ const Wrapper = styled.div`
     position: absolute;
     ${({ fillAllSpace }) => (!fillAllSpace && 'border: 1px rgba(72, 72, 72, 0.2) solid;')};
     border-radius: 4px;
-    padding: 0.5rem;
     min-width: 20.375rem;
     top: initial;
-    right: initial;
+    right: ${({ fillAllSpace }) => (fillAllSpace ? 0 : 'initial')};
     bottom: initial;
     left: ${({ fillAllSpace }) => (fillAllSpace ? 0 : 'initial')};
     ${({ fillAllSpace }) => (fillAllSpace && `
-    width: 66%;
+      background-color: transparent;
     `)};
   }
 `;
