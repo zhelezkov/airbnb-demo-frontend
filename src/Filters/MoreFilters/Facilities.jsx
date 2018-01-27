@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col, Grid, Row } from 'react-flexbox-grid';
-import { SectionWrapper, Title } from './styled';
+import { SectionWrapper, SeeAll, Title } from './styled';
 import BasicCheckbox from '../../UI/Checkbox';
 
 const Description = styled.div`
@@ -50,6 +50,9 @@ export default ({ onCheck, values }) => {
             checked={wheelchair}
           />
         </Checkboxes>
+        <Row>
+          <SeeAll>See all facilities</SeeAll>
+        </Row>
       </Grid>
     </SectionWrapper>
   );

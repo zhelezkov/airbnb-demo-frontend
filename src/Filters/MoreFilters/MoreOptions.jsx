@@ -17,7 +17,7 @@ const SubDescription = Description.extend`
 const Link = styled.a`
   text-decoration: none;
   font-weight: 100;
-  color: #0F7276;
+  color: #008489;
 `;
 
 export default ({ onToggle, on }) => (
