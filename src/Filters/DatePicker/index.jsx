@@ -39,7 +39,6 @@ export default class DatePickerController extends React.Component {
     const { startDate, endDate, focusedInput } = this.state;
 
     const md = matchMedia('(min-width: 768px)').matches;
-    const lg = matchMedia('(min-width: 992px)').matches;
 
     return (
       <Modal
@@ -58,7 +57,7 @@ export default class DatePickerController extends React.Component {
           onDatesChange={this.onDatesChange}
           onDatePickerFocusChange={this.onDatePickerFocusChange}
         />
-        {!md && !lg && <InfoPanel />}
+        {md && <InfoPanel />}
       </Modal>
     );
   }
