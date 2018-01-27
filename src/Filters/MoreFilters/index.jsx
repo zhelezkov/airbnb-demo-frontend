@@ -37,19 +37,21 @@ const initialState = {
     kitchen: false,
     tv: false,
     wifi: false,
+    iron: false,
+    washer: false,
   },
   facilities: {
     elebator: false,
     pool: false,
     freeParking: false,
     wheelchair: false,
+    garden: false,
+    bathhouse: false,
   },
 };
 
 export default class MoreFiltersController extends React.Component {
-  state = {
-    ...initialState,
-  };
+  state = initialState;
 
   onCancel = () => {
     this.setState({ ...this.props.getSavedState() });

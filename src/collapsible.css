@@ -1,0 +1,40 @@
+.Collapsible {
+  margin-bottom: 2rem;
+  margin-left: -8px;
+}
+
+.Collapsible__trigger {
+  margin-bottom: 2rem;
+  color: #008489;
+  cursor: pointer;
+}
+
+.Collapsible__trigger.is-closed::after {
+  margin-left: 0.5rem;
+  display: inline-block;
+  content: '';
+  color: #0f7276;
+  background-image: url('./assets/arrowDown.svg');
+  background-size: 12px 7px;
+  width: 12px;
+  height: 7px;
+
+}
+
+.Collapsible__trigger.is-open::after {
+  margin-left: 0.5rem;
+  display: inline-block;
+  content: '';
+  color: #0f7276;
+  background-image: url('./assets/arrowDown.svg');
+  transform: rotate(180deg);
+  background-size: 12px 7px;
+  width: 12px;
+  height: 7px;
+}
+
+
+.Collapsible__contentInner {
+  margin-top: 1rem;
+  margin-left: 8px;
+}

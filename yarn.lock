@@ -5513,6 +5513,10 @@ react-body-classname@^1.2.0:
     prop-types "^15.5.6"
     react-side-effect "^1.1.0"
 
+react-collapsible@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-collapsible/-/react-collapsible-2.0.4.tgz#fb1761eda57599a045d602534e31cb23a6c3f52a"
+
 react-dates@^16.0.2:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react-dates/-/react-dates-16.2.0.tgz#edfd3469bcbfa83052b8bb7d60e95cb71deeb481"

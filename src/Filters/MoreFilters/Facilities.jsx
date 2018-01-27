@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col, Grid, Row } from 'react-flexbox-grid';
-import { CenterRow, SectionWrapper, SeeAll, Title } from './styled';
+import { CenterRow, SectionWrapper, Title } from './styled';
 import BasicCheckbox from '../../UI/Checkbox';
+import Collapsible from 'react-collapsible';
 
 const Description = styled.label`
   font-weight: 100;
@@ -28,7 +29,7 @@ const Checkbox = ({
 
 export default ({ onCheck, values }) => {
   const {
-    elebator, pool, freeParking, wheelchair,
+    elebator, pool, freeParking, wheelchair, garden, bathhouse,
   } = values;
   return (
     <SectionWrapper>
@@ -52,9 +53,12 @@ export default ({ onCheck, values }) => {
             checked={wheelchair}
           />
         </Checkboxes>
-        <Row>
-          <SeeAll>See all facilities</SeeAll>
-        </Row>
+        <Collapsible trigger="See all facilities" triggerWhenOpen="Close all facilities" transitionTime={100}>
+          <Checkboxes>
+            <Checkbox title="Bathhouse" name="bathhouse" onChange={onCheck} checked={bathhouse} />
+            <Checkbox title="Garden" name="garden" onChange={onCheck} checked={garden} />
+          </Checkboxes>
+        </Collapsible>
       </Grid>
     </SectionWrapper>
   );

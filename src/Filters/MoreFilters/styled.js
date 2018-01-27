@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-
-import arrowDown from './icons/arrowDown.svg';
 import { Row } from 'react-flexbox-grid';
 
 export const SectionWrapper = styled.div`
@@ -20,21 +18,5 @@ export const Title = styled.h3`
 
 export const CenterRow = styled(Row)`
   align-items: center;
-`;
-
-export const SeeAll = styled.p`
-  margin-bottom: 2rem;
-  color: #008489;
-  cursor: pointer;
-
-  ::after {
-    margin-left: 0.5rem;
-    display: inline-block;
-    content: '';
-    color: #0f7276;
-    background-image: url(${arrowDown});
-    background-size: 12px 7px;
-    width: 12px;
-    height: 7px;
-  }
+  flex-wrap: nowrap;
 `;
