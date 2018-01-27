@@ -6,16 +6,23 @@ import RoomsAndBeds from './RoomsAndBeds';
 import MoreOptions from './MoreOptions';
 import Amenities from './Amenities';
 import Facilities from './Facilities';
+import InfoPanel from './InfoPanel';
 
 const Content = styled.div`
   background-color: #fff;
   padding-top: 3rem;
 `;
 
-const Wrapper = ({ children }) => (
+const Wrapper = ({ children, onCancel, onSave }) => (
   <Grid>
     <Col xs={12} lg={8}>
-      <Content>{children}</Content>
+      <Content>
+        {React.Children.map(children, child =>
+          React.cloneElement(child, {
+            onCancel,
+            onSave,
+          }))}
+      </Content>
     </Col>
   </Grid>
 );
@@ -39,7 +46,7 @@ const initialState = {
     elebator: false,
     pool: false,
     freeParking: false,
-    wheelchair: false
+    wheelchair: false,
   },
 };
 
@@ -90,8 +97,6 @@ export default class MoreFiltersController extends React.Component {
     }));
   };
 
-  getSavedState = filterName => this.state[filterName];
-
   reset = () => {
     this.setState({ ...initialState });
   };
@@ -134,6 +139,7 @@ export default class MoreFiltersController extends React.Component {
           <MoreOptions onToggle={this.superhostToggle} on={moreOptions.superhost} />
           <Amenities onCheck={this.onAmenitiesCheck} values={amenities} />
           <Facilities onCheck={this.onFacilitiesCheck} values={facilities} />
+          <InfoPanel />
         </Wrapper>
       </Modal>
     );

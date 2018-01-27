@@ -26,7 +26,7 @@ export default class RoomsAndBeds extends React.Component {
   };
 
   render() {
-    const { bedrooms, beds, bathrooms } = this.props;
+    const { bedrooms, beds, bathrooms } = this.props.values;
 
     return (
       <SectionWrapper>

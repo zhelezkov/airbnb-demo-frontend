@@ -33,7 +33,7 @@ export default ({ onCheck, values }) => {
       <Title>Amenities</Title>
       <Grid>
         <Checkboxes>
-          <Checkbox title="Heating" name="heating" onChange={onCheck} cheked={heating} />
+          <Checkbox title="Heating" name="heating" onChange={onCheck} checked={heating} />
           <Checkbox title="Kitchen" name="kitchen" onChange={onCheck} checked={kitchen} />
         </Checkboxes>
         <Checkboxes>

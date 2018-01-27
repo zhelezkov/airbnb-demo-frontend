@@ -30,10 +30,10 @@ export default ({ onCheck, values }) => {
   } = values;
   return (
     <SectionWrapper>
-      <Title>Amenities</Title>
+      <Title>Facilities</Title>
       <Grid>
         <Checkboxes>
-          <Checkbox title="Elebator" name="elebator" onChange={onCheck} cheked={elebator} />
+          <Checkbox title="Elebator" name="elebator" onChange={onCheck} checked={elebator} />
           <Checkbox title="Pool" name="pool" onChange={onCheck} checked={pool} />
         </Checkboxes>
         <Checkboxes>
