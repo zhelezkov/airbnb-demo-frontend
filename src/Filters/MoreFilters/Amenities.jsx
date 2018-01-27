@@ -17,7 +17,7 @@ const Checkboxes = styled(Row)`
 const Checkbox = ({
   title, name, onChange, checked,
 }) => (
-  <Col lg={6}>
+  <Col md={6} lg={6}>
     <Description>
       <CenterRow>
         <BasicCheckbox name={name} onChange={onChange} checked={checked} />
