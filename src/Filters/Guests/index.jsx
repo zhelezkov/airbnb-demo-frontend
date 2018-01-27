@@ -11,9 +11,7 @@ const initialState = {
 };
 
 export default class GuestsController extends React.Component {
-  state = {
-    ...initialState,
-  };
+  state = initialState;
 
   onCancel = () => {
     this.setState({ ...this.props.getSavedState() });

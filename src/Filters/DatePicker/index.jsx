@@ -12,9 +12,7 @@ const initialState = {
 };
 
 export default class DatePickerController extends React.Component {
-  state = {
-    ...initialState,
-  };
+  state = initialState;
 
   onDatesChange = ({ startDate, endDate }) => {
     this.setState({ startDate, endDate });

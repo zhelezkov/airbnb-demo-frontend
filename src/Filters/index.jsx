@@ -6,8 +6,7 @@ import Guests from './Guests';
 import Rooms from './Rooms';
 import Price from './Price';
 import InstantBook from './InstantBook';
-import MoreFilters from './MoreFilters';
-import { initialState as initialMoreState } from './MoreFilters';
+import MoreFilters, { initialState as initialMoreState } from './MoreFilters';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -76,7 +75,7 @@ class Filters extends React.Component {
     instantBook: {
       activated: false,
     },
-    
+
     moreFilters: {
       ...initialMoreState,
     },

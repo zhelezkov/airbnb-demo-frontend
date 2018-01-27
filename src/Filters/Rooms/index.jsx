@@ -17,9 +17,7 @@ const initialState = {
 };
 
 export default class RoomsController extends React.Component {
-  state = {
-    ...initialState,
-  };
+  state = initialState;
 
   onCancel = () => {
     this.setState({ ...this.props.getSavedState() });
