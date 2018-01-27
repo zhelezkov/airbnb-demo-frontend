@@ -4,7 +4,7 @@ import Collapsible from 'react-collapsible';
 import take from 'lodash/take';
 import takeRight from 'lodash/takeRight';
 import { Col as BasicCol, Grid, Row } from 'react-flexbox-grid';
-import { CenterRow } from './styled';
+import { CenterRow, SeeAll, Title } from './styled';
 import BasicCheckbox from '../../UI/Checkbox';
 
 const Description = styled.label`
@@ -33,7 +33,34 @@ export const Checkbox = ({
   </Col>
 );
 
-export const BasicWrapper = ({ className, children }) => {
+const TitleWrapper = styled(Row)`
+  justify-content: space-between;
+  margin-left: 0;
+`;
+
+const OpenTrigger = ({ title }) => (
+  <TitleWrapper>
+    <Title>{title}</Title>
+    <SeeAll isOpen>Open all</SeeAll>
+  </TitleWrapper>
+);
+
+const CloseTrigger = ({ title }) => (
+  <TitleWrapper>
+    <Title>{title}</Title>
+    <SeeAll>Close all</SeeAll>
+  </TitleWrapper>
+);
+
+const OpenTriggerBigScreen = () => (
+  <SeeAll isOpen>Open all</SeeAll>
+);
+
+const CloseTriggerBigScreen = () => (
+  <SeeAll>Close all</SeeAll>
+);
+
+const BasicWrapper = ({ className, children, title }) => {
   const md = matchMedia('(min-width: 768px)').matches;
   const lg = matchMedia('(min-width: 992px)').matches;
 
@@ -43,12 +70,19 @@ export const BasicWrapper = ({ className, children }) => {
   const othersChildren = takeRight(children, children.length - 4);
 
   return (
-    <Grid className={className}>
-      {!smallScreen && <Checkboxes>{childrenVisible}</Checkboxes>}
-      <Collapsible trigger="See all" triggerWhenOpen="Close all" transitionTime={100}>
-        <Checkboxes>{smallScreen ? children : othersChildren}</Checkboxes>
-      </Collapsible>
-    </Grid>
+    <React.Fragment>
+      {!smallScreen && <Title>{title}</Title>}
+      <Grid className={className}>
+        {!smallScreen && <Checkboxes>{childrenVisible}</Checkboxes>}
+        <Collapsible
+          trigger={smallScreen ? OpenTrigger({ title }) : OpenTriggerBigScreen()}
+          triggerWhenOpen={smallScreen ? CloseTrigger({ title }) : CloseTriggerBigScreen()}
+          transitionTime={100}
+        >
+          <Checkboxes>{smallScreen ? children : othersChildren}</Checkboxes>
+        </Collapsible>
+      </Grid>
+    </React.Fragment>
   );
 };
 

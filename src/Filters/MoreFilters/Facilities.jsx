@@ -9,8 +9,7 @@ export default ({ onCheck, values }) => {
 
   return (
     <SectionWrapper>
-      <Title>Facilities</Title>
-      <Wrapper>
+      <Wrapper title="Facilities">
         <Checkbox title="Elebator" name="elebator" onChange={onCheck} checked={elebator} />
         <Checkbox title="Pool" name="pool" onChange={onCheck} checked={pool} />
         <Checkbox
