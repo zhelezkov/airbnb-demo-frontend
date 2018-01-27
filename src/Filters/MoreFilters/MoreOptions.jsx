@@ -11,6 +11,7 @@ const Description = styled.p`
 
 const SubDescription = Description.extend`
   font-size: 1rem;
+  margin-top: 0.2rem;
   margin-bottom: 0.5rem;
 `;
 
