@@ -13,7 +13,9 @@ const Content = styled.div`
 
 class ContentOnClickOutside extends React.Component {
   handleClickOutside = (ev) => {
-    if (ev.target.name !== 'filterButton') {
+    const lg = matchMedia('(min-width: 992px)').matches;
+
+    if (ev.target.name !== 'filterButton' && lg) {
       this.props.onCancel();
     }
   };
