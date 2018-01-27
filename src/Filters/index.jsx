@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Row as BasicRow } from 'react-flexbox-grid';
+import { Col, Grid, Row as BasicRow } from 'react-flexbox-grid';
 import DatePicker from './DatePicker';
 import Guests from './Guests';
 import Rooms from './Rooms';
@@ -87,22 +87,24 @@ class Filters extends React.Component {
     return (
       <Wrapper>
         <Grid>
-          <Row>
-            <WrapperIngestor
-              onOpen={this.open}
-              onClose={this.close}
-              onSave={this.onSave}
-              openedFilter={this.state.openedFilter}
-              getSavedState={this.getSavedState}
-            >
-              <DatePicker name="dates" />
-              <Guests name="guests" />
-              <Rooms name="homes" />
-              <Price name="price" />
-              <InstantBook name="instantBook" />
-              {/*<MoreFilters name="moreFilters" />*/}
-            </WrapperIngestor>
-          </Row>
+          <Col xs={12} lg={8}>
+            <Row>
+              <WrapperIngestor
+                onOpen={this.open}
+                onClose={this.close}
+                onSave={this.onSave}
+                openedFilter={this.state.openedFilter}
+                getSavedState={this.getSavedState}
+              >
+                <DatePicker name="dates" />
+                <Guests name="guests" />
+                <Rooms name="homes" />
+                <Price name="price" />
+                <InstantBook name="instantBook" />
+                {/* <MoreFilters name="moreFilters" /> */}
+              </WrapperIngestor>
+            </Row>
+          </Col>
         </Grid>
       </Wrapper>
     );
