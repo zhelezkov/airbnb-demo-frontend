@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Col, Grid } from 'react-flexbox-grid';
 import Modal from '../Modal';
 import Facilities from './Facilities';
+import MoreOptions from './MoreOptions';
+import Amenities from './Amenities';
 
 const Content = styled.div`
   background-color: #fff;
@@ -22,6 +24,9 @@ const initialState = {
     bedrooms: 0,
     beds: 0,
     bathrooms: 0,
+  },
+  moreOptions: {
+    superhost: false,
   },
 };
 
@@ -63,6 +68,15 @@ export default class MoreFiltersController extends React.Component {
     }));
   };
 
+  superhostToggle = () => {
+    this.setState(prevState => ({
+      moreOptions: {
+        ...prevState.moreOptions,
+        superhost: !prevState.moreOptions.superhost,
+      },
+    }));
+  };
+
   render() {
     const { facilities } = this.state;
 
@@ -84,6 +98,8 @@ export default class MoreFiltersController extends React.Component {
             beds={facilities.beds}
             bathrooms={facilities.bathrooms}
           />
+          <MoreOptions onToggle={this.superhostToggle} on={this.state.moreOptions.superhost} />
+          <Amenities />
         </Wrapper>
       </Modal>
     );
