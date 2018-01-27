@@ -100,7 +100,7 @@ class Filters extends React.Component {
               <Rooms name="homes" />
               <Price name="price" />
               <InstantBook name="instantBook" />
-              <MoreFilters name="moreFilters" />
+              {/*<MoreFilters name="moreFilters" />*/}
             </WrapperIngestor>
           </Row>
         </Grid>
