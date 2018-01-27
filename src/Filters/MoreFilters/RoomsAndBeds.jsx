@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ValueChanger from '../../UI/ValueChanger';
+import Counter from '../../UI/Counter';
 import { SectionWrapper, Title } from './styled';
 
 const Picker = styled.div`
@@ -33,7 +33,7 @@ export default class RoomsAndBeds extends React.Component {
         <Title>Rooms and beds</Title>
         <Picker>
           <Description>Bedrooms</Description>
-          <ValueChanger
+          <Counter
             onIncrement={this.increment}
             onDecrement={this.decrement}
             value={bedrooms}
@@ -42,7 +42,7 @@ export default class RoomsAndBeds extends React.Component {
         </Picker>
         <Picker>
           <Description>Beds</Description>
-          <ValueChanger
+          <Counter
             onIncrement={this.increment}
             onDecrement={this.decrement}
             value={beds}
@@ -51,7 +51,7 @@ export default class RoomsAndBeds extends React.Component {
         </Picker>
         <Picker>
           <Description>Bathrooms</Description>
-          <ValueChanger
+          <Counter
             onIncrement={this.increment}
             onDecrement={this.decrement}
             value={bathrooms}

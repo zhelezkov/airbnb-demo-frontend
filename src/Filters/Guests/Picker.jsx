@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ValueChanger from '../../UI/ValueChanger';
+import Counter from '../../UI/Counter';
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ export default ({
       <Title>{title}</Title>
       <Description>{description}</Description>
     </div>
-    <ValueChanger
+    <Counter
       onIncrement={onIncrement}
       onDecrement={onDecrement}
       value={value}
