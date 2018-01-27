@@ -144,7 +144,7 @@ export default class MoreFiltersController extends React.Component {
           <MoreOptions onToggle={ev => this.onCheck('moreOptions', ev)} values={moreOptions} />
           <Amenities onCheck={ev => this.onCheck('amenities', ev)} values={amenities} />
           <Facilities onCheck={ev => this.onCheck('facilities', ev)} values={facilities} />
-          {md && <InfoPanel />}
+          {md && <InfoPanel mdSize={!lg}/>}
           <ScrollLock />
         </Wrapper>
       </Modal>
