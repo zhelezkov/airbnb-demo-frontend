@@ -34,22 +34,19 @@ export const Checkbox = ({
 );
 
 export const BasicWrapper = ({ className, children }) => {
+  const md = matchMedia('(min-width: 768px)').matches;
+  const lg = matchMedia('(min-width: 992px)').matches;
+
+  const smallScreen = !md && !lg;
+
   const childrenVisible = take(children, 4);
   const othersChildren = takeRight(children, children.length - 4);
 
   return (
     <Grid className={className}>
-      <Checkboxes>
-        {childrenVisible}
-      </Checkboxes>
-      <Collapsible
-        trigger="See all"
-        triggerWhenOpen="Close all"
-        transitionTime={100}
-      >
-        <Checkboxes>
-          {othersChildren}
-        </Checkboxes>
+      {!smallScreen && <Checkboxes>{childrenVisible}</Checkboxes>}
+      <Collapsible trigger="See all" triggerWhenOpen="Close all" transitionTime={100}>
+        <Checkboxes>{smallScreen ? children : othersChildren}</Checkboxes>
       </Collapsible>
     </Grid>
   );
