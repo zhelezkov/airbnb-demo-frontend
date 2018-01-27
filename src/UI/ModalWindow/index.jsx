@@ -60,6 +60,7 @@ const Content = styled.div`
 
   @media (min-width: 768px) {
     position: initial;
+    padding-top: 0.1rem;
   }
 `;
 
