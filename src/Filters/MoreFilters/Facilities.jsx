@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Col, Grid, Row } from 'react-flexbox-grid';
-import { SectionWrapper, SeeAll, Title } from './styled';
+import { CenterRow, SectionWrapper, SeeAll, Title } from './styled';
 import BasicCheckbox from '../../UI/Checkbox';
 
-const Description = styled.div`
+const Description = styled.label`
   font-weight: 100;
-  align-self: center;
+  cursor: pointer;
 `;
 
 const Checkboxes = styled(Row)`
@@ -17,10 +17,12 @@ const Checkbox = ({
   title, name, onChange, checked,
 }) => (
   <Col lg={6}>
-    <Row>
-      <BasicCheckbox name={name} onChange={onChange} checked={checked} />
-      <Description>{title}</Description>
-    </Row>
+    <Description>
+      <CenterRow>
+        <BasicCheckbox name={name} onChange={onChange} checked={checked} />
+        {title}
+      </CenterRow>
+    </Description>
   </Col>
 );
 

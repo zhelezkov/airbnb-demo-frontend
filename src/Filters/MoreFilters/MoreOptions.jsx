@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Toggle from '../../UI/Toggle/index';
-import { Row, SectionWrapper, Title } from './styled';
+import { SectionWrapper, Title } from './styled';
 
 const Description = styled.p`
   font-weight: 100;
@@ -18,6 +18,15 @@ const Link = styled.a`
   text-decoration: none;
   font-weight: 100;
   color: #008489;
+`;
+
+const Row = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
 `;
 
 export default ({ onToggle, on }) => (

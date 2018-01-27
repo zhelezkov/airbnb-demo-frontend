@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import arrowDown from './icons/arrowDown.svg';
+import { Row } from 'react-flexbox-grid';
 
 export const SectionWrapper = styled.div`
   display: flex;
@@ -17,12 +18,7 @@ export const Title = styled.h3`
   align-self: flex-start;
 `;
 
-export const Row = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+export const CenterRow = styled(Row)`
   align-items: center;
 `;
 
