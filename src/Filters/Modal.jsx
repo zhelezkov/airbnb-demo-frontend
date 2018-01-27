@@ -10,7 +10,7 @@ export default class ModalFilter extends React.Component {
 
   toggleWindow = () => {
     if (this.props.isOpen) {
-      this.props.onClose();
+      this.onCancel();
     } else {
       this.props.onOpen();
     }

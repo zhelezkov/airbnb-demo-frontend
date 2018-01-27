@@ -5,15 +5,15 @@ import Checkbox from '../../UI/Checkbox';
 const Wrapper = styled.label`
   display: flex;
   flex-direction: row;
-  margin: 1.5rem 1rem 1rem;
   justify-content: space-between;
   color: #383838;
   cursor: pointer;
+  margin: 0 0 1rem;
 `;
 
 const Content = styled.div`
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
 `;
 
 const Title = styled.p`

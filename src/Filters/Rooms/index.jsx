@@ -7,6 +7,7 @@ import { getButtonTitle } from './helpers';
 
 const Wrapper = styled.div`
   width: 20.375rem;
+  padding: 1rem;
 `;
 
 const initialState = {
@@ -33,7 +34,8 @@ export default class RoomsController extends React.Component {
     this.props.onClose();
   };
 
-  selectHomeType = (homeType) => {
+  selectHomeType = (ev) => {
+    const homeType = ev.target.name;
     this.setState(prevState => ({ [homeType]: !prevState[homeType] }));
   };
 
@@ -51,7 +53,7 @@ export default class RoomsController extends React.Component {
         className="hidden-xs hidden-sm hidden-md"
       >
         <Wrapper>
-          <Rooms {...this.state} onSelect={this.selectHomeType} />
+          <Rooms values={this.state} onCheck={this.selectHomeType} />
         </Wrapper>
         <InfoPanel />
       </Modal>

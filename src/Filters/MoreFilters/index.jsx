@@ -8,22 +8,31 @@ import Facilities from './Facilities';
 import InfoPanel from './InfoPanel';
 import ScrollLock from '../../UI/ModalWindow/ScrollLock';
 import Content from './icons/Content';
+import { Title } from './styled';
+import Rooms from '../Rooms/PureFilter';
+import RoomType from './RoomType';
+import PriceRange from './PriceRange';
 
 const Wrapper = ({ children, onCancel, onSave }) => (
   <Grid>
     <Col xs={12} lg={8}>
       <Content onCancel={onCancel}>
-        {React.Children.map(children, child =>
-          React.cloneElement(child, {
-            onCancel,
-            onSave,
-          }))}
+        {React.Children.map(children, (child) => {
+          try {
+            return React.cloneElement(child, {
+              onCancel,
+              onSave,
+            });
+          } catch (e) {
+            return child;
+          }
+        })}
       </Content>
     </Col>
   </Grid>
 );
 
-const initialState = {
+export const initialState = {
   roomsAndBeds: {
     bedrooms: 0,
     beds: 0,
@@ -48,6 +57,15 @@ const initialState = {
     garden: false,
     bathhouse: false,
   },
+  homes: {
+    entireHome: false,
+    privateRoom: false,
+    sharedRoom: false,
+  },
+  price: {
+    min: 10,
+    max: 1000,
+  },
 };
 
 export default class MoreFiltersController extends React.Component {
@@ -57,22 +75,12 @@ export default class MoreFiltersController extends React.Component {
     this.setState({ ...this.props.getSavedState() });
   };
 
-  onAmenitiesCheck = (ev) => {
-    const amenityName = ev.target.name;
+  onCheck = (groupName, ev) => {
+    const filterName = ev.target.name;
     this.setState(prevState => ({
-      amenities: {
-        ...prevState.amenities,
-        [amenityName]: !prevState.amenities[amenityName],
-      },
-    }));
-  };
-
-  onFacilitiesCheck = (ev) => {
-    const facilityName = ev.target.name;
-    this.setState(prevState => ({
-      facilities: {
-        ...prevState.facilities,
-        [facilityName]: !prevState.facilities[facilityName],
+      [groupName]: {
+        ...prevState[groupName],
+        [filterName]: !prevState[groupName][filterName],
       },
     }));
   };
@@ -95,6 +103,11 @@ export default class MoreFiltersController extends React.Component {
     }));
   };
 
+  onPriceChange = ({ values }) => {
+    const [min, max] = values;
+    this.setState({ price: { min, max } });
+  };
+
   reset = () => {
     this.setState({ ...initialState });
   };
@@ -115,8 +128,10 @@ export default class MoreFiltersController extends React.Component {
 
   render() {
     const {
-      roomsAndBeds, moreOptions, amenities, facilities,
+      roomsAndBeds, moreOptions, amenities, facilities, homes, price,
     } = this.state;
+    const md = matchMedia('(min-width: 768px)').matches;
+    const lg = matchMedia('(min-width: 992px)').matches;
 
     return (
       <Modal
@@ -129,14 +144,16 @@ export default class MoreFiltersController extends React.Component {
         fillAllSpace
       >
         <Wrapper>
+          {!lg && <RoomType onCheck={this.onCheck} values={homes} />}
+          {!lg && <PriceRange onChange={this.onPriceChange} {...price} />}
           <RoomsAndBeds
             onIncrement={this.onRoomsAndBedsIncrement}
             onDecrement={this.onRoomsAndBedsDecrement}
             values={roomsAndBeds}
           />
           <MoreOptions onToggle={this.superhostToggle} on={moreOptions.superhost} />
-          <Amenities onCheck={this.onAmenitiesCheck} values={amenities} />
-          <Facilities onCheck={this.onFacilitiesCheck} values={facilities} />
+          <Amenities onCheck={ev => this.onCheck('amenities', ev)} values={amenities} />
+          <Facilities onCheck={ev => this.onCheck('facilities', ev)} values={facilities} />
           <InfoPanel />
           <ScrollLock />
         </Wrapper>

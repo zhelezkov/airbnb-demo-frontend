@@ -79,18 +79,25 @@ const Description = styled.p`
   margin-bottom: 1rem;
 `;
 
+const Wrapper = styled.div`
+  margin-left: 1rem;
+  margin-right: 1rem;
+`;
+
 export default ({ onChange, min, max }) => (
   <React.Fragment>
     <PriceRange>$10 – $1000+</PriceRange>
     <Description>The average nightly price is $75.</Description>
     <HistogramAligned />
-    <Rheostat
-      handle={Handle}
-      progressBar={ProgressBar}
-      onChange={onChange}
-      values={[min, max]}
-      min={10}
-      max={1000}
-    />
+    <Wrapper>
+      <Rheostat
+        handle={Handle}
+        progressBar={ProgressBar}
+        onChange={onChange}
+        values={[min, max]}
+        min={10}
+        max={1000}
+      />
+    </Wrapper>
   </React.Fragment>
 );

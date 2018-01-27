@@ -12,8 +12,10 @@ const Content = styled.div`
 `;
 
 class ContentOnClickOutside extends React.Component {
-  handleClickOutside = () => {
-    this.props.onCancel();
+  handleClickOutside = (ev) => {
+    if (ev.target.name !== 'filterButton') {
+      this.props.onCancel();
+    }
   };
 
   render() {
