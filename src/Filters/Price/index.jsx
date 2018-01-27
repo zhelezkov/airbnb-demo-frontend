@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Modal from '../Modal';
 import InfoPanel from '../InfoPanel';
 import PriceSelector from './PureFilter';
+import { getButtonTitle } from './helpers';
 
 const Wrapper = styled.div`
   padding-left: 1rem;
@@ -11,8 +12,8 @@ const Wrapper = styled.div`
 
 export default class PriceController extends React.Component {
   state = {
-    min: 0,
-    max: 100,
+    min: 10,
+    max: 1000,
   };
 
   onChange = ({ values }) => {
@@ -38,7 +39,7 @@ export default class PriceController extends React.Component {
       <Modal
         {...this.props}
         title="Price"
-        buttonTitle="Price"
+        buttonTitle={getButtonTitle(this.state.min, this.state.max)}
         onCancel={this.onCancel}
         onReset={this.reset}
         onSave={this.save}

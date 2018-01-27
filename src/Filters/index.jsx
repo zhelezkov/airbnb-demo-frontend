@@ -60,8 +60,8 @@ class Filters extends React.Component {
     },
 
     price: {
-      min: 0,
-      max: 100,
+      min: 10,
+      max: 1000,
     },
 
     instantBook: {
