@@ -44,8 +44,8 @@ const Icon = styled.img`
   top: 12px;
 `;
 
-export default ({ onClick, on }) => (
-  <Toggle onClick={onClick} className={on ? 'on' : ''}>
+export default ({ onClick, on, name }) => (
+  <Toggle name={name} onClick={onClick} className={on ? 'on' : ''}>
     <Tumbler>{on ? <Icon src={tick} /> : <Icon src={cross} />}</Tumbler>
   </Toggle>
 );

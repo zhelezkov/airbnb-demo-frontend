@@ -29,16 +29,32 @@ const Row = styled.div`
   align-items: center;
 `;
 
-export default ({ onToggle, on }) => (
-  <SectionWrapper>
-    <Title>More options</Title>
-    <Row>
-      <div>
-        <Description>Superhost</Description>
-        <SubDescription>Stay with recognized hosts.</SubDescription>
-        <Link href="#">Learn more</Link>
-      </div>
-      <Toggle onClick={onToggle} on={on} />
-    </Row>
-  </SectionWrapper>
-);
+export default ({ onToggle, values }) => {
+  const lg = matchMedia('(min-width: 992px)').matches;
+
+  const { superhost, instantBook } = values;
+
+  return (
+    <SectionWrapper>
+      <Title>More options</Title>
+      {!lg && (
+        <Row>
+          <div>
+            <Description>Instant Book</Description>
+            <SubDescription>Secure a reservation instantly.</SubDescription>
+            <Link href="#">Learn more</Link>
+          </div>
+          <Toggle onClick={onToggle} on={instantBook} name="instantBook" />
+        </Row>
+      )}
+      <Row>
+        <div>
+          <Description>Superhost</Description>
+          <SubDescription>Stay with recognized hosts.</SubDescription>
+          <Link href="#">Learn more</Link>
+        </div>
+        <Toggle onClick={onToggle} on={superhost} name="superhost" />
+      </Row>
+    </SectionWrapper>
+  );
+};

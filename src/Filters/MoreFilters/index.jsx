@@ -39,6 +39,7 @@ export const initialState = {
     bathrooms: 0,
   },
   moreOptions: {
+    instantBook: false,
     superhost: false,
   },
   amenities: {
@@ -76,7 +77,7 @@ export default class MoreFiltersController extends React.Component {
   };
 
   onCheck = (groupName, ev) => {
-    const filterName = ev.target.name;
+    const filterName = ev.currentTarget.name;
     this.setState(prevState => ({
       [groupName]: {
         ...prevState[groupName],
@@ -117,15 +118,6 @@ export default class MoreFiltersController extends React.Component {
     this.props.onClose();
   };
 
-  superhostToggle = () => {
-    this.setState(prevState => ({
-      moreOptions: {
-        ...prevState.moreOptions,
-        superhost: !prevState.moreOptions.superhost,
-      },
-    }));
-  };
-
   render() {
     const {
       roomsAndBeds, moreOptions, amenities, facilities, homes, price,
@@ -151,7 +143,7 @@ export default class MoreFiltersController extends React.Component {
             onDecrement={this.onRoomsAndBedsDecrement}
             values={roomsAndBeds}
           />
-          <MoreOptions onToggle={this.superhostToggle} on={moreOptions.superhost} />
+          <MoreOptions onToggle={ev => this.onCheck('moreOptions', ev)} values={moreOptions} />
           <Amenities onCheck={ev => this.onCheck('amenities', ev)} values={amenities} />
           <Facilities onCheck={ev => this.onCheck('facilities', ev)} values={facilities} />
           <InfoPanel />
