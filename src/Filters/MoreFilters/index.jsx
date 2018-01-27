@@ -8,8 +8,6 @@ import Facilities from './Facilities';
 import InfoPanel from './InfoPanel';
 import ScrollLock from '../../UI/ModalWindow/ScrollLock';
 import Content from './icons/Content';
-import { Title } from './styled';
-import Rooms from '../Rooms/PureFilter';
 import RoomType from './RoomType';
 import PriceRange from './PriceRange';
 
