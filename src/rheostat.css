@@ -1,0 +1,21 @@
+.rheostat-horizontal {
+  height: 24px;
+}
+
+.rheostat-horizontal .rheostat-background {
+  height: 6px;
+  top: 2px;
+  background: #E0E0E0;
+  border: none;
+  width: 100%;
+}
+
+.rheostat-horizontal .rheostat-progress {
+  height: 6px;
+  top: 2px;
+}
+
+.rheostat-horizontal .rheostat-handle {
+  margin-left: -12px;
+  top: -7px;
+}

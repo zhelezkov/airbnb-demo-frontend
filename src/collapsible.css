@@ -1,0 +1,12 @@
+.Collapsible {
+  margin-left: -8px;
+}
+
+.Collapsible__trigger {
+  color: #008489;
+  cursor: pointer;
+}
+
+.Collapsible__contentInner {
+  margin-left: 8px;
+}

@@ -29,7 +29,9 @@ const Arrow = styled.span`
 
 const inputFormat = 'MMM DD';
 
-export default ({ startDate, endDate, focus, onFocusChange }) => (
+export default ({
+  startDate, endDate, focus, onFocusChange,
+}) => (
   <Wrapper>
     <Button highlighted={focus === START_DATE} onClick={() => onFocusChange(START_DATE)}>
       {startDate ? startDate.format(inputFormat) : 'Check-in'}

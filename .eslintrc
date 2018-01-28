@@ -1,3 +1,14 @@
 {
-  "extends": "react-app"
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "react/prop-types": false,
+    "jsx-a11y/anchor-is-valid": false
+  }
 }

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const MenuButton = styled.button`
+export const MenuButton = styled.button.attrs({
+  name: 'filterButton',
+})`
   margin: 0.75rem 0.375rem 0.75rem 0.375rem;
   padding: 0.4375rem 1rem 0.4375rem 1rem;
 
@@ -14,7 +16,7 @@ export const MenuButton = styled.button`
 
   :hover {
     background-color: ${({ highlighted }) =>
-      highlighted ? '#008489' : 'rgba(216, 216, 216, 0.3)'};
+    (highlighted ? '#008489' : 'rgba(216, 216, 216, 0.3)')};
     border-color: transparent;
   }
 `;

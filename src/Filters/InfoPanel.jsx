@@ -19,12 +19,12 @@ const Button = styled.button`
 `;
 
 const ApplyButton = Button.extend`
-  color: #0f7276;
+  color: #008489;
 `;
 
-export default ({ onClose, onApply }) => (
+export default ({ onCancel, onSave }) => (
   <InfoPanel>
-    <Button onClick={onClose}>Cancel</Button>
-    <ApplyButton onClick={onApply}>Apply</ApplyButton>
+    <Button onClick={onCancel}>Cancel</Button>
+    <ApplyButton onClick={onSave}>Apply</ApplyButton>
   </InfoPanel>
 );

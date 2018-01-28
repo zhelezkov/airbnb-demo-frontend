@@ -12,12 +12,13 @@ const ShortDescription = styled.div`
 
 const Price = styled.span`
   margin-right: 0.5rem;
+  font-size: 1.0625rem;
   font-weight: bold;
 `;
 
 const Title = styled.h3`
   display: inline;
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: bold;
 `;
 
@@ -34,16 +35,20 @@ const BedsNumber = styled.span`
 const Reviews = styled.span`
   text-decoration: none;
   color: #383838;
-  font-weight: 200;
+  font-weight: 400;
+  font-size: 0.9375rem;
   margin-right: 0.5rem;
 `;
 
 const HostType = styled.span`
-  font-weight: 100;
+  font-weight: 400;
+  font-size: 0.9375rem;
   margin-left: 0.5rem;
 `;
 
-export default ({title, image, price, houseType, beds, rating, reviews, hostType}) => (
+export default ({
+  title, image, price, houseType, beds, rating, reviews, hostType,
+}) => (
   <CardWrapper href="#">
     <Image src={image} alt={title} />
     <ShortDescription>

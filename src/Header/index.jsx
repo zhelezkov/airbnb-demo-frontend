@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
+import { Col, Grid } from 'react-flexbox-grid';
 import SearchBar from './SearchBar';
 import DropdownMenu from './DropdownMenu';
 import Menu from './Menu';
 
 import logo from './icons/logo.svg';
-import { Link } from 'react-router-dom';
 
 const Header = styled.header`
   position: fixed;
@@ -34,14 +34,16 @@ const Logo = styled.img`
 export default () => (
   <Header>
     <Grid>
-      <Wrapper>
-        <Link to="/">
-          <Logo src={logo} alt="Logo" />
-        </Link>
-        <DropdownMenu />
-        <SearchBar />
-        <Menu />
-      </Wrapper>
+      <Col xs={12}>
+        <Wrapper>
+          <Link to="/">
+            <Logo src={logo} alt="Logo" />
+          </Link>
+          <DropdownMenu />
+          <SearchBar />
+          <Menu />
+        </Wrapper>
+      </Col>
     </Grid>
   </Header>
 );

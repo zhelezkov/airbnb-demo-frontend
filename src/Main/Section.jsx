@@ -7,7 +7,7 @@ import NextPage from './NextPage';
 import arrowRight from './assets/arrow-right.svg';
 
 const Wrapper = styled.section`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 `;
 
 const Header = styled.div`
@@ -18,6 +18,7 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
+  margin-top: 0;
   margin-bottom: 1.5rem;
 `;
 

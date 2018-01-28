@@ -16,13 +16,18 @@ const Wrapper = styled.div`
 
   @media (min-width: 768px) {
     position: absolute;
-    border: 1px rgba(72, 72, 72, 0.2) solid;
+    ${({ fillAllSpace }) => !fillAllSpace && 'border: 1px rgba(72, 72, 72, 0.2) solid;'};
     border-radius: 4px;
-    padding: 0.5rem;
+    min-width: 20.375rem;
     top: initial;
-    right: initial;
+    right: ${({ fillAllSpace }) => (fillAllSpace ? 0 : 'initial')};
     bottom: initial;
-    left: initial;
+    left: ${({ fillAllSpace }) => (fillAllSpace ? 0 : 'initial')};
+    ${({ fillAllSpace }) =>
+    fillAllSpace &&
+      `
+      background-color: transparent;
+    `};
   }
 `;
 
@@ -35,6 +40,7 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
+  ${({ border }) => border && 'border-bottom: 0.5px solid rgba(72, 72, 72, 0.3);'};
 `;
 
 const Footer = styled.footer`
@@ -50,12 +56,14 @@ const Footer = styled.footer`
 
 const Content = styled.div`
   position: absolute;
-  top: 3.875rem;
+  top: 4rem;
   bottom: 5rem;
   width: 100%;
+  overflow: auto;
 
   @media (min-width: 768px) {
     position: initial;
+    padding-top: 0.01rem;
   }
 `;
 
@@ -81,15 +89,22 @@ const SaveButton = Button.extend`
 `;
 
 class ModalWindow extends React.Component {
-  handleClickOutside = ev => {
-    if (ev.target !== this.props.noClickOutside) this.props.onClose();
+  static defaultProps = {
+    renderHeaderBorder: true,
+    renderInfoPanel: true,
+  };
+
+  handleClickOutside = (ev) => {
+    if (ev.target.name !== 'filterButton') {
+      this.props.onClose();
+    }
   };
 
   renderModalWindow() {
     return (
       <Portal>
         <Wrapper role="dialog">
-          <Header>
+          <Header border={this.props.renderHeaderBorder}>
             <CloseButton onClick={this.props.onClose}>&#10005;</CloseButton>
             {this.props.title}
             <Button onClick={this.props.onReset}>Reset</Button>
@@ -106,7 +121,7 @@ class ModalWindow extends React.Component {
 
   renderPopupWindow() {
     return (
-      <Wrapper>
+      <Wrapper fillAllSpace={this.props.fillAllSpace}>
         <Content>{this.props.children}</Content>
         <FadeBackground />
       </Wrapper>

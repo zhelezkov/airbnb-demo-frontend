@@ -16,7 +16,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input.attrs({
-  type: 'text'
+  type: 'text',
 })`
   width: 100%;
   margin: 0.75rem 0.5rem 0.75rem 3rem;
