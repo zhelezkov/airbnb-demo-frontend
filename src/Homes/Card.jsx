@@ -58,7 +58,7 @@ export default ({
     <Description>
       <HouseType>{houseType}</HouseType>
       ·
-      <BedsNumber>{`${beds} ${beds > 1 ? 'beds' : 'bed'}`}</BedsNumber>
+      <BedsNumber>{`${beds} ${(beds > 1 || beds === 0) ? 'beds' : 'bed'}`}</BedsNumber>
     </Description>
     <Description>
       <Rating stars={rating} />

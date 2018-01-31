@@ -2,8 +2,7 @@ import React from 'react';
 import { Col } from 'react-flexbox-grid';
 import { SectionMore } from './Section';
 import Card from '../Homes/Card';
-
-import mockData from '../Homes/mockData';
+import { retrieveHomesData } from '../Homes/api';
 
 const Column = ({ children }) => (
   <Col xs={8} sm={8} md={5} lg={4}>
@@ -17,13 +16,23 @@ const Home = ({ home }) => (
   </Column>
 );
 
-const Homes = ({ homes }) =>
-  homes.map(home => (
-    <Home home={home} key={home.id} />
-  ));
+const Homes = ({ homes }) => homes.map(home => <Home home={home} key={home.id} />);
 
-export default () => (
-  <SectionMore title="Homes" to="/homes">
-    <Homes homes={mockData} />
-  </SectionMore>
-);
+export default class HomesSection extends React.Component {
+  state = {
+    homes: null,
+  };
+
+  async componentWillMount() {
+    const homes = await retrieveHomesData(0, 6);
+    this.setState({ homes });
+  }
+
+  render() {
+    return (
+      <SectionMore title="Homes" to="/homes">
+        {this.state.homes && <Homes homes={this.state.homes} />}
+      </SectionMore>
+    );
+  }
+}

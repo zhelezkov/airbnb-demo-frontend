@@ -7,7 +7,7 @@ import Filters from '../Filters';
 
 import mapIcon from './images/map-icon.svg';
 
-import mockData from './mockData';
+import { retrieveHomesData } from './api';
 
 const MapWrapper = styled.div`
   display: none;
@@ -42,22 +42,36 @@ const ContentWrapper = ({ children }) => (
   </Col>
 );
 
-export default () => (
-  <React.Fragment>
-    <Filters />
-    <Grid>
-      <ContentWrapper>
-        <Pages homes={mockData} pages={17} />
-        <Basement>
-          <p>Enter dates to see full pricing. Additional fees apply. Taxes may be added.</p>
-          <MapButton className="hidden-lg hidden-xl">
-            <img src={mapIcon} alt="Map button" />
-          </MapButton>
-        </Basement>
-      </ContentWrapper>
-    </Grid>
-    <MapWrapper>
-      <GoogleMapReact defaultCenter={{ lat: 59.95, lng: 30.33 }} defaultZoom={11} />
-    </MapWrapper>
-  </React.Fragment>
-);
+export default class ListView extends React.Component {
+
+  state = {
+    homes: null,
+  };
+
+  async componentWillMount() {
+    const homes = await retrieveHomesData(0, 6);
+    this.setState({ homes });
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Filters />
+        <Grid>
+          <ContentWrapper>
+            {this.state.homes && <Pages homes={this.state.homes} pages={17} />}
+            <Basement>
+              <p>Enter dates to see full pricing. Additional fees apply. Taxes may be added.</p>
+              <MapButton className="hidden-lg hidden-xl">
+                <img src={mapIcon} alt="Map button" />
+              </MapButton>
+            </Basement>
+          </ContentWrapper>
+        </Grid>
+        <MapWrapper>
+          <GoogleMapReact defaultCenter={{ lat: 59.95, lng: 30.33 }} defaultZoom={11} />
+        </MapWrapper>
+      </React.Fragment>
+    );
+  }
+}
