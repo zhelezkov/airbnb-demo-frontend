@@ -44,7 +44,6 @@ const ContentWrapper = ({ children }) => (
 );
 
 export default class ListView extends React.Component {
-
   state = {
     homes: null,
   };
@@ -71,8 +70,8 @@ export default class ListView extends React.Component {
         </Grid>
         <MapWrapper>
           <GoogleMapReact defaultCenter={{ lat: 59.95, lng: 30.33 }} defaultZoom={1}>
-            {this.state.homes && this.state.homes.map(home => (
-              <MapMarker lat={home.lat} lng={home.lng} />))}
+            {this.state.homes &&
+              this.state.homes.map(home => <MapMarker lat={home.lat} lng={home.lng} />)}
           </GoogleMapReact>
         </MapWrapper>
       </React.Fragment>
