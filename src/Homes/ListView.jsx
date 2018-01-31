@@ -8,6 +8,7 @@ import Filters from '../Filters';
 import mapIcon from './images/map-icon.svg';
 
 import { retrieveHomesData } from './api';
+import MapMarker from './MapMarker';
 
 const MapWrapper = styled.div`
   display: none;
@@ -69,7 +70,10 @@ export default class ListView extends React.Component {
           </ContentWrapper>
         </Grid>
         <MapWrapper>
-          <GoogleMapReact defaultCenter={{ lat: 59.95, lng: 30.33 }} defaultZoom={11} />
+          <GoogleMapReact defaultCenter={{ lat: 59.95, lng: 30.33 }} defaultZoom={1}>
+            {this.state.homes && this.state.homes.map(home => (
+              <MapMarker lat={home.lat} lng={home.lng} />))}
+          </GoogleMapReact>
         </MapWrapper>
       </React.Fragment>
     );

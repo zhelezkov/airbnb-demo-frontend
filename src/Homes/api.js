@@ -21,5 +21,7 @@ export function retrieveHomesData(offset = 0, limit = 6) {
       reviews: home.reviewsCount,
       hostType: home.isSuperhost ? 'Superhost' : '',
       rating: Math.ceil(home.rating),
+      lat: home.lat,
+      lng: home.lng,
     })));
 }
