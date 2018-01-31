@@ -7,7 +7,7 @@ function mapHouseType(houseType) {
   }
 }
 
-export async function retrieveHomesData(offset = 0, limit = 6) {
+export function retrieveHomesData(offset = 0, limit = 6) {
   return fetch(`https://airbnb-demo-api.now.sh/v1/homes?offset=${offset}&limit=${limit}`)
     .then(res => res.json())
     .then(res => res.items)
